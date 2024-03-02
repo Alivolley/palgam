@@ -4,17 +4,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 // MUI
-import { Button, Grow, Paper, Popper } from '@mui/material';
+import { Button, Drawer, Grow, Paper, Popper } from '@mui/material';
 
 // Icons
-import { IoIosArrowDown } from 'react-icons/io';
+import { IoIosArrowDown, IoIosClose } from 'react-icons/io';
 import { CgMenuLeft } from 'react-icons/cg';
 
 // Components
 import MobileMenu from '../mobile-menu/mobile-menu';
-
-// Styles
-import HeaderStyle from './header.style';
 
 // Assets
 import logoPic from '@/assets/images/Logo.png';
@@ -22,6 +19,9 @@ import downloadSvg from '@/assets/icons/Download.svg';
 import usFlag from '@/assets/icons/usFlag.svg';
 import ruFlag from '@/assets/icons/ruFlag.svg';
 import esFlag from '@/assets/icons/esFlag.svg';
+
+// Components
+import DownloadAppModal from '@/components/templates/download-app-modal/download-app-modal';
 
 const languageButtonSx = {
    height: '56px',
@@ -33,6 +33,8 @@ const languageButtonSx = {
 function Header() {
    const [showMobileMenu, setShowMobileMenu] = useState(false);
    const [languageDropDown, setLanguageDropDown] = useState(false);
+   const [showLanguageDialog, setShowLanguageDialog] = useState(false);
+   const [showDownloadModal, setShowDownloadModal] = useState(false);
 
    const languageRef = useRef();
 
@@ -44,25 +46,43 @@ function Header() {
 
    useEffect(() => {
       setShowMobileMenu(false);
+      setShowLanguageDialog(false);
    }, [pathname, query]);
+
+   const showLanguageDialogHandler = () => {
+      setShowMobileMenu(false);
+      setShowLanguageDialog(true);
+   };
 
    return (
       <header className="fixed inset-x-0 top-0 z-10 bg-[#00000066] px-4 py-3 backdrop-blur-[28px] customMd:px-20 customMd:py-4">
-         <HeaderStyle className="flex items-center justify-between">
-            <div className="size-[72px] customMd:size-16">
+         <div className="flex items-center justify-between">
+            <Link href="/" className="block size-[72px] customMd:size-16">
                <Image src={logoPic} alt="logo" className="size-full" />
-            </div>
+            </Link>
             <div className="hidden items-center gap-6 text-[#ffffff4d] customMd:flex lg:gap-14">
-               <Link href="/" className="transition-all duration-200 hover:text-white">
+               <Link
+                  href="/"
+                  className={`transition-all duration-200 hover:text-white ${pathname === '/' ? 'text-white' : ''}`}
+               >
                   Home
                </Link>
-               <Link href="/" className="transition-all duration-200 hover:text-white">
+               <Link
+                  href="/"
+                  className={`transition-all duration-200 hover:text-white ${pathname === '/some' ? 'text-white' : ''}`}
+               >
                   Blog
                </Link>
-               <Link href="/" className="transition-all duration-200 hover:text-white">
+               <Link
+                  href="/"
+                  className={`transition-all duration-200 hover:text-white ${pathname === '/some' ? 'text-white' : ''}`}
+               >
                   White paper
                </Link>
-               <Link href="/" className="transition-all duration-200 hover:text-white">
+               <Link
+                  href="/"
+                  className={`transition-all duration-200 hover:text-white ${pathname === '/some' ? 'text-white' : ''}`}
+               >
                   Licenses
                </Link>
             </div>
@@ -75,6 +95,7 @@ function Header() {
                         <Image src={downloadSvg} alt="download" className="size-full" />
                      </div>
                   }
+                  onClick={() => setShowDownloadModal(true)}
                >
                   Download
                </Button>
@@ -94,7 +115,10 @@ function Header() {
                   />
                </div>
 
-               <Button className="size-[48px] !rounded-xl !border !border-solid !border-[#ffffff80] !text-white customMd:hidden">
+               <Button
+                  className="size-[48px] !rounded-xl !border !border-solid !border-[#ffffff80] !text-white customMd:hidden"
+                  onClick={() => setShowMobileMenu(true)}
+               >
                   <CgMenuLeft fontSize="20px" color="white" />
                </Button>
 
@@ -152,9 +176,86 @@ function Header() {
                   )}
                </Popper>
             </div>
-         </HeaderStyle>
+         </div>
 
-         <MobileMenu open={showMobileMenu} onClose={() => setShowMobileMenu(false)} />
+         <Drawer
+            anchor="bottom"
+            open={showLanguageDialog}
+            onClose={() => setShowLanguageDialog(false)}
+            sx={{
+               '.MuiPaper-root': { backgroundColor: 'transparent' },
+               '.MuiBackdrop-root': { backgroundColor: 'transparent' },
+            }}
+         >
+            <div className="h-full min-h-screen overflow-auto bg-[#00000099] py-[48px] backdrop-blur-[12px]">
+               <div className="flex items-center justify-between px-[16px]">
+                  <div className="size-[72px]">
+                     <Image src={logoPic} alt="logo" className="size-full" />
+                  </div>
+                  <Button
+                     className="size-[48px] !rounded-xl !border !border-solid !border-[#ffffff80] !text-white"
+                     onClick={() => setShowLanguageDialog(false)}
+                  >
+                     <IoIosClose fontSize="24px" color="white" />
+                  </Button>
+               </div>
+               <div className="mt-[56px] flex flex-col">
+                  <Button
+                     className="!flex !items-center !justify-between"
+                     sx={{
+                        height: '80px',
+                        color: '#ffffff4d',
+                        fontSize: '32px',
+                        paddingX: '64px',
+                        fontFamily: 'arimaBold',
+                        ...(locale === 'en' && { backgroundColor: '#221C34', color: 'white' }),
+                     }}
+                     onClick={() => changeLanguage('en')}
+                  >
+                     <Image src={usFlag} alt="download" width={40} height={40} />
+                     EN
+                  </Button>
+                  <Button
+                     className="!flex !items-center !justify-between"
+                     sx={{
+                        height: '80px',
+                        color: '#ffffff4d',
+                        fontSize: '32px',
+                        paddingX: '64px',
+                        fontFamily: 'arimaBold',
+                        ...(locale === 'ru' && { backgroundColor: '#221C34', color: 'white' }),
+                     }}
+                     onClick={() => changeLanguage('ru')}
+                  >
+                     <Image src={ruFlag} alt="download" width={40} height={40} />
+                     RU
+                  </Button>
+                  <Button
+                     className="!flex !items-center !justify-between"
+                     sx={{
+                        height: '80px',
+                        color: '#ffffff4d',
+                        fontSize: '32px',
+                        paddingX: '64px',
+                        fontFamily: 'arimaBold',
+                        ...(locale === 'es' && { backgroundColor: '#221C34', color: 'white' }),
+                     }}
+                     onClick={() => changeLanguage('es')}
+                  >
+                     <Image src={esFlag} alt="download" width={40} height={40} />
+                     ES
+                  </Button>
+               </div>
+            </div>
+         </Drawer>
+
+         <MobileMenu
+            open={showMobileMenu}
+            onClose={() => setShowMobileMenu(false)}
+            showLanguageDialogHandler={showLanguageDialogHandler}
+         />
+
+         <DownloadAppModal open={showDownloadModal} onClose={() => setShowDownloadModal(false)} />
       </header>
    );
 }

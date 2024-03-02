@@ -1,6 +1,6 @@
 const getDesignTokens = (mode, language) => ({
    typography: {
-      // fontFamily: 'almaraiRegular',
+      fontFamily: 'arimaRegular',
    },
 
    palette: {
@@ -28,19 +28,19 @@ const getDesignTokens = (mode, language) => ({
       },
 
       MuiDialog: {
-         // styleOverrides: {
-         //    root: {
-         //       fontFamily: 'almaraiRegular',
-         //    },
-         // },
+         styleOverrides: {
+            root: {
+               fontFamily: 'arimaRegular',
+            },
+         },
       },
 
       MuiDrawer: {
-         // styleOverrides: {
-         //    root: {
-         //       fontFamily: 'almaraiRegular',
-         //    },
-         // },
+         styleOverrides: {
+            root: {
+               fontFamily: 'arimaRegular',
+            },
+         },
       },
 
       MuiTextField: {

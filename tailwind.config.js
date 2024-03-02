@@ -17,6 +17,7 @@ module.exports = {
 
          screens: {
             customXs: '350px',
+            custom500: '500px',
             customSm: '600px',
             customMd: '900px',
             customLg: '1200px',
@@ -28,7 +29,9 @@ module.exports = {
          },
 
          fontFamily: {
-            // almaraiRegular: 'almaraiRegular',
+            arimaRegular: 'arimaRegular',
+            arimaBold: 'arimaBold',
+            arimaSmiBold: 'arimaSmiBold',
          },
          borderRadius: {
             10: '10px',

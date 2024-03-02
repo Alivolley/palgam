@@ -8,9 +8,7 @@ function PagesLayout({ children }) {
    const { pathname } = useRouter();
 
    return (
-      <div
-      //  className="font-almaraiRegular"
-      >
+      <div className="font-arimaRegular">
          {pathname !== '/login' && <Header />}
 
          <main>{children}</main>

@@ -4,8 +4,16 @@
 
 @layer {
    @font-face {
-      /* font-family: 'almaraiRegular';
-     src: url('../assets/fonts/Almarai-Regular.ttf') format('truetype'); */
+      font-family: 'arimaRegular';
+      src: url('../assets/fonts/Arima-Regular.ttf') format('truetype');
+   }
+   @font-face {
+      font-family: 'arimaBold';
+      src: url('../assets/fonts/Arima-Bold.ttf') format('truetype');
+   }
+   @font-face {
+      font-family: 'arimaSmiBold';
+      src: url('../assets/fonts/Arima-SemiBold.ttf') format('truetype');
    }
 
    html {
