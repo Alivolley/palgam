@@ -1,5 +1,3 @@
-import { useRouter } from 'next/router';
-
 // MUI
 import { Drawer } from '@mui/material';
 
@@ -7,10 +5,8 @@ import { Drawer } from '@mui/material';
 import MobileMenuStyle from './mobile-menu.style';
 
 function MobileMenu({ open, onClose }) {
-   const { locale } = useRouter();
-
    return (
-      <Drawer anchor="left" open={open} onClose={onClose} dir={locale === 'fa' ? 'rtl' : 'ltr'}>
+      <Drawer anchor="left" open={open} onClose={onClose}>
          <MobileMenuStyle className="w-[300px]">mobile</MobileMenuStyle>
       </Drawer>
    );

@@ -3,23 +3,19 @@ import { useRouter } from 'next/router';
 // Components
 import Footer from '../footer/footer';
 import Header from '../header/header';
-import RtlProvider from '../rtlProvider/rtlProvider';
 
-function PagesLayout({ children, dir, language }) {
+function PagesLayout({ children }) {
    const { pathname } = useRouter();
 
    return (
       <div
-         dir={dir}
-         //  className="font-almaraiRegular"
+      //  className="font-almaraiRegular"
       >
-         <RtlProvider isRtl={language === 'fa'}>
-            {pathname !== '/login' && <Header />}
+         {pathname !== '/login' && <Header />}
 
-            <main>{children}</main>
+         <main>{children}</main>
 
-            {pathname !== '/login' && <Footer />}
-         </RtlProvider>
+         {pathname !== '/login' && <Footer />}
       </div>
    );
 }

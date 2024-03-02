@@ -2,7 +2,7 @@
 import FooterStyle from './footer.style';
 
 function Footer() {
-   return <FooterStyle>footer</FooterStyle>;
+   return <FooterStyle />;
 }
 
 export default Footer;

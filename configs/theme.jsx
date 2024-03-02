@@ -1,6 +1,4 @@
-const getDesignTokens = (mode, direction, language) => ({
-   direction,
-
+const getDesignTokens = (mode, language) => ({
    typography: {
       // fontFamily: 'almaraiRegular',
    },
@@ -15,21 +13,18 @@ const getDesignTokens = (mode, direction, language) => ({
 
    components: {
       MuiButton: {
-         // styleOverrides: {
-         //    root: props => ({
-         //       boxShadow: 'none',
-         //       textTransform: 'none',
-         //       padding: 0,
-         //       minWidth: 0,
-         //       borderRadius: 0,
-         //       ...(props?.ownerState?.color === 'customPink' && {
-         //          color: '#fff',
-         //       }),
-         //       '&:hover': {
-         //          boxShadow: 'none',
-         //       },
-         //    }),
-         // },
+         styleOverrides: {
+            root: () => ({
+               boxShadow: 'none',
+               textTransform: 'none',
+               padding: 0,
+               minWidth: 0,
+               borderRadius: 0,
+               '&:hover': {
+                  boxShadow: 'none',
+               },
+            }),
+         },
       },
 
       MuiDialog: {

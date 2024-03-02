@@ -43,8 +43,7 @@ function Loading() {
 function AppLayout({ children }) {
    const { mutate } = useSWRConfig();
    const { locale } = useRouter();
-   const direction = locale === 'fa' ? 'rtl' : 'ltr';
-   const themeConfig = createTheme(getDesignTokens('dark', direction, locale));
+   const themeConfig = createTheme(getDesignTokens('dark', locale));
 
    useEffect(() => {
       Cookies.set('NEXT_LOCALE', locale, { expires: 365 });
@@ -55,12 +54,11 @@ function AppLayout({ children }) {
    return (
       <ThemeProvider theme={themeConfig}>
          <Toaster
-            position={locale === 'fa' ? 'top-right' : 'top-left'}
+            position="top-left"
             toastOptions={{
                style: {
                   // fontFamily: 'almaraiRegular',
                   fontSize: '14px',
-                  direction: locale === 'fa' ? 'rtl' : 'ltr',
                },
                duration: 4000,
             }}
@@ -74,7 +72,7 @@ function AppLayout({ children }) {
                         {t.type !== 'loading' && (
                            <IconButton
                               onClick={() => toast.dismiss(t.id)}
-                              className="text-black !transition-all !duration-150 hover:!text-red-500"
+                              className="!text-black !transition-all !duration-150 hover:!text-red-500"
                               size="small"
                            >
                               <IoClose />
@@ -86,9 +84,7 @@ function AppLayout({ children }) {
             )}
          </Toaster>
          <Loading />
-         <PagesLayout dir={direction} language={locale}>
-            {children}
-         </PagesLayout>
+         <PagesLayout>{children}</PagesLayout>
       </ThemeProvider>
    );
 }
