@@ -55,7 +55,11 @@ function Header() {
    };
 
    return (
-      <header className="fixed inset-x-0 top-0 z-10 bg-[#00000066] px-4 py-3 backdrop-blur-[28px] customMd:px-20 customMd:py-4">
+      <header
+         className="fixed inset-x-0 top-0 z-10 bg-[#00000066] px-4 py-3 backdrop-blur-[28px] customMd:px-20 customMd:py-4"
+         data-aos="fade-down"
+         data-aos-delay="900"
+      >
          <div className="flex items-center justify-between">
             <Link href="/" className="block size-[72px] customMd:size-16">
                <Image src={logoPic} alt="logo" className="size-full" />

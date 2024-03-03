@@ -4,6 +4,14 @@
 
 @layer {
    @font-face {
+      font-family: 'arimaExtraLight';
+      src: url('../assets/fonts/Arima-ExtraLight.ttf') format('truetype');
+   }
+   @font-face {
+      font-family: 'arimaLight';
+      src: url('../assets/fonts/Arima-Light.ttf') format('truetype');
+   }
+   @font-face {
       font-family: 'arimaRegular';
       src: url('../assets/fonts/Arima-Regular.ttf') format('truetype');
    }

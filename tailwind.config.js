@@ -29,6 +29,8 @@ module.exports = {
          },
 
          fontFamily: {
+            arimaExtraLight: 'arimaExtraLight',
+            arimaLight: 'arimaLight',
             arimaRegular: 'arimaRegular',
             arimaBold: 'arimaBold',
             arimaSmiBold: 'arimaSmiBold',
