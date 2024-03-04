@@ -15,7 +15,7 @@ import HomeBannerStyle from './home-banner.style';
 
 function HomeBanner() {
    return (
-      <HomeBannerStyle className="relative overflow-hidden bg-[#080609] lg:ps-20">
+      <HomeBannerStyle className="relative lg:ps-20">
          <div className="relative z-[2] flex flex-col justify-between lg:flex-row">
             <div className="mt-[140px] px-4 lg:mt-[241px] lg:max-w-[578px] lg:px-0">
                <h1

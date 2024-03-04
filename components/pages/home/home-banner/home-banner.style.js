@@ -3,9 +3,9 @@ import styled from '@emotion/styled';
 const HomeBannerStyle = styled.div(() => ({
    '#palgamWord': {
       background: 'linear-gradient(270deg, #8C72E2 60.27%, #5822E9 100%)',
-      '-webkit-background-clip': 'text',
-      'background-clip': 'text',
-      '-webkit-text-fill-color': 'transparent',
+      WebkitBackgroundClip: 'text',
+      backgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
       animation: 'changeColor 1.5s infinite alternate 1s',
    },
 
