@@ -21,20 +21,17 @@ const HomeBannerStyle = styled.div(() => ({
    '#btnApp': {
       transition: 'all 0.2s',
       ':hover': {
-         '#wrapper': {
-            // flexDirection: 'row',
-            gap: 0,
-         },
+         '#wrapper': {},
          '#firstLine': {
             transform: 'scale(0)',
             transformOrigin: 'left',
          },
          '#secondLine': {
             '@media (min-width: 1024px)': {
-               fontSize: '26px',
+               fontSize: '23px',
             },
             fontSize: '18px',
-            marginTop: '-12px',
+            marginTop: '-14px',
          },
       },
    },

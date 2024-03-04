@@ -40,32 +40,23 @@ function MobileMenu({ open, onClose, showLanguageDialogHandler }) {
                </Button>
             </div>
 
-            <div className="mt-[56px] flex flex-col items-center gap-20">
-               <Link
-                  href="/"
-                  className={`font-arimaBold text-[32px] ${pathname === '/' ? 'text-white' : 'text-[#ffffff4d]'}`}
-               >
+            <div className="mt-[56px] flex flex-col items-center gap-20 font-poppinsExtraBold">
+               <Link href="/" className={`text-[32px] ${pathname === '/' ? 'text-white' : 'text-[#ffffff4d]'}`}>
                   Home
                </Link>
-               <Link
-                  href="/"
-                  className={`font-arimaBold text-[32px] ${pathname === '/some' ? 'text-white' : 'text-[#ffffff4d]'}`}
-               >
+               <Link href="/" className={`text-[32px] ${pathname === '/some' ? 'text-white' : 'text-[#ffffff4d]'}`}>
                   Blog
                </Link>
-               <Link
-                  href="/"
-                  className={`font-arimaBold text-[32px] ${pathname === '/some' ? 'text-white' : 'text-[#ffffff4d]'}`}
-               >
+               <Link href="/" className={`text-[32px] ${pathname === '/some' ? 'text-white' : 'text-[#ffffff4d]'}`}>
                   White paper
                </Link>
-               <Link
-                  href="/"
-                  className={`font-arimaBold text-[32px] ${pathname === '/some' ? 'text-white' : 'text-[#ffffff4d]'}`}
-               >
+               <Link href="/" className={`text-[32px] ${pathname === '/some' ? 'text-white' : 'text-[#ffffff4d]'}`}>
                   Licenses
                </Link>
-               <Button className="!font-arimaBold !text-[32px] !text-[#ffffff4d]" onClick={showLanguageDialogHandler}>
+               <Button
+                  className="!font-poppinsExtraBold !text-[32px] !text-[#ffffff4d]"
+                  onClick={showLanguageDialogHandler}
+               >
                   Language:{locale.toUpperCase()}{' '}
                   <Image
                      src={locale === 'en' ? usFlag : locale === 'ru' ? ruFlag : locale === 'es' ? esFlag : null}

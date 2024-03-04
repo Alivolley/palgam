@@ -64,7 +64,7 @@ function Header() {
             <Link href="/" className="block size-[72px] customMd:size-16">
                <Image src={logoPic} alt="logo" className="size-full" />
             </Link>
-            <div className="hidden items-center gap-6 text-[#ffffff4d] customMd:flex lg:gap-14">
+            <div className="hidden items-center gap-6 font-poppinsRegular text-[#ffffff4d] customMd:flex lg:gap-14">
                <Link
                   href="/"
                   className={`transition-all duration-200 hover:text-white ${pathname === '/' ? 'text-white' : ''}`}
@@ -93,7 +93,8 @@ function Header() {
 
             <div className="flex items-center gap-4">
                <Button
-                  className="h-[48px] w-[153px] !rounded-xl !border !border-solid !border-[#ffffff80] text-xs !leading-[24px] !text-white customMd:h-[56px] customMd:w-[170px] customMd:text-sm"
+                  className="h-[48px] w-[153px] !rounded-xl !border !border-solid !border-[#ffffff80] !font-poppinsRegular
+                   text-xs !leading-[24px] !text-white customMd:h-[56px] customMd:w-[170px] customMd:text-sm"
                   endIcon={
                      <div className="size-5 customMd:size-6">
                         <Image src={downloadSvg} alt="download" className="size-full" />
@@ -104,7 +105,8 @@ function Header() {
                   Download
                </Button>
                <div
-                  className="hidden h-[56px] w-[122px] items-center justify-center gap-2 rounded-xl border border-solid border-[#ffffff80] text-white customMd:flex customMd:gap-[10px]"
+                  className="hidden h-[56px] w-[122px] items-center justify-center gap-2 rounded-xl
+                   border border-solid border-[#ffffff80] text-white customMd:flex customMd:gap-[10px]"
                   ref={languageRef}
                   onMouseEnter={() => setLanguageDropDown(true)}
                   onMouseLeave={() => setLanguageDropDown(false)}
@@ -151,7 +153,7 @@ function Header() {
                         >
                            <div className="flex min-w-[122px] flex-col bg-[#100C16]">
                               <Button
-                                 className="!flex !items-center !justify-between"
+                                 className="!flex !items-center !justify-between !font-poppinsRegular"
                                  sx={languageButtonSx}
                                  onClick={() => changeLanguage('en')}
                               >
@@ -159,7 +161,7 @@ function Header() {
                                  EN
                               </Button>
                               <Button
-                                 className="!flex !items-center !justify-between"
+                                 className="!flex !items-center !justify-between !font-poppinsRegular"
                                  sx={languageButtonSx}
                                  onClick={() => changeLanguage('ru')}
                               >
@@ -167,7 +169,7 @@ function Header() {
                                  RU
                               </Button>
                               <Button
-                                 className="!flex !items-center !justify-between"
+                                 className="!flex !items-center !justify-between !font-poppinsRegular"
                                  sx={languageButtonSx}
                                  onClick={() => changeLanguage('es')}
                               >
@@ -205,7 +207,7 @@ function Header() {
                </div>
                <div className="mt-[56px] flex flex-col">
                   <Button
-                     className="!flex !items-center !justify-between"
+                     className="!flex !items-center !justify-between !font-poppinsExtraBold"
                      sx={{
                         height: '80px',
                         color: '#ffffff4d',
@@ -220,7 +222,7 @@ function Header() {
                      EN
                   </Button>
                   <Button
-                     className="!flex !items-center !justify-between"
+                     className="!flex !items-center !justify-between !font-poppinsExtraBold"
                      sx={{
                         height: '80px',
                         color: '#ffffff4d',
@@ -235,7 +237,7 @@ function Header() {
                      RU
                   </Button>
                   <Button
-                     className="!flex !items-center !justify-between"
+                     className="!flex !items-center !justify-between !font-poppinsExtraBold"
                      sx={{
                         height: '80px',
                         color: '#ffffff4d',

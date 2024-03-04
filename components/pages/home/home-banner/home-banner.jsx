@@ -29,7 +29,7 @@ function HomeBanner() {
                   <span className="font-arimaBold">PLAY</span> and <span className="font-arimaBold">EARN MONEY</span>
                </h1>
                <p
-                  className="mt-4 text-center font-arimaExtraLight text-sm leading-[24px] text-white lg:text-start lg:text-[18px] lg:leading-[32px]"
+                  className="mt-4 text-center font-poppinsThin text-sm leading-[24px] text-white lg:text-start lg:text-[18px] lg:leading-[32px]"
                   data-aos="zoom-in"
                   data-aos-delay="300"
                >
@@ -51,12 +51,15 @@ function HomeBanner() {
                         <div className="size-[32px] lg:size-[34px]">
                            <Image src={appleLogo} alt="app store" className="size-full" />
                         </div>
-                        <div className="flex flex-col items-start gap-1 transition-all duration-200" id="wrapper">
-                           <p className="text-10 transition-all duration-200 lg:text-xs" id="firstLine">
+                        <div className="flex flex-col items-start transition-all duration-200" id="wrapper">
+                           <p
+                              className="font-poppinsExtraLight text-10 transition-all duration-200 lg:text-xs"
+                              id="firstLine"
+                           >
                               Download on the
                            </p>
                            <p
-                              className="font-arimaBold text-sm leading-6 transition-all duration-200 lg:text-[18px]"
+                              className="font-poppinsBold text-sm leading-6 transition-all duration-200 lg:text-[18px]"
                               id="secondLine"
                            >
                               App Store
@@ -72,12 +75,15 @@ function HomeBanner() {
                         <div className="size-[32px] lg:size-[34px]">
                            <Image src={googlePlayLogo} alt="google play" className="size-full" />
                         </div>
-                        <div className="flex flex-col items-start gap-1 transition-all duration-200" id="wrapper">
-                           <p className="text-10 transition-all duration-200 lg:text-xs" id="firstLine">
+                        <div className="flex flex-col items-start transition-all duration-200" id="wrapper">
+                           <p
+                              className="font-poppinsExtraLight text-10 transition-all duration-200 lg:text-xs"
+                              id="firstLine"
+                           >
                               Get In On
                            </p>
                            <p
-                              className="font-arimaBold text-sm leading-6 transition-all duration-200 lg:text-[18px]"
+                              className="font-poppinsBold text-sm leading-6 transition-all duration-200 lg:text-[18px]"
                               id="secondLine"
                            >
                               Google Play
