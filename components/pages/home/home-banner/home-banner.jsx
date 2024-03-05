@@ -15,7 +15,7 @@ import HomeBannerStyle from './home-banner.style';
 
 function HomeBanner() {
    return (
-      <HomeBannerStyle className="relative lg:ps-20">
+      <HomeBannerStyle className="relative overflow-hidden customMd:overflow-visible lg:ps-20">
          <div className="relative z-[2] flex flex-col justify-between lg:flex-row">
             <div className="mt-[140px] px-4 lg:mt-[241px] lg:max-w-[578px] lg:px-0">
                <h1
@@ -112,7 +112,7 @@ function HomeBanner() {
          <Image
             src={homeBannerGradientPic}
             alt="gradient"
-            className="absolute left-0 top-0 z-[1]"
+            className="absolute left-0 top-0 z-[3]"
             data-aos="fade-zoom-in"
             data-aos-easing="ease-in-back"
             data-aos-delay="1000"
