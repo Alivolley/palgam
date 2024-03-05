@@ -5,7 +5,7 @@ import { Button } from '@mui/material';
 
 // Assets
 import homeBannerPic from '@/assets/images/homeBannerImage.png';
-import homeBannerPicMobile from '@/assets/images/homeBannerGradientMobile.png';
+import homeBannerPicMobile from '@/assets/images/homeBannerMobile.png';
 import homeBannerGradientPic from '@/assets/images/homeBannerGradient.png';
 import appleLogo from '@/assets/icons/appleLogo.svg';
 import googlePlayLogo from '@/assets/icons/googlePlayLogo.svg';
@@ -93,7 +93,7 @@ function HomeBanner() {
                   </Button>
                </div>
             </div>
-            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" className="lg:hidden">
+            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" className="mt-[-480px] lg:hidden">
                <Image
                   src={homeBannerPicMobile}
                   alt="homeBanner"
@@ -112,7 +112,7 @@ function HomeBanner() {
          <Image
             src={homeBannerGradientPic}
             alt="gradient"
-            className="absolute left-0 top-0 z-[3]"
+            className="absolute left-0 top-0 z-[1] hidden customMd:block"
             data-aos="fade-zoom-in"
             data-aos-easing="ease-in-back"
             data-aos-delay="1000"
