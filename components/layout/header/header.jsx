@@ -73,7 +73,7 @@ function Header() {
                </Link>
                <Link
                   href="/blogs"
-                  className={`transition-all duration-200 hover:text-white ${pathname === '/some' ? 'text-white' : ''}`}
+                  className={`transition-all duration-200 hover:text-white ${pathname.startsWith('/blogs') ? 'text-white' : ''}`}
                >
                   Blogs
                </Link>

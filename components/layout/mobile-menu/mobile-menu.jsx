@@ -46,7 +46,7 @@ function MobileMenu({ open, onClose, showLanguageDialogHandler }) {
                </Link>
                <Link
                   href="/blogs"
-                  className={`text-[32px] ${pathname === '/some' ? 'text-white' : 'text-[#ffffff4d]'}`}
+                  className={`text-[32px] ${pathname.startsWith('/blogs') ? 'text-white' : 'text-[#ffffff4d]'}`}
                >
                   Blogs
                </Link>
