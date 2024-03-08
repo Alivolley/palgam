@@ -78,8 +78,8 @@ function Header() {
                   Blogs
                </Link>
                <Link
-                  href="/"
-                  className={`transition-all duration-200 hover:text-white ${pathname === '/some' ? 'text-white' : ''}`}
+                  href="/whitePaper"
+                  className={`transition-all duration-200 hover:text-white ${pathname === '/whitePaper' ? 'text-white' : ''}`}
                >
                   White paper
                </Link>

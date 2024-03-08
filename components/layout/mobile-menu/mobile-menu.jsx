@@ -50,7 +50,10 @@ function MobileMenu({ open, onClose, showLanguageDialogHandler }) {
                >
                   Blogs
                </Link>
-               <Link href="/" className={`text-[32px] ${pathname === '/some' ? 'text-white' : 'text-[#ffffff4d]'}`}>
+               <Link
+                  href="/whitePaper"
+                  className={`text-[32px] ${pathname === '/whitePaper' ? 'text-white' : 'text-[#ffffff4d]'}`}
+               >
                   White paper
                </Link>
                <Link href="/" className={`text-[32px] ${pathname === '/some' ? 'text-white' : 'text-[#ffffff4d]'}`}>
