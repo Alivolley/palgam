@@ -13,7 +13,7 @@ const WhatIsStyle = styled.div(() => ({
          animation: 'firstScroll 50s linear infinite',
          animationDelay: 'calc(50s*-1)',
       },
-      '#carts:nth-child(2)': {
+      '#carts:nth-of-type(2)': {
          animation: 'firstScroll2 50s linear infinite',
          animationDelay: 'calc(50s / -2)',
       },
@@ -39,7 +39,7 @@ const WhatIsStyle = styled.div(() => ({
          animation: 'secondScroll 50s linear infinite',
          animationDelay: 'calc(50s*-1)',
       },
-      '#carts:nth-child(2)': {
+      '#carts:nth-of-type(2)': {
          animation: 'secondScroll2 50s linear infinite',
          animationDelay: 'calc(50s / -2)',
       },

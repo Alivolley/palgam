@@ -30,18 +30,6 @@ function WhatIs() {
             {...(isDesktop && { 'data-aos-offset': '700' })}
             data-aos-duration="1000"
          >
-            <div id="secondWrapper" className="flex items-center overflow-hidden customMd:hidden">
-               <div className="flex items-center" id="carts">
-                  {firstArray?.map(() => (
-                     <WhatIsCard key={crypto.randomUUID()} />
-                  ))}
-               </div>
-               <div className="flex items-center" id="carts">
-                  {firstArray?.map(() => (
-                     <WhatIsCard key={crypto.randomUUID()} />
-                  ))}
-               </div>
-            </div>
             <div id="firstWrapper" className="flex items-center overflow-hidden">
                <div className="flex items-center" id="carts">
                   {firstArray?.map(item => (
@@ -76,18 +64,6 @@ function WhatIs() {
                <div className="flex items-center" id="carts">
                   {thirdArray?.map(item => (
                      <WhatIsCard price="50" source={item} key={crypto.randomUUID()} />
-                  ))}
-               </div>
-            </div>
-            <div id="secondWrapper" className="flex items-center overflow-hidden customMd:hidden">
-               <div className="flex items-center" id="carts">
-                  {firstArray?.map(() => (
-                     <WhatIsCard key={crypto.randomUUID()} />
-                  ))}
-               </div>
-               <div className="flex items-center" id="carts">
-                  {firstArray?.map(() => (
-                     <WhatIsCard key={crypto.randomUUID()} />
                   ))}
                </div>
             </div>
