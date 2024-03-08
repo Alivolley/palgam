@@ -17,7 +17,7 @@ function HomeBanner() {
    return (
       <HomeBannerStyle className="relative overflow-hidden customMd:overflow-visible lg:ps-20">
          <div className="relative z-[2] flex flex-col justify-between lg:flex-row">
-            <div className="mt-[140px] px-4 lg:mt-[241px] lg:max-w-[578px] lg:px-0">
+            <div className="relative z-[3] mt-[140px] px-4 lg:mt-[241px] lg:max-w-[578px] lg:px-0">
                <h1
                   className="text-center font-arimaExtraLight text-[40px] leading-[56px] text-white lg:text-start lg:text-[72px] lg:leading-[88px]"
                   data-aos="fade-up"

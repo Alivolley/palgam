@@ -72,10 +72,10 @@ function Header() {
                   Home
                </Link>
                <Link
-                  href="/"
+                  href="/blogs"
                   className={`transition-all duration-200 hover:text-white ${pathname === '/some' ? 'text-white' : ''}`}
                >
-                  Blog
+                  Blogs
                </Link>
                <Link
                   href="/"
