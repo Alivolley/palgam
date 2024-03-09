@@ -26,7 +26,7 @@ function Footer() {
                </div>
                <div className="flex flex-col items-center gap-4 font-poppinsLight text-10 leading-[14px] text-white">
                   <Link href="/">Affiliate program</Link>
-                  <Link href="/">Licenses</Link>
+                  <Link href="/licenses">Licenses</Link>
                   <Link href="/">Contact us</Link>
                   <Link href="/privacy">Privacy policy</Link>
                </div>
@@ -37,7 +37,7 @@ function Footer() {
                <Link href="/whitePaper">White paper</Link>
                <Link href="/terms">Terms & conditions</Link>
                <Link href="/">Affiliate program</Link>
-               <Link href="/">Licenses</Link>
+               <Link href="/licenses">Licenses</Link>
                <Link href="/">Contact us</Link>
                <Link href="/privacy">Privacy policy</Link>
             </div>

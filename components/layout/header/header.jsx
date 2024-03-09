@@ -84,8 +84,8 @@ function Header() {
                   White paper
                </Link>
                <Link
-                  href="/"
-                  className={`transition-all duration-200 hover:text-white ${pathname === '/some' ? 'text-white' : ''}`}
+                  href="/licenses"
+                  className={`transition-all duration-200 hover:text-white ${pathname === '/licenses' ? 'text-white' : ''}`}
                >
                   Licenses
                </Link>

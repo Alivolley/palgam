@@ -56,7 +56,10 @@ function MobileMenu({ open, onClose, showLanguageDialogHandler }) {
                >
                   White paper
                </Link>
-               <Link href="/" className={`text-[32px] ${pathname === '/some' ? 'text-white' : 'text-[#ffffff4d]'}`}>
+               <Link
+                  href="/licenses"
+                  className={`text-[32px] ${pathname === '/licenses' ? 'text-white' : 'text-[#ffffff4d]'}`}
+               >
                   Licenses
                </Link>
                <Button
