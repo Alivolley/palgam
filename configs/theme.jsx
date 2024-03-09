@@ -6,9 +6,9 @@ const getDesignTokens = (mode, language) => ({
    palette: {
       mode,
 
-      // customPink: {
-      //    main: '#FD8266',
-      // },
+      customPurple: {
+         main: '#8C72E2',
+      },
    },
 
    components: {
@@ -44,16 +44,17 @@ const getDesignTokens = (mode, language) => ({
       },
 
       MuiTextField: {
-         // styleOverrides: {
-         //    root: props => ({
-         //       '& .MuiOutlinedInput-root': {
-         //          ...(props?.size === 'small' && {
-         //             height: '45px',
-         //          }),
-         //          borderRadius: '47px',
-         //       },
-         //    }),
-         // },
+         styleOverrides: {
+            root: () => ({
+               '& .MuiFormHelperText-root': {
+                  fontFamily: 'poppinsRegular',
+               },
+               '& .MuiOutlinedInput-root': {
+                  borderRadius: '16px',
+                  fontFamily: 'poppinsExtraLight',
+               },
+            }),
+         },
       },
    },
 });

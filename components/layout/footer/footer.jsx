@@ -27,19 +27,33 @@ function Footer() {
                <div className="flex flex-col items-center gap-4 font-poppinsLight text-10 leading-[14px] text-white">
                   <Link href="/">Affiliate program</Link>
                   <Link href="/licenses">Licenses</Link>
-                  <Link href="/">Contact us</Link>
+                  <Link href="/contactUs">Contact us</Link>
                   <Link href="/privacy">Privacy policy</Link>
                </div>
             </div>
 
             <div className="relative mx-auto hidden max-w-[1112px] items-center justify-between gap-4 font-poppinsLight text-xs leading-[20px] text-white customMd:flex">
-               <Link href="/blogs">Blogs</Link>
-               <Link href="/whitePaper">White paper</Link>
-               <Link href="/terms">Terms & conditions</Link>
-               <Link href="/">Affiliate program</Link>
-               <Link href="/licenses">Licenses</Link>
-               <Link href="/">Contact us</Link>
-               <Link href="/privacy">Privacy policy</Link>
+               <Link href="/blogs" className="transition-all duration-200 hover:text-[#ffffff80]">
+                  Blogs
+               </Link>
+               <Link href="/whitePaper" className="transition-all duration-200 hover:text-[#ffffff80]">
+                  White paper
+               </Link>
+               <Link href="/terms" className="transition-all duration-200 hover:text-[#ffffff80]">
+                  Terms & conditions
+               </Link>
+               <Link href="/" className="transition-all duration-200 hover:text-[#ffffff80]">
+                  Affiliate program
+               </Link>
+               <Link href="/licenses" className="transition-all duration-200 hover:text-[#ffffff80]">
+                  Licenses
+               </Link>
+               <Link href="/contactUs" className="transition-all duration-200 hover:text-[#ffffff80]">
+                  Contact us
+               </Link>
+               <Link href="/privacy" className="transition-all duration-200 hover:text-[#ffffff80]">
+                  Privacy policy
+               </Link>
             </div>
 
             <div className="relative mx-auto flex max-w-[1112px] items-center justify-center customMd:justify-between">
