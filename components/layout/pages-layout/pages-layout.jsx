@@ -11,7 +11,7 @@ function PagesLayout({ children }) {
       <div className="font-arimaRegular">
          {pathname !== '/login' && <Header />}
 
-         <main className="bg-[#080609]">{children}</main>
+         <main className="bg-[#080609] pb-12">{children}</main>
 
          {pathname !== '/login' && <Footer />}
       </div>
