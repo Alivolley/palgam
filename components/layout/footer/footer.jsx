@@ -28,7 +28,7 @@ function Footer() {
                   <Link href="/">Affiliate program</Link>
                   <Link href="/">Licenses</Link>
                   <Link href="/">Contact us</Link>
-                  <Link href="/">Privacy policy</Link>
+                  <Link href="/privacy">Privacy policy</Link>
                </div>
             </div>
 
@@ -39,7 +39,7 @@ function Footer() {
                <Link href="/">Affiliate program</Link>
                <Link href="/">Licenses</Link>
                <Link href="/">Contact us</Link>
-               <Link href="/">Privacy policy</Link>
+               <Link href="/privacy">Privacy policy</Link>
             </div>
 
             <div className="relative mx-auto flex max-w-[1112px] items-center justify-center customMd:justify-between">
