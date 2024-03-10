@@ -75,12 +75,8 @@ function Footer() {
                   © 2023, All Rights Reserved
                </p>
             </div>
-            <div className="my-6 h-px bg-[#ffffff26]" />
-            <div className="flex items-center justify-center gap-3">
-               <div className="h-20 max-w-[230px] flex-1 rounded-xl bg-[#ffffff0d]" />
-               <div className="h-20 max-w-[230px] flex-1 rounded-xl bg-[#ffffff0d]" />
-               <div className="h-20 max-w-[230px] flex-1 rounded-xl bg-[#ffffff0d]" />
-            </div>
+            <div className="my-6 h-px bg-[#ffffff26] customMd:hidden" />
+
             <p className="mt-6 text-center font-poppinsExtraLight text-xs leading-6 text-white customMd:hidden">
                © 2023, All Rights Reserved
             </p>
