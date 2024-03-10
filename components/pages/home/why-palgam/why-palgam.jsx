@@ -7,6 +7,8 @@ import Block2 from './block2/block2';
 import Block3 from './block3/block3';
 import Block4 from './block4/block4';
 import Block5 from './block5/block5';
+import Block6 from './block6/block6';
+import Block7 from './block7/block7';
 
 function WhyPalgam() {
    return (
@@ -27,6 +29,10 @@ function WhyPalgam() {
                <Block3 />
                <Block4 />
                <Block5 />
+            </div>
+            <div className="mt-6 flex flex-col gap-6 customMd:flex-row">
+               <Block6 />
+               <Block7 />
             </div>
          </div>
       </WhyPalgamStyle>
