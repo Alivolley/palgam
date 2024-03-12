@@ -1,4 +1,5 @@
 // Components
+import AboutUs from '@/components/pages/home/aboutUs/aboutUs';
 import DownloadApp from '@/components/pages/home/download-app/download-app';
 import HomeBanner from '@/components/pages/home/home-banner/home-banner';
 import MoreAbout from '@/components/pages/home/more-about/more-about';
@@ -14,6 +15,7 @@ export default function Home() {
          <WhyPalgam />
          <MoreAbout />
          <OurTables />
+         <AboutUs />
          <DownloadApp />
       </div>
    );
