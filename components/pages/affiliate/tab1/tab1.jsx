@@ -35,7 +35,12 @@ function Tab1() {
    };
 
    return (
-      <div>
+      <div className="relative mt-14 px-4 customMd:px-20">
+         <div
+            className="absolute inset-x-0 top-[-200px] z-[0] h-[528px] rounded-[1512px] opacity-[0.15] blur-[200px]"
+            style={{ background: 'linear-gradient(180deg, #5922E9 0%, #DD43EF 100%)' }}
+         />
+
          <div className="text-center">
             <p className="font-arimaBold text-[50px] leading-[56px] text-white customMd:text-[88px] customMd:leading-[112px]">
                Unique Features

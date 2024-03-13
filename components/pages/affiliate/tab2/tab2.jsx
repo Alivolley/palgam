@@ -18,7 +18,7 @@ import OurTablesStyle from '../../home/our-tables/our-tables.style';
 
 function Tab2() {
    return (
-      <OurTablesStyle className="relative overflow-hidden">
+      <OurTablesStyle className="relative mt-14 overflow-hidden px-4 customMd:px-20">
          <div>
             <p className="text-center font-arimaBold text-[50px] leading-[56px] text-white customMd:text-[88px] customMd:leading-[112px]">
                Our Tables
