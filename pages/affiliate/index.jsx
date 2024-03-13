@@ -7,6 +7,7 @@ import { Tab, Tabs } from '@mui/material';
 
 // Components
 import Tab1 from '@/components/pages/affiliate/tab1/tab1';
+import Tab2 from '@/components/pages/affiliate/tab2/tab2';
 
 function Affiliate() {
    const [tabsValue, setTabsValue] = useState(1);
@@ -29,7 +30,9 @@ function Affiliate() {
             </Tabs>
          </div>
 
-         <div className="mt-14 px-4 customMd:px-20">{tabsValue === 1 ? <Tab1 /> : null}</div>
+         <div className="mt-14 px-4 customMd:px-20">
+            {tabsValue === 1 ? <Tab1 /> : tabsValue === 2 ? <Tab2 /> : null}
+         </div>
       </div>
    );
 }
