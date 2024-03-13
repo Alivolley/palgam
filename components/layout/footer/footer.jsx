@@ -25,7 +25,7 @@ function Footer() {
                   <Link href="/terms">Terms & conditions</Link>
                </div>
                <div className="flex flex-col items-center gap-4 font-poppinsLight text-10 leading-[14px] text-white">
-                  <Link href="/">Affiliate program</Link>
+                  <Link href="/affiliate">Affiliate program</Link>
                   <Link href="/licenses">Licenses</Link>
                   <Link href="/contactUs">Contact us</Link>
                   <Link href="/privacy">Privacy policy</Link>
@@ -42,7 +42,7 @@ function Footer() {
                <Link href="/terms" className="transition-all duration-200 hover:text-[#ffffff80]">
                   Terms & conditions
                </Link>
-               <Link href="/" className="transition-all duration-200 hover:text-[#ffffff80]">
+               <Link href="/affiliate" className="transition-all duration-200 hover:text-[#ffffff80]">
                   Affiliate program
                </Link>
                <Link href="/licenses" className="transition-all duration-200 hover:text-[#ffffff80]">

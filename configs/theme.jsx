@@ -9,6 +9,9 @@ const getDesignTokens = (mode, language) => ({
       customPurple: {
          main: '#8C72E2',
       },
+      secondary: {
+         main: '#8C72E2',
+      },
    },
 
    components: {
@@ -40,6 +43,18 @@ const getDesignTokens = (mode, language) => ({
             root: {
                fontFamily: 'arimaRegular',
             },
+         },
+      },
+
+      MuiTab: {
+         styleOverrides: {
+            root: props => ({
+               fontFamily: 'poppinsExtraBold',
+               textTransform: 'none',
+               ...(!props['aria-selected'] && {
+                  color: '#ffffff26',
+               }),
+            }),
          },
       },
 

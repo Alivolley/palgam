@@ -43,8 +43,8 @@ function Licenses() {
                         Smart Contract Verification License
                      </p>
                      <p className="font-poppinsExtraLight text-[12px] leading-6 text-[#ffffffb3] customMd:text-[18px] customMd:leading-8">
-                        t confirms that Palgam s financial system andaffiliate program are 100% decentralized, with zero
-                        possibility of manipulation from thePalgam management or other users.
+                        t confirms that Palgam s financial system and affiliate program are 100% decentralized, with
+                        zero possibility of manipulation from thePalgam management or other users.
                      </p>
                   </div>
                </Grid>
