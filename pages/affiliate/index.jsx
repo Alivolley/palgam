@@ -1,14 +1,16 @@
-// import Image from 'next/image';
-import { useState } from 'react';
+import Image from 'next/image';
+import { useRef, useState } from 'react';
 
 // MUI
-import { Tab, Tabs } from '@mui/material';
+import { Tab, Tabs, useMediaQuery } from '@mui/material';
 
 // Icons
 
 // Assets
-// import bannerBackground1 from '@/assets/images/affiliate/bannerBackground1.png';
-// import bannerBackground2 from '@/assets/images/affiliate/bannerBackground2.png';
+import bannerBackground1 from '@/assets/images/affiliate/bannerBackground1.png';
+import bannerBackground2 from '@/assets/images/affiliate/bannerBackground2.png';
+import bannerBackground1Mobile from '@/assets/images/affiliate/bannerBackground1Mobile.png';
+import bannerBackground2Mobile from '@/assets/images/affiliate/bannerBackground2Mobile.png';
 
 // Components
 import Tab1 from '@/components/pages/affiliate/tab1/tab1';
@@ -16,29 +18,66 @@ import Tab2 from '@/components/pages/affiliate/tab2/tab2';
 import Tab3 from '@/components/pages/affiliate/tab3/tab3';
 import Tab4 from '@/components/pages/affiliate/tab4/tab4';
 import Tab5 from '@/components/pages/affiliate/tab5/tab5';
+import AffiliateStyle from './affiliate.style';
 
 function Affiliate() {
    const [tabsValue, setTabsValue] = useState(1);
+   const isDesktop = useMediaQuery(`(min-width: 900px)`);
 
-   // const firstBg = useRef();
-   // const secondBg = useRef();
+   const firstBg = useRef();
+   const secondBg = useRef();
 
-   // const parallaxHandler = () => {
-   //    //
-   // };
+   const parallaxHandler = e => {
+      if (isDesktop) {
+         const firstX = (window.innerWidth - e.pageX * 8) / 100;
+         const firstY = (window.innerHeight - e.pageY * 8) / 100;
+         const secondX = (window.innerWidth - e.pageX * -8) / 100;
+         const secondY = (window.innerHeight - e.pageY * -8) / 100;
+
+         firstBg.current.style.transform = `translateX(${firstX}px) translateY(${firstY}px)`;
+         secondBg.current.style.transform = `translateX(${secondX}px) translateY(${secondY}px)`;
+      }
+   };
 
    return (
-      <div>
-         {/* <div className="relative h-[1612px]" onMouseMove={parallaxHandler}>
-            <div className="absolute inset-x-0" ref={secondBg}>
-               <Image src={bannerBackground2} alt="background" className="size-full object-cover" />
+      <AffiliateStyle>
+         <div className="relative h-[1000px] overflow-hidden customMd:h-[1700px]" onMouseMove={parallaxHandler}>
+            <div className="absolute inset-x-0 top-0 customMd:left-[-150px] customMd:right-[-20px]" ref={secondBg}>
+               <Image
+                  src={isDesktop ? bannerBackground2 : bannerBackground2Mobile}
+                  alt="background"
+                  className="size-full object-cover"
+               />
             </div>
-            <div className="absolute inset-0" ref={firstBg}>
-               <Image src={bannerBackground1} alt="background" className="size-full object-cover" />
+            <div
+               className="absolute inset-x-0 top-[100px] customMd:left-[-20px] customMd:right-[-150px] customMd:top-[-150px]"
+               ref={firstBg}
+            >
+               <Image
+                  src={isDesktop ? bannerBackground1 : bannerBackground1Mobile}
+                  alt="background"
+                  className="size-full object-cover"
+               />
             </div>
-         </div> */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-4 customMd:top-[-250px] customMd:px-0">
+               <p
+                  className="mb-12 rounded-2xl bg-[#ffffff1a] px-6 py-2 text-center font-poppinsLight
+                   text-xs leading-[24px] text-white backdrop-blur-[12px] customMd:text-[18px] customMd:leading-[32px]"
+               >
+                  What is Affiliate Marketing ?
+               </p>
+               <p className="text-center font-arimaBold text-[50px] leading-[56px] text-white customMd:text-[88px] customMd:leading-[112px]">
+                  Affiliate Marketing in <span id="palgamWord">Palgam</span>
+               </p>
+               <p className="max-w-[1167px] text-center font-poppinsLight text-xs leading-[24px] text-[#ffffffb3] customMd:text-[18px] customMd:leading-[32px]">
+                  In a nutshell, affiliate marketing involves a team dedicating significant effort to develop a product
+                  and also handling its support. But you, by just introducing this product to your audience, can earn up
+                  to 40% of its profits in partnership with the products creator. isnt this an excellent opportunity?
+               </p>
+            </div>
+         </div>
 
-         <div className="relative z-[1] border-b border-solid border-[#ffffff26] px-4 pt-[200px] customMd:px-20">
+         <div className="relative z-[1] border-b border-solid border-[#ffffff26] px-4 pt-[100px] customMd:px-20">
             <Tabs
                value={tabsValue}
                onChange={(e, newValue) => setTabsValue(newValue)}
@@ -67,7 +106,7 @@ function Affiliate() {
                <Tab5 />
             ) : null}
          </div>
-      </div>
+      </AffiliateStyle>
    );
 }
 
