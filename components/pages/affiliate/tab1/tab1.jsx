@@ -28,6 +28,7 @@ import tab1Icon17 from '@/assets/images/affiliate/tab1Icon17.png';
 
 function Tab1() {
    const [expanded, setExpanded] = useState(false);
+
    const isDesktop = useMediaQuery(`(min-width: 900px)`);
 
    const handleChange = panel => (event, isExpanded) => {
