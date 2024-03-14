@@ -1,9 +1,14 @@
+// import Image from 'next/image';
 import { useState } from 'react';
 
 // MUI
 import { Tab, Tabs } from '@mui/material';
 
 // Icons
+
+// Assets
+// import bannerBackground1 from '@/assets/images/affiliate/bannerBackground1.png';
+// import bannerBackground2 from '@/assets/images/affiliate/bannerBackground2.png';
 
 // Components
 import Tab1 from '@/components/pages/affiliate/tab1/tab1';
@@ -15,8 +20,24 @@ import Tab5 from '@/components/pages/affiliate/tab5/tab5';
 function Affiliate() {
    const [tabsValue, setTabsValue] = useState(1);
 
+   // const firstBg = useRef();
+   // const secondBg = useRef();
+
+   // const parallaxHandler = () => {
+   //    //
+   // };
+
    return (
       <div>
+         {/* <div className="relative h-[1612px]" onMouseMove={parallaxHandler}>
+            <div className="absolute inset-x-0" ref={secondBg}>
+               <Image src={bannerBackground2} alt="background" className="size-full object-cover" />
+            </div>
+            <div className="absolute inset-0" ref={firstBg}>
+               <Image src={bannerBackground1} alt="background" className="size-full object-cover" />
+            </div>
+         </div> */}
+
          <div className="relative z-[1] border-b border-solid border-[#ffffff26] px-4 pt-[200px] customMd:px-20">
             <Tabs
                value={tabsValue}
