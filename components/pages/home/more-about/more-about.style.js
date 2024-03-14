@@ -2,32 +2,32 @@ import styled from '@emotion/styled';
 
 const MoreAboutStyle = styled.div(() => ({
    '#line': {
-      //   animation: 'rotate 20s linear infinite',
+      animation: 'rotate 70s linear infinite',
    },
 
    '#wrapper': {
       top: '150%',
-      animation: 'goTop 10s linear infinite',
+      animation: 'goTop 20s linear infinite',
    },
 
    '#cart1': {
-      animation: 'rotate1 10s linear infinite',
+      animation: 'rotate1 20s linear infinite',
       transform: 'rotate(-9.8deg)',
    },
    '#cart2': {
-      animation: 'rotate2 10s linear infinite',
+      animation: 'rotate2 20s linear infinite',
       transform: 'rotate(10.4deg)',
    },
    '#cart3': {
-      animation: 'rotate2 10s linear infinite',
+      animation: 'rotate2 20s linear infinite',
       transform: 'rotate(10.4deg)',
    },
    '#cart4': {
-      animation: 'rotate1 10s linear infinite',
+      animation: 'rotate1 20s linear infinite',
       transform: 'rotate(-9.8deg)',
    },
    '#cart5': {
-      animation: 'rotate1 10s linear infinite',
+      animation: 'rotate1 20s linear infinite',
       transform: 'rotate(-9.8deg)',
    },
 

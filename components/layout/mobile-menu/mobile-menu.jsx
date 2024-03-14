@@ -40,7 +40,7 @@ function MobileMenu({ open, onClose, showLanguageDialogHandler }) {
                </Button>
             </div>
 
-            <div className="mt-[56px] flex flex-col items-center gap-20 font-poppinsExtraBold">
+            <div className="mt-[35px] flex flex-col items-center gap-14 font-poppinsExtraBold">
                <Link href="/" className={`text-[32px] ${pathname === '/' ? 'text-white' : 'text-[#ffffff4d]'}`}>
                   Home
                </Link>
