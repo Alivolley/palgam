@@ -6,6 +6,7 @@ import { Button, useMediaQuery } from '@mui/material';
 // Assets
 import DownloadAppStyle from './download-app.style';
 import downloadAppMobile from '@/assets/images/downloadAppMobile.png';
+import downloadAppVectorBackground from '@/assets/images/downloadAppVectorBackground.png';
 import downloadAppDesktop from '@/assets/images/downloadAppDesktop.png';
 import appleLogo from '@/assets/icons/appleLogo.svg';
 import googlePlayLogo from '@/assets/icons/googlePlayLogo.svg';
@@ -16,15 +17,19 @@ function DownloadApp() {
    return (
       <DownloadAppStyle className="relative mt-[150px] overflow-hidden px-4 customMd:px-20">
          <div>
-            <div className="relative h-[640px] w-full customMd:h-[488px]">
+            <div className="relative h-[640px] w-full overflow-hidden customMd:h-[488px]">
                <Image
                   src={isDesktop ? downloadAppDesktop : downloadAppMobile}
                   alt="desktop"
                   className="size-full rounded-3xl object-cover"
                />
+
+               <div className="absolute inset-0 z-[1] h-[488px] w-screen" id="vector">
+                  <Image src={downloadAppVectorBackground} alt="vector" className="size-full object-cover" />
+               </div>
             </div>
 
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
+            <div className="absolute inset-0 z-[2] flex flex-col items-center justify-center px-4">
                <p
                   className="rounded-2xl bg-[#ffffff1a] px-6 py-2 text-center font-poppinsExtraLight text-xs
                    leading-[24px] text-white backdrop-blur-[12px] customMd:text-[18px] customMd:leading-[32px]"

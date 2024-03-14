@@ -15,6 +15,7 @@ import aboutUsBlock3Background from '@/assets/images/aboutUsBlock3Background.png
 import aboutUsBlock1BackgroundMobile from '@/assets/images/aboutUsBlock1BackgroundMobile.png';
 import aboutUsBlock2BackgroundMobile from '@/assets/images/aboutUsBlock2BackgroundMobile.png';
 import aboutUsBlock3BackgroundMobile from '@/assets/images/aboutUsBlock3BackgroundMobile.png';
+import aboutUsButtonBackground from '@/assets/images/aboutUsButtonBackground.png';
 
 function AboutUs() {
    const [activeBlock, setActiveBlock] = useState(3);
@@ -45,11 +46,19 @@ function AboutUs() {
          </div>
          <div className="mt-[120px] flex items-center gap-6">
             <div
-               className={`flex items-center justify-center gap-4 rounded-3xl
+               className={`relative overflow-hidden flex items-center justify-center gap-4 rounded-3xl
              border border-solid border-[#ffffff80] bg-[#080609] transition-all duration-700 ${
                 activeBlock === 3 ? 'h-[120px] flex-[1.3]' : 'h-[104px] flex-1'
              }`}
             >
+               <div
+                  className={`absolute inset-0 ${
+                     activeBlock === 3 ? 'visible translate-x-0 opacity-100' : 'invisible translate-x-[-100%] opacity-0'
+                  }`}
+                  id="block"
+               >
+                  <Image src={aboutUsButtonBackground} alt="background" className="size-full object-cover" />
+               </div>
                <div className="size-[56px] customMd:size-[48px]">
                   <Image src={aboutUsBlock1Icon} alt="icon" className="size-full" />
                </div>
@@ -59,11 +68,19 @@ function AboutUs() {
                </div>
             </div>
             <div
-               className={`flex items-center justify-center gap-4 rounded-3xl
+               className={`relative flex items-center overflow-hidden justify-center gap-4 rounded-3xl
              border border-solid border-[#ffffff80] bg-[#080609] transition-all duration-700 ${
                 activeBlock === 2 ? 'h-[120px] flex-[1.3]' : 'h-[104px] flex-1'
              }`}
             >
+               <div
+                  className={`absolute inset-0 ${
+                     activeBlock === 2 ? 'visible translate-x-0 opacity-100' : 'invisible translate-x-[-100%] opacity-0'
+                  }`}
+                  id="block"
+               >
+                  <Image src={aboutUsButtonBackground} alt="background" className="size-full object-cover" />
+               </div>
                <div className="size-[56px] customMd:size-[48px]">
                   <Image src={aboutUsBlock2Icon} alt="icon" className="size-full" />
                </div>
@@ -73,11 +90,19 @@ function AboutUs() {
                </div>
             </div>
             <div
-               className={`flex items-center justify-center gap-4 rounded-3xl
+               className={`flex relative overflow-hidden items-center justify-center gap-4 rounded-3xl
              border border-solid border-[#ffffff80] bg-[#080609] transition-all duration-700 ${
                 activeBlock === 1 ? 'h-[120px] flex-[1.3]' : 'h-[104px] flex-1'
              }`}
             >
+               <div
+                  className={`absolute inset-0 ${
+                     activeBlock === 1 ? 'visible translate-x-0 opacity-100' : 'invisible translate-x-[-100%] opacity-0'
+                  }`}
+                  id="block"
+               >
+                  <Image src={aboutUsButtonBackground} alt="background" className="size-full object-cover" />
+               </div>
                <div className="size-[56px] customMd:size-[48px]">
                   <Image src={aboutUsBlock3Icon} alt="icon" className="size-full" />
                </div>

@@ -14,6 +14,10 @@ const AboutUsStyle = styled.div(() => ({
    backgroundRepeat: 'no-repeat',
    backgroundSize: 'cover',
    backgroundAttachment: 'fixed',
+
+   '#block': {
+      transition: 'opacity 0.7s , transform 7s linear',
+   },
 }));
 
 export default AboutUsStyle;
