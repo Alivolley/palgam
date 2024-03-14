@@ -8,11 +8,11 @@ import { Accordion, AccordionDetails, AccordionSummary, useMediaQuery } from '@m
 import { FiPlus } from 'react-icons/fi';
 
 // Assets
-import tab1Icon1 from '@/assets/images/affiliate/tab1Icon1.png';
-import tab1Icon2 from '@/assets/images/affiliate/tab1Icon2.png';
-import tab1Icon3 from '@/assets/images/affiliate/tab1Icon3.png';
-import tab1Icon4 from '@/assets/images/affiliate/tab1Icon4.png';
-import tab1Icon5 from '@/assets/images/affiliate/tab1Icon5.png';
+import tab1Icon1 from '@/assets/images/affiliate/tab1icon1.png';
+import tab1Icon2 from '@/assets/images/affiliate/tab1icon2.png';
+import tab1Icon3 from '@/assets/images/affiliate/tab1icon3.png';
+import tab1Icon4 from '@/assets/images/affiliate/tab1icon4.png';
+import tab1Icon5 from '@/assets/images/affiliate/tab1icon5.png';
 import tab1Icon6 from '@/assets/images/affiliate/tab1Icon6.png';
 import tab1Icon7 from '@/assets/images/affiliate/tab1Icon7.png';
 import tab1Icon8 from '@/assets/images/affiliate/tab1Icon8.png';
