@@ -71,9 +71,9 @@ function Licenses() {
                         License from Apple Store and Google Play
                      </p>
                      <p className="font-poppinsExtraLight text-[12px] leading-6 text-[#ffffffb3] customMd:text-[18px] customMd:leading-8">
-                        The presence of the application on Apple Storeand Google Play confirms that the application has
-                        undergone a rigorous examination byexperts from Apple and Google in terms of honesty,
-                        transparency, and functionality, andhas been granted permission to be published on these
+                        The presence of the application on Apple Store and Google Play confirms that the application has
+                        undergone a rigorous examination by experts from Apple and Google in terms of honesty,
+                        transparency, and functionality, and has been granted permission to be published on these
                         platforms.
                      </p>
                   </div>

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Image from 'next/image';
 
 // MUI
@@ -14,8 +15,11 @@ import googlePlayPic from '@/assets/images/GooglePlayPic.png';
 import appStorePic from '@/assets/images/appStorePic.png';
 import googlePlayPicDesktop from '@/assets/images/GooglePlayPicDesktop.png';
 import appStorePicDesktop from '@/assets/images/appStorePicDesktop.png';
+import AppStoreModal from '../app-store-modal/app-store-modal';
 
 function DownloadAppModal({ open, onClose }) {
+   const [showAppStoreModal, setShowAppStoreModal] = useState(false);
+
    const isDesktop = useMediaQuery(`(min-width: 500px)`);
 
    return (
@@ -49,7 +53,7 @@ function DownloadAppModal({ open, onClose }) {
                      </div>
                      <Button
                         fullWidth
-                        className="mt-[10px] h-[48px] !rounded-xl !border !border-solid !border-[#ffffff80] text-xs !text-white custom500:text-sm"
+                        className="mt-[10px] h-[48px] !rounded-xl !border !border-solid !border-[#ffffff80] !font-poppinsRegular text-xs !text-white custom500:text-sm"
                      >
                         Download
                      </Button>
@@ -58,13 +62,14 @@ function DownloadAppModal({ open, onClose }) {
                      <div className="h-[152px] custom500:h-[160px]">
                         <Image
                            src={isDesktop ? appStorePicDesktop : appStorePic}
-                           alt="google play"
+                           alt="app store"
                            className="size-full rounded-xl object-cover"
                         />
                      </div>
                      <Button
                         fullWidth
-                        className="mt-[10px] h-[48px] !rounded-xl !border !border-solid !border-[#ffffff80] text-xs !text-white custom500:text-sm"
+                        className="mt-[10px] h-[48px] !rounded-xl !border !border-solid !border-[#ffffff80] !font-poppinsRegular text-xs !text-white custom500:text-sm"
+                        onClick={() => setShowAppStoreModal(true)}
                      >
                         Download
                      </Button>
@@ -72,6 +77,7 @@ function DownloadAppModal({ open, onClose }) {
                </div>
             </div>
          </DownloadAppModalStyle>
+         <AppStoreModal open={showAppStoreModal} onClose={() => setShowAppStoreModal(false)} />
       </Drawer>
    );
 }

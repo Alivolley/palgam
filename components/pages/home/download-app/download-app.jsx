@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Image from 'next/image';
 
 // MUI
@@ -11,7 +12,12 @@ import downloadAppDesktop from '@/assets/images/downloadAppDesktop.png';
 import appleLogo from '@/assets/icons/appleLogo.svg';
 import googlePlayLogo from '@/assets/icons/googlePlayLogo.svg';
 
+// Components
+import AppStoreModal from '@/components/templates/app-store-modal/app-store-modal';
+
 function DownloadApp() {
+   const [showAppStoreModal, setShowAppStoreModal] = useState(false);
+
    const isDesktop = useMediaQuery(`(min-width: 900px)`);
 
    return (
@@ -42,7 +48,11 @@ function DownloadApp() {
                </div>
 
                <div className="mt-4 flex flex-col items-center justify-center gap-4 customMd:flex-row customMd:gap-6">
-                  <Button className="h-[72px] w-[191px] overflow-hidden !rounded-2xl bg-[#ffffff1a] !text-white backdrop-blur-[12px] customMd:h-[80px] customMd:w-[240px]">
+                  <Button
+                     className="h-[72px] w-[191px] overflow-hidden !rounded-2xl bg-[#ffffff1a]
+                   !text-white backdrop-blur-[12px] customMd:h-[80px] customMd:w-[240px]"
+                     onClick={() => setShowAppStoreModal(true)}
+                  >
                      <div className="flex size-full items-center justify-center gap-4" id="btnApp">
                         <div className="size-[32px] lg:size-[34px]">
                            <Image src={appleLogo} alt="app store" className="size-full" />
@@ -87,6 +97,7 @@ function DownloadApp() {
                </div>
             </div>
          </div>
+         <AppStoreModal open={showAppStoreModal} onClose={() => setShowAppStoreModal(false)} />
       </DownloadAppStyle>
    );
 }

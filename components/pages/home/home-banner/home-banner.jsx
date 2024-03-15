@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Image from 'next/image';
 
 // MUI
@@ -13,7 +14,12 @@ import googlePlayLogo from '@/assets/icons/googlePlayLogo.svg';
 // Style
 import HomeBannerStyle from './home-banner.style';
 
+// Components
+import AppStoreModal from '@/components/templates/app-store-modal/app-store-modal';
+
 function HomeBanner() {
+   const [showAppStoreModal, setShowAppStoreModal] = useState(false);
+
    return (
       <HomeBannerStyle className="relative overflow-hidden customMd:overflow-visible lg:ps-20">
          <div className="relative z-[2] flex flex-col justify-between lg:flex-row">
@@ -46,6 +52,7 @@ function HomeBanner() {
                   <Button
                      className="h-[72px] w-[191px] overflow-hidden !rounded-2xl !border !border-solid !border-[#ffffff80]
                     !text-white customMd:h-[80px] customMd:w-[240px]"
+                     onClick={() => setShowAppStoreModal(true)}
                   >
                      <div className="flex size-full items-center justify-center gap-4" id="btnApp">
                         <div className="size-[32px] lg:size-[34px]">
@@ -117,6 +124,8 @@ function HomeBanner() {
             data-aos-easing="ease-in-back"
             data-aos-delay="1000"
          />
+
+         <AppStoreModal open={showAppStoreModal} onClose={() => setShowAppStoreModal(false)} />
       </HomeBannerStyle>
    );
 }

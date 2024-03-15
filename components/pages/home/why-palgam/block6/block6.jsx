@@ -36,8 +36,8 @@ function Block6() {
                Decentralized Cryptocurrency Wallet
             </p>
             <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-               Palgam does not have access to users funds. Balances are storedin a decentralized blockchain environment,
-               secured by 12 security words.
+               Palgam does not have access to users funds. Balances are stored in a decentralized blockchain
+               environment, secured by 12 security words.
             </p>
          </div>
       </Block6Style>
