@@ -7,9 +7,9 @@ const importAll = r => r.keys().map(r);
 const images = importAll(require.context('@/assets/images/cards', false, /\.(png|jpe?g|svg)$/));
 
 function Block1() {
-   const firstArray = images.slice(0, 10);
+   const firstArray = images.slice(0, 12);
    const secondArray = images.slice(10, 20);
-   const thirdArray = images.slice(20);
+   const thirdArray = images.slice(17);
 
    return (
       <Block1Style className="relative h-[360px] shrink-0 overflow-hidden rounded-[24px] customMd:flex-1">

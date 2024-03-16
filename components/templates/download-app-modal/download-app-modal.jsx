@@ -33,8 +33,8 @@ function DownloadAppModal({ open, onClose }) {
          }}
       >
          <DownloadAppModalStyle
-            className="flex max-h-screen min-h-screen flex-col items-center justify-end overflow-auto
-          bg-[#00000099] p-[16px] backdrop-blur-[12px] custom500:justify-center"
+            className="flex max-h-screen min-h-screen flex-col items-center justify-center
+          overflow-auto bg-[#00000099] p-[16px] backdrop-blur-[12px]"
          >
             <div className="w-full max-w-[600px]">
                <div className="flex h-[136px] items-start justify-end rounded-t-3xl" id="header">

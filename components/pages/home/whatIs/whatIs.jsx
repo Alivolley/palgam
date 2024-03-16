@@ -21,6 +21,9 @@ function WhatIs() {
    const firstArray = images.slice(0, 10);
    const secondArray = images.slice(10, 20);
    const thirdArray = images.slice(20);
+   const pricesFirst = [100, 250, 10, 2000, 50, 5000, 50, 100, 250, 10];
+   const secondFirst = [2000, 50, 5000, 50, 100, 250, 10, 2000, 50, 5000];
+   const thirdFirst = [50, 100, 250, 10, 2000, 50, 5000, 50, 100];
 
    return (
       <WhatIsStyle className="relative mt-[180px] overflow-hidden customMd:h-[1217px]">
@@ -32,38 +35,38 @@ function WhatIs() {
          >
             <div id="firstWrapper" className="flex items-center overflow-hidden">
                <div className="flex items-center" id="carts">
-                  {firstArray?.map(item => (
-                     <WhatIsCard price="50" source={item} key={crypto.randomUUID()} />
+                  {firstArray?.map((item, index) => (
+                     <WhatIsCard price={pricesFirst[index]} source={item} key={crypto.randomUUID()} />
                   ))}
                </div>
                <div className="flex items-center" id="carts">
-                  {firstArray?.map(item => (
-                     <WhatIsCard price="50" source={item} key={crypto.randomUUID()} />
+                  {firstArray?.map((item, index) => (
+                     <WhatIsCard price={pricesFirst[index]} source={item} key={crypto.randomUUID()} />
                   ))}
                </div>
             </div>
             <div id="secondWrapper" className="flex items-center overflow-hidden">
                <div className="flex items-center" id="carts">
-                  {secondArray?.map(item => (
-                     <WhatIsCard price="50" source={item} key={crypto.randomUUID()} />
+                  {secondArray?.map((item, index) => (
+                     <WhatIsCard price={secondFirst[index]} source={item} key={crypto.randomUUID()} />
                   ))}
                </div>
                <div className="flex items-center" id="carts">
-                  {secondArray?.map(item => (
-                     <WhatIsCard price="50" source={item} key={crypto.randomUUID()} />
+                  {secondArray?.map((item, index) => (
+                     <WhatIsCard price={secondFirst[index]} source={item} key={crypto.randomUUID()} />
                   ))}
                </div>
             </div>
 
             <div id="firstWrapper" className="flex items-center overflow-hidden">
                <div className="flex items-center" id="carts">
-                  {thirdArray?.map(item => (
-                     <WhatIsCard price="50" source={item} key={crypto.randomUUID()} />
+                  {thirdArray?.map((item, index) => (
+                     <WhatIsCard price={thirdFirst[index]} source={item} key={crypto.randomUUID()} />
                   ))}
                </div>
                <div className="flex items-center" id="carts">
-                  {thirdArray?.map(item => (
-                     <WhatIsCard price="50" source={item} key={crypto.randomUUID()} />
+                  {thirdArray?.map((item, index) => (
+                     <WhatIsCard price={thirdFirst[index]} source={item} key={crypto.randomUUID()} />
                   ))}
                </div>
             </div>
