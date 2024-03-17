@@ -51,17 +51,17 @@ function AppStoreModal({ open, onClose }) {
                </div>
 
                <div className="mt-6 flex flex-col gap-4 rounded-3xl bg-[#ffffff0a] p-3 customMd:flex-row customMd:gap-6 customMd:p-4">
-                  <div className="mx-auto h-[250px] shrink-0 customMd:h-[488px] customMd:w-[240px]">
+                  <div className="mx-auto h-[320px] shrink-0 customMd:h-[488px] customMd:w-[240px]">
                      <Image src={downloadAppTestPic} alt="mobile" className="size-full" />
                   </div>
 
                   <div className="flex flex-col gap-2 customMd:grow customMd:gap-6">
                      <div
-                        className="flex w-full flex-col items-center justify-center gap-2 rounded-lg
-                      border border-solid border-[#ffffff26] px-2 py-4 customMd:grow customMd:rounded-2xl"
+                        className="flex w-full flex-col items-center justify-center gap-1 rounded-lg
+                      border border-solid border-[#ffffff26] px-2 py-1 customMd:grow customMd:rounded-2xl"
                      >
                         <p className="font-poppinsExtraBold text-xl leading-7 text-[#ffffffb3] customMd:text-[40px] customMd:leading-[64px]">
-                           Step {step}
+                           Step {step} of 9
                         </p>
                         <p className="font-poppinsExtraLight text-xs leading-6 text-white customMd:text-[18px] customMd:leading-8">
                            Go to setting
@@ -69,20 +69,20 @@ function AppStoreModal({ open, onClose }) {
                      </div>
                      <div className="flex items-center gap-2 customMd:gap-6">
                         <Button
-                           className="h-10 !flex-1 rounded-lg border border-solid border-[#ffffff26] bg-[#ffffff0d] 
+                           className="h-7 !flex-1 rounded-lg border border-solid border-[#ffffff26] bg-[#ffffff0d] 
                            text-white disabled:bg-transparent customMd:h-12 customMd:rounded-2xl"
                            disabled={step === 1}
                            onClick={backStepHandler}
                         >
-                           <GoArrowLeft size="28px" />
+                           <GoArrowLeft size="24px" />
                         </Button>
                         <Button
-                           className="h-10 !flex-1 rounded-lg border border-solid border-[#ffffff26] bg-[#ffffff0d] 
+                           className="h-7 !flex-1 rounded-lg border border-solid border-[#ffffff26] bg-[#ffffff0d] 
                            text-white disabled:bg-transparent customMd:h-12 customMd:rounded-2xl"
                            disabled={step === 9}
                            onClick={forwardStepHandler}
                         >
-                           <GoArrowRight size="28px" />
+                           <GoArrowRight size="24px" />
                         </Button>
                      </div>
                      {step === 9 && (

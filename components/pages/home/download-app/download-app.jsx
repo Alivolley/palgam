@@ -21,7 +21,7 @@ function DownloadApp() {
    const isDesktop = useMediaQuery(`(min-width: 900px)`);
 
    return (
-      <DownloadAppStyle className="relative mt-[150px] overflow-hidden px-4 customMd:px-20">
+      <DownloadAppStyle className="relative mt-[30px] overflow-hidden px-4 customMd:px-20">
          <div>
             <div className="relative h-[640px] w-full overflow-hidden customMd:h-[488px]">
                <Image
