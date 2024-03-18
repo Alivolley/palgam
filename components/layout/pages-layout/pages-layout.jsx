@@ -9,11 +9,11 @@ function PagesLayout({ children }) {
 
    return (
       <div className="font-arimaRegular">
-         {pathname !== '/login' && <Header />}
+         {!pathname.startsWith('/admin-panel') && <Header />}
 
-         <main className="bg-[#080609] pb-12">{children}</main>
+         <main className={`bg-[#080609] ${!pathname.startsWith('/admin-panel') ? 'pb-12' : ''}`}>{children}</main>
 
-         {pathname !== '/login' && <Footer />}
+         {!pathname.startsWith('/admin-panel') && <Footer />}
       </div>
    );
 }
