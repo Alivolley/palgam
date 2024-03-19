@@ -111,7 +111,7 @@ function HomeBanner() {
                data-aos="fade-zoom-in"
                data-aos-easing="ease-in-back"
                data-aos-delay="900"
-               className="hidden lg:block customXl:min-w-[800px]"
+               className="hidden lg:block customXl:min-w-[800px] customXl:max-w-[880px]"
             >
                <Image src={homeBannerPic} alt="homeBanner" className="size-full object-cover customLg:object-contain" />
             </div>
