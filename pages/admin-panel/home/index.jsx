@@ -38,6 +38,14 @@ const VisuallyHiddenInput = styled('input')({
    width: 1,
 });
 
+const InputStyle = {
+   '& .MuiOutlinedInput-root': {
+      backgroundColor: '#ffffff0d',
+      fontSize: '16px',
+      height: '64px',
+   },
+};
+
 function AdminPanelHome() {
    const [logoPic, setLogoPic] = useState();
    const [logoPicUrl, setLogoPicUrl] = useState();
@@ -121,16 +129,9 @@ function AdminPanelHome() {
                                  </p>
                               </div>
                               <div>
-                                 <FormControl variant="outlined" fullWidth color="customPurple">
+                                 <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
                                     <OutlinedInput
                                        placeholder="Link"
-                                       sx={{
-                                          '& .MuiOutlinedInput-root': {
-                                             backgroundColor: '#ffffff0d',
-                                             fontSize: '16px',
-                                             height: '64px',
-                                          },
-                                       }}
                                        {...register('instagram')}
                                        onKeyDown={e => {
                                           if (e.key === 'Enter') {
@@ -177,16 +178,9 @@ function AdminPanelHome() {
                                  </p>
                               </div>
                               <div>
-                                 <FormControl variant="outlined" fullWidth color="customPurple">
+                                 <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
                                     <OutlinedInput
                                        placeholder="Link"
-                                       sx={{
-                                          '& .MuiOutlinedInput-root': {
-                                             backgroundColor: '#ffffff0d',
-                                             fontSize: '16px',
-                                             height: '64px',
-                                          },
-                                       }}
                                        {...register('discord')}
                                        onKeyDown={e => {
                                           if (e.key === 'Enter') {
@@ -233,16 +227,9 @@ function AdminPanelHome() {
                                  </p>
                               </div>
                               <div>
-                                 <FormControl variant="outlined" fullWidth color="customPurple">
+                                 <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
                                     <OutlinedInput
                                        placeholder="Link"
-                                       sx={{
-                                          '& .MuiOutlinedInput-root': {
-                                             backgroundColor: '#ffffff0d',
-                                             fontSize: '16px',
-                                             height: '64px',
-                                          },
-                                       }}
                                        {...register('telegram')}
                                        onKeyDown={e => {
                                           if (e.key === 'Enter') {
@@ -289,16 +276,9 @@ function AdminPanelHome() {
                                  </p>
                               </div>
                               <div>
-                                 <FormControl variant="outlined" fullWidth color="customPurple">
+                                 <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
                                     <OutlinedInput
                                        placeholder="Link"
-                                       sx={{
-                                          '& .MuiOutlinedInput-root': {
-                                             backgroundColor: '#ffffff0d',
-                                             fontSize: '16px',
-                                             height: '64px',
-                                          },
-                                       }}
                                        {...register('email')}
                                        onKeyDown={e => {
                                           if (e.key === 'Enter') {
@@ -409,16 +389,9 @@ function AdminPanelHome() {
                      <div className="mt-4 flex items-center gap-4">
                         <div className="flex-1">
                            <p className="mb-2 text-sm leading-6">App Store</p>
-                           <FormControl variant="outlined" fullWidth color="customPurple">
+                           <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
                               <OutlinedInput
                                  placeholder="Link"
-                                 sx={{
-                                    '& .MuiOutlinedInput-root': {
-                                       backgroundColor: '#ffffff0d',
-                                       fontSize: '16px',
-                                       height: '64px',
-                                    },
-                                 }}
                                  {...register('appStore')}
                                  onKeyDown={e => {
                                     if (e.key === 'Enter') {
@@ -437,16 +410,9 @@ function AdminPanelHome() {
                         </div>
                         <div className="flex-1">
                            <p className="mb-2 text-sm leading-6">Google Play</p>
-                           <FormControl variant="outlined" fullWidth color="customPurple">
+                           <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
                               <OutlinedInput
                                  placeholder="Link"
-                                 sx={{
-                                    '& .MuiOutlinedInput-root': {
-                                       backgroundColor: '#ffffff0d',
-                                       fontSize: '16px',
-                                       height: '64px',
-                                    },
-                                 }}
                                  {...register('googlePlay')}
                                  onKeyDown={e => {
                                     if (e.key === 'Enter') {
