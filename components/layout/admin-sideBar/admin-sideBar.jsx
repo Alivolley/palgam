@@ -17,7 +17,7 @@ function AdminSideBar() {
    const { pathname } = useRouter();
 
    return (
-      <aside className="sticky top-0 h-fit w-[360px] shrink-0 px-6 pt-4 text-white">
+      <aside className="sticky top-0 h-fit w-[360px] shrink-0 px-6 pt-8 text-white">
          <div>
             <p className="font-poppinsExtraBold text-[32px] leading-[44px]">Welcome</p>
             <p>
