@@ -71,6 +71,17 @@ const getDesignTokens = (mode, language) => ({
             }),
          },
       },
+
+      MuiFormControl: {
+         styleOverrides: {
+            root: () => ({
+               '& .MuiOutlinedInput-root': {
+                  borderRadius: '16px',
+                  fontFamily: 'poppinsExtraLight',
+               },
+            }),
+         },
+      },
    },
 });
 

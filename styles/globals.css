@@ -67,22 +67,24 @@
    }
 
    @media only screen and (min-width: 900px) {
-      /* ::-webkit-scrollbar {
-       width: 8px;
-       height: 5px;
-    }
+      ::-webkit-scrollbar {
+         width: 6px;
+         height: 6px;
+         background: #000;
+      }
 
-    ::-webkit-scrollbar-track {
-       background: #ffffff;
-    }
+      ::-webkit-scrollbar-track {
+         background: #ffffff0d;
+         border-radius: 4px;
+      }
 
-    ::-webkit-scrollbar-thumb {
-       background: #d14f4d;
-       border-radius: 3px;
-    }
+      ::-webkit-scrollbar-thumb {
+         background: #ffffff26;
+         border-radius: 4px;
+      }
 
-    ::-webkit-scrollbar-thumb:hover {
-       background: #df8482;
-    } */
+      ::-webkit-scrollbar-thumb:hover {
+         background: #ffffff40;
+      }
    }
 }
