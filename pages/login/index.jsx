@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -22,9 +23,15 @@ import { IoEyeOutline, IoEyeOffOutline } from 'react-icons/io5';
 import loginPic from '@/assets/images/loginPic.png';
 import loginLogo from '@/assets/images/loginLogo.png';
 
+// Apis
+import useLogin from '@/apis/login/useLogin';
+
 function Login() {
    const [showPassword, setShowPassword] = useState(false);
    const [loginStep, setLoginStep] = useState(1);
+   const { push } = useRouter();
+
+   const { trigger: loginTrigger, isMutating: loginIsMutating } = useLogin();
 
    const {
       register,
@@ -41,10 +48,19 @@ function Login() {
 
    const formSubmit = data => {
       if (loginStep === 1) {
-         console.log(data);
          setLoginStep(2);
       } else if (loginStep === 2) {
-         //
+         const newData = {
+            email: data?.emailOrUsername,
+            password: data?.password,
+            totp: data?.authenticator,
+         };
+
+         loginTrigger(newData, {
+            onSuccess: () => {
+               push('/admin-panel/home');
+            },
+         });
       }
    };
 
@@ -97,7 +113,6 @@ function Login() {
                            }}
                            error={!!errors?.emailOrUsername}
                            helperText={errors?.emailOrUsername?.message}
-                           //    disabled={loginIsMutating}
                         />
 
                         <FormControl
@@ -115,13 +130,6 @@ function Login() {
                            <OutlinedInput
                               placeholder="Password"
                               type={showPassword ? 'text' : 'password'}
-                              sx={{
-                                 '& .MuiOutlinedInput-root': {
-                                    backgroundColor: '#ffffff0d',
-                                    fontSize: '16px',
-                                    height: '64px',
-                                 },
-                              }}
                               {...register('password', {
                                  required: {
                                     value: true,
@@ -162,11 +170,11 @@ function Login() {
                         }}
                         error={!!errors?.authenticator}
                         helperText={errors?.authenticator?.message}
-                        //    disabled={loginIsMutating}
+                        disabled={loginIsMutating}
                      />
                   ) : null}
                   <LoadingButton
-                     loading={false}
+                     loading={loginIsMutating}
                      fullWidth
                      variant="contained"
                      color="secondary"

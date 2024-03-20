@@ -57,7 +57,7 @@ function AppLayout({ children }) {
             position="top-left"
             toastOptions={{
                style: {
-                  fontFamily: 'arimaRegular',
+                  fontFamily: 'poppinsRegular',
                   fontSize: '14px',
                },
                duration: 4000,
