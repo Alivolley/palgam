@@ -1,4 +1,6 @@
+import Image from 'next/image';
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
 
 // MUI
 import { Button } from '@mui/material';
@@ -7,11 +9,32 @@ import { Button } from '@mui/material';
 import { FiPlus } from 'react-icons/fi';
 import { GoArrowLeft } from 'react-icons/go';
 
+// Assets
+import usFlag from '@/assets/icons/usFlag.svg';
+import ruFlag from '@/assets/icons/ruFlag.svg';
+import esFlag from '@/assets/icons/esFlag.svg';
+
 // Components
 import AdminLayout from '@/components/layout/admin-layout/admin-layout';
 
+const CkEditor = dynamic(() => import('@/components/templates/ckEditor/ckEditor'), { ssr: false });
+
+const langButtonSx = {
+   flex: '1 1 0%',
+   fontFamily: 'poppinsRegular',
+   color: 'white',
+   borderRadius: '12px',
+   height: '56px',
+   gap: '8px',
+   ':hover': {
+      backgroundColor: '#ffffff0d',
+   },
+};
+
 function Blog() {
    const [isAddBlogSection, setIsAddBlogSection] = useState(false);
+   const [chosenLang, setChosenLang] = useState('en');
+   const [ckEditorDataEn, setCkEditorDataEn] = useState('');
 
    return (
       <AdminLayout>
@@ -34,8 +57,41 @@ function Blog() {
                      </Button>
                   </div>
                   <div className="mt-4 rounded-xl border border-solid border-[#ffffff26] p-6">
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel aperiam quisquam ullam enim quod, vero
-                     quidem odio, aspernatur odit totam et unde harum corporis ipsa nam distinctio ad? Laudantium, sint.
+                     <div className="flex items-center gap-2 rounded-2xl bg-[#ffffff0d] p-2">
+                        <Button
+                           sx={{
+                              ...langButtonSx,
+                              ...(chosenLang === 'en' && { backgroundColor: '#ffffff0d' }),
+                           }}
+                           onClick={() => setChosenLang('en')}
+                        >
+                           <Image src={usFlag} alt="flag" />
+                           EN
+                        </Button>
+                        <Button
+                           sx={{
+                              ...langButtonSx,
+                              ...(chosenLang === 'es' && { backgroundColor: '#ffffff0d' }),
+                           }}
+                           onClick={() => setChosenLang('es')}
+                        >
+                           <Image src={esFlag} alt="flag" />
+                           ES
+                        </Button>
+                        <Button
+                           sx={{
+                              ...langButtonSx,
+                              ...(chosenLang === 'ru' && { backgroundColor: '#ffffff0d' }),
+                           }}
+                           onClick={() => setChosenLang('ru')}
+                        >
+                           <Image src={ruFlag} alt="flag" />
+                           RU
+                        </Button>
+                     </div>
+                     <div className="mt-4">
+                        <CkEditor initialData={ckEditorDataEn} onChange={setCkEditorDataEn} />
+                     </div>
                   </div>
                </div>
             ) : (
@@ -67,3 +123,20 @@ function Blog() {
 }
 
 export default Blog;
+
+export async function getServerSideProps(context) {
+   const { req } = context;
+   const accessToken = req?.cookies?.palgam_accessToken;
+   const refreshToken = req?.cookies?.palgam_refreshToken;
+
+   if (!accessToken && !refreshToken) {
+      return {
+         redirect: {
+            destination: '/login',
+         },
+      };
+   }
+   return {
+      props: {},
+   };
+}

@@ -157,7 +157,7 @@ function Header() {
                                  sx={languageButtonSx}
                                  onClick={() => changeLanguage('en')}
                               >
-                                 <Image src={usFlag} alt="download" />
+                                 <Image src={usFlag} alt="flag" />
                                  EN
                               </Button>
                               <Button
@@ -165,7 +165,7 @@ function Header() {
                                  sx={languageButtonSx}
                                  onClick={() => changeLanguage('ru')}
                               >
-                                 <Image src={ruFlag} alt="download" />
+                                 <Image src={ruFlag} alt="flag" />
                                  RU
                               </Button>
                               <Button
@@ -173,7 +173,7 @@ function Header() {
                                  sx={languageButtonSx}
                                  onClick={() => changeLanguage('es')}
                               >
-                                 <Image src={esFlag} alt="download" />
+                                 <Image src={esFlag} alt="flag" />
                                  ES
                               </Button>
                            </div>
