@@ -30,7 +30,7 @@ function DownloadApp() {
                   className="size-full rounded-3xl object-cover"
                />
 
-               <div className="absolute inset-0 z-[1] h-[488px] w-screen" id="vector">
+               <div className="absolute inset-0 z-[1] h-[488px] w-screen scale-[1.8]" id="vector">
                   <Image src={downloadAppVectorBackground} alt="vector" className="size-full object-cover" />
                </div>
             </div>

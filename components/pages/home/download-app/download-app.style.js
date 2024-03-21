@@ -1,10 +1,6 @@
 import styled from '@emotion/styled';
 
 const DownloadAppStyle = styled.div(() => ({
-   '#vector': {
-      // animation: 'goRight 20s linear infinite',
-   },
-
    '#btnApp': {
       transition: 'all 0.2s',
       ':hover': {
@@ -20,12 +16,6 @@ const DownloadAppStyle = styled.div(() => ({
             fontSize: '18px',
             marginTop: '-14px',
          },
-      },
-   },
-
-   '@keyframes goRight': {
-      to: {
-         right: '-300%',
       },
    },
 }));
