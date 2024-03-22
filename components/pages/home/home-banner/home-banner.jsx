@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/media-has-caption */
 import { useState } from 'react';
 import Image from 'next/image';
 
@@ -24,6 +25,10 @@ function HomeBanner() {
       <HomeBannerStyle className="relative overflow-hidden customMd:overflow-visible lg:ps-20">
          <div className="relative z-[2] flex flex-col justify-between lg:flex-row">
             <div className="relative z-[3] mt-[140px] px-4 lg:mt-[241px] lg:max-w-[578px] lg:px-0">
+               <div
+                  className="absolute left-[-50%] top-0 h-[524px] w-[436px] rounded-[524px] opacity-[0.4] blur-[150px] customMd:hidden"
+                  style={{ background: 'linear-gradient(180deg, #5922E9 0%, #DD43EF 100%)' }}
+               />
                <h1
                   className="text-center font-arimaExtraLight text-[40px] leading-[56px] text-white lg:text-start lg:text-[72px] lg:leading-[88px]"
                   data-aos="fade-up"
@@ -100,20 +105,51 @@ function HomeBanner() {
                   </Button>
                </div>
             </div>
-            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" className="mt-[-480px] lg:hidden">
-               <Image
-                  src={homeBannerPicMobile}
-                  alt="homeBanner"
+            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" className="relative lg:hidden">
+               <video
+                  src="/video1.mp4"
                   className="size-full object-cover customLg:object-contain"
+                  loop
+                  autoPlay
+                  muted
+               />
+
+               <div
+                  className="absolute inset-0"
+                  style={{
+                     background: 'linear-gradient(1deg, #080609 0.52%, rgba(8, 6, 9, 0.20) 51.01%, #080609 99.53%)',
+                  }}
                />
             </div>
             <div
                data-aos="fade-zoom-in"
                data-aos-easing="ease-in-back"
                data-aos-delay="900"
-               className="hidden lg:block customXl:min-w-[800px] customXl:max-w-[880px]"
+               className="relative hidden lg:block customXl:min-w-[800px] customXl:max-w-[880px]"
             >
-               <Image src={homeBannerPic} alt="homeBanner" className="size-full object-cover customLg:object-contain" />
+               {/* <Image src={homeBannerPic} alt="homeBanner" className="size-full object-cover customLg:object-contain" /> */}
+
+               <video
+                  src="/video2.mp4"
+                  className="size-full object-cover customLg:object-contain"
+                  loop
+                  autoPlay
+                  muted
+               />
+
+               <div
+                  className="absolute inset-0"
+                  style={{
+                     background: 'linear-gradient(271deg, rgba(8, 6, 9, 0.00) 0.83%, #080609 99.32%)',
+                  }}
+               />
+               <div
+                  className="absolute inset-x-0 bottom-0 h-[260px]"
+                  style={{
+                     background:
+                        'linear-gradient(180deg, rgba(10, 8, 11, 0.00) 0%, rgba(10, 8, 11, 0.90) 63%, #0A080B 100%)',
+                  }}
+               />
             </div>
          </div>
          <Image
