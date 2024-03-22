@@ -6,8 +6,6 @@ import Image from 'next/image';
 import { Button } from '@mui/material';
 
 // Assets
-import homeBannerPic from '@/assets/images/homeBannerImage.png';
-import homeBannerPicMobile from '@/assets/images/homeBannerMobile.png';
 import homeBannerGradientPic from '@/assets/images/homeBannerGradient.png';
 import appleLogo from '@/assets/icons/appleLogo.svg';
 import googlePlayLogo from '@/assets/icons/googlePlayLogo.svg';
