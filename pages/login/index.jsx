@@ -20,7 +20,7 @@ import { LoadingButton } from '@mui/lab';
 import { IoEyeOutline, IoEyeOffOutline } from 'react-icons/io5';
 
 // Assets
-import loginPic from '@/assets/images/loginPic.png';
+import loginPic from '@/assets/images/adminPanel/loginPic.png';
 import loginLogo from '@/assets/images/loginLogo.png';
 
 // Apis

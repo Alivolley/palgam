@@ -19,12 +19,14 @@ import LogoutModal from '@/components/templates/logout-modal/logout-modal';
 
 // Apis
 import useGetInfo from '@/apis/adminPanel/home/useGetInfo';
+import useGetTicketsCount from '@/apis/tickets/useGetTicketsCount';
 
 function AdminSideBar() {
    const [showLogoutModal, setShowLogoutModal] = useState(false);
    const { pathname } = useRouter();
 
    const { data: infoData } = useGetInfo();
+   const { data: ticketsData } = useGetTicketsCount();
 
    return (
       <aside className="sticky top-0 h-fit w-[360px] shrink-0 px-6 pt-8 text-white">
@@ -85,12 +87,17 @@ function AdminSideBar() {
             </Link>
             <Link
                href="/admin-panel/tickets"
-               className={`flex items-center gap-2 rounded-xl border border-solid border-transparent
+               className={`relative flex items-center gap-2 rounded-xl border border-solid border-transparent
                 px-4 py-[18px] transition-all duration-200 hover:border-[#ffffff59] hover:bg-[#ffffff1a] hover:text-white ${
                    pathname === '/admin-panel/tickets' ? '!border-[#ffffff59] bg-[#ffffff1a]' : 'text-[#ffffff4d]'
                 }`}
             >
                <BiSolidMessageDetail size="24px" /> Tickets
+               {ticketsData?.has_new_ticket && (
+                  <div className="absolute right-4 flex size-8 items-center justify-center rounded-full bg-[#F23645] text-sm text-white">
+                     {ticketsData?.new_ticket_count}
+                  </div>
+               )}
             </Link>
             <Link
                href="/admin-panel/others"
