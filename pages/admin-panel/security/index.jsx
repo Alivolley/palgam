@@ -18,9 +18,14 @@ import keyIcon from '@/assets/icons/adminPanel/Key.svg';
 import AdminLayout from '@/components/layout/admin-layout/admin-layout';
 import CountdownTimer from '@/components/templates/countdown-timer/countdown-timer';
 
+// Apis
+import useChangePassword from '@/apis/adminPanel/security/useChangePassword';
+
 function Security() {
    const [showPassword, setShowPassword] = useState(false);
    const [changeEmailStep, setChangeEmailStep] = useState(1);
+
+   const { trigger: changePasswordTrigger, isMutating: changePasswordIsMutating } = useChangePassword();
 
    const {
       register: passwordRegister,
@@ -29,7 +34,6 @@ function Security() {
       watch,
    } = useForm({
       defaultValues: {
-         currentPassword: '',
          newPassword: '',
          confirmPassword: '',
       },
@@ -37,7 +41,11 @@ function Security() {
    });
 
    const passwordFormSubmit = data => {
-      console.log(data);
+      const newData = {
+         password: data.newPassword,
+      };
+
+      changePasswordTrigger(newData);
    };
 
    const {
@@ -79,41 +87,6 @@ function Security() {
                         </div>
 
                         <form onSubmit={passwordHandleSubmit(passwordFormSubmit)} className="mt-6 space-y-6">
-                           <FormControl
-                              variant="outlined"
-                              fullWidth
-                              color="customPurple"
-                              sx={{
-                                 '& .MuiOutlinedInput-root': {
-                                    backgroundColor: '#ffffff0a',
-                                    height: '64px',
-                                 },
-                              }}
-                           >
-                              <OutlinedInput
-                                 placeholder="Current password"
-                                 type={showPassword ? 'text' : 'password'}
-                                 {...passwordRegister('currentPassword', {
-                                    required: {
-                                       value: true,
-                                       message: 'This filed is required',
-                                    },
-                                 })}
-                                 endAdornment={
-                                    <InputAdornment position="end">
-                                       <IconButton edge="end" onClick={() => setShowPassword(prev => !prev)}>
-                                          {showPassword ? <IoEyeOffOutline /> : <IoEyeOutline />}
-                                       </IconButton>
-                                    </InputAdornment>
-                                 }
-                                 error={!!passwordErrors?.currentPassword}
-                                 //    disabled={loginIsMutating}
-                              />
-                              {passwordErrors?.currentPassword?.message && (
-                                 <FormHelperText error>{passwordErrors?.currentPassword?.message}</FormHelperText>
-                              )}
-                           </FormControl>
-
                            <FormControl
                               variant="outlined"
                               fullWidth
@@ -195,7 +168,7 @@ function Security() {
                               sx={{ fontFamily: 'poppinsRegular', height: '56px', borderRadius: '16px' }}
                               variant="contained"
                               color="secondary"
-                              // loading={editLinksIsMutating}
+                              loading={changePasswordIsMutating}
                            >
                               Change
                            </LoadingButton>
