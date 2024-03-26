@@ -6,7 +6,7 @@ const MoreAboutStyle = styled.div(() => ({
    },
 
    '#wrapper': {
-      top: '150%',
+      top: '100%',
       animation: 'goTop 20s linear infinite',
    },
 

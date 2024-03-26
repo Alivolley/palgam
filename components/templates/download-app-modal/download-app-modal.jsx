@@ -36,9 +36,14 @@ function DownloadAppModal({ open, onClose }) {
             className="flex max-h-screen min-h-screen flex-col items-center justify-center
           overflow-auto bg-[#00000099] p-[16px] backdrop-blur-[12px]"
          >
+            <div className="fixed right-8 top-8">
+               <Button className="rounded-full" onClick={onClose}>
+                  <IoIosCloseCircleOutline fontSize="32px" color="white" />
+               </Button>
+            </div>
             <div className="w-full max-w-[600px]">
                <div className="flex h-[136px] items-start justify-end rounded-t-3xl" id="header">
-                  <Button className="mr-4 mt-4 rounded-full" onClick={onClose}>
+                  <Button className="mr-4 mt-4 hidden rounded-full customMd:flex" onClick={onClose}>
                      <IoIosCloseCircleOutline fontSize="32px" color="white" />
                   </Button>
                </div>

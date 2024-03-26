@@ -155,6 +155,7 @@ function Login() {
                         fullWidth
                         placeholder="Google Authenticator"
                         color="customPurple"
+                        type="number"
                         {...register('authenticator', {
                            required: {
                               value: true,
@@ -166,6 +167,14 @@ function Login() {
                               backgroundColor: '#ffffff0d',
                               fontSize: '16px',
                               height: '64px',
+                           },
+                           input: {
+                              MozAppearance: 'textfield',
+                              appearance: 'textfield',
+                              '&::-webkit-inner-spin-button': {
+                                 WebkitAppearance: 'none',
+                                 appearance: 'none',
+                              },
                            },
                         }}
                         error={!!errors?.authenticator}

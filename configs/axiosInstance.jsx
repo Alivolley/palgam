@@ -19,7 +19,7 @@ axiosInstance.interceptors.request.use(
          config.headers.Authorization = `Bearer ${accessToken}`;
       }
 
-      if (lang) {
+      if (lang && config.method !== 'post') {
          config.params = { ...config.params, lang };
       }
 
@@ -30,8 +30,8 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
    res => {
-      if (res?.data?.detail) {
-         toast.success(res?.data?.detail);
+      if (res?.data?.message) {
+         toast.success(res?.data?.message);
       }
 
       return res;
@@ -44,7 +44,7 @@ axiosInstance.interceptors.response.use(
       if (error?.response?.data?.detail === 'Given token not valid for any token type') {
          // access expired
          if (refreshToken) {
-            const res = await axiosInstance.post('accounts/token/refresh/', {
+            const res = await axiosInstance.post('account/refreshToken', {
                refresh: refreshToken,
             });
             Cookies.set('palgam_accessToken', res.data.access, { expires: 365 });

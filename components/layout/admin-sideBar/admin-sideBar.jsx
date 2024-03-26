@@ -1,5 +1,6 @@
-import Link from 'next/link';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 // MUI
 import { Button } from '@mui/material';
@@ -13,8 +14,17 @@ import { BsShieldFillCheck } from 'react-icons/bs';
 import { BiSolidMessageDetail } from 'react-icons/bi';
 import { IoLogOut } from 'react-icons/io5';
 
+// Components
+import LogoutModal from '@/components/templates/logout-modal/logout-modal';
+
+// Apis
+import useGetInfo from '@/apis/adminPanel/home/useGetInfo';
+
 function AdminSideBar() {
+   const [showLogoutModal, setShowLogoutModal] = useState(false);
    const { pathname } = useRouter();
+
+   const { data: infoData } = useGetInfo();
 
    return (
       <aside className="sticky top-0 h-fit w-[360px] shrink-0 px-6 pt-8 text-white">
@@ -22,9 +32,9 @@ function AdminSideBar() {
             <p className="font-poppinsExtraBold text-[32px] leading-[44px]">Welcome</p>
             <p>
                <span className="font-poppinsExtraBold text-[32px] leading-[44px]">Back,</span>{' '}
-               <span className="font-poppinsThin text-[32px] leading-[44px]">Sadegh</span>
+               <span className="font-poppinsThin text-[32px] leading-[44px]">{infoData?.name}</span>
             </p>
-            <p className="mt-2 font-poppinsExtraLight text-sm leading-6">Last Update, 05 March 2024</p>
+            <p className="mt-2 font-poppinsExtraLight text-sm leading-6">Last Update, {infoData?.last_update}</p>
          </div>
 
          <div className="mt-10 flex flex-col gap-2 font-poppinsRegular">
@@ -107,6 +117,7 @@ function AdminSideBar() {
                   },
                }}
                fullWidth
+               onClick={() => setShowLogoutModal(true)}
             >
                <div className="flex w-full items-center gap-2 px-4 py-[18px]">
                   <IoLogOut className="rotate-180" size="24px" /> Log Out
@@ -117,6 +128,8 @@ function AdminSideBar() {
                ©2024 ALL Rights Reserved
             </p>
          </div>
+
+         <LogoutModal show={showLogoutModal} onClose={() => setShowLogoutModal(false)} />
       </aside>
    );
 }
