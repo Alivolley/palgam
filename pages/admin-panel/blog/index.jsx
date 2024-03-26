@@ -3,7 +3,7 @@ import { useState } from 'react';
 import dynamic from 'next/dynamic';
 
 // MUI
-import { Button } from '@mui/material';
+import { Button, CircularProgress, Pagination } from '@mui/material';
 
 // Icons
 import { FiPlus } from 'react-icons/fi';
@@ -16,6 +16,10 @@ import esFlag from '@/assets/icons/esFlag.svg';
 
 // Components
 import AdminLayout from '@/components/layout/admin-layout/admin-layout';
+
+// Apis
+import useGetBlogs from '@/apis/adminPanel/blog/useGetBlogs';
+import BlogCart from '@/components/pages/admin-panel/blog-cart/blog-cart';
 
 const CkEditor = dynamic(() => import('@/components/templates/ckEditor/ckEditor'), { ssr: false });
 
@@ -32,9 +36,12 @@ const langButtonSx = {
 };
 
 function Blog() {
+   const [pageStatus, setPageStatus] = useState(1);
    const [isAddBlogSection, setIsAddBlogSection] = useState(false);
    const [chosenLang, setChosenLang] = useState('en');
    const [ckEditorDataEn, setCkEditorDataEn] = useState('');
+
+   const { data: blogsData, isLoading: blogsDataIsLoading } = useGetBlogs(pageStatus);
 
    return (
       <AdminLayout>
@@ -96,7 +103,27 @@ function Blog() {
                </div>
             ) : (
                <div>
-                  <div>Blogs list</div>
+                  <div>
+                     {blogsDataIsLoading ? (
+                        <div className="flex items-center justify-center p-5">
+                           <CircularProgress color="secondary" />
+                        </div>
+                     ) : (
+                        <div className="space-y-4">
+                           {blogsData?.data?.map(item => (
+                              <BlogCart key={item?.id} detail={item} />
+                           ))}
+                        </div>
+                     )}
+                     <div className="mt-10 flex items-center justify-center">
+                        <Pagination
+                           count={blogsData?.total_pages || 1}
+                           onChange={(_, value) => setPageStatus(value)}
+                           color="secondary"
+                           page={blogsData?.current_page || 1}
+                        />
+                     </div>
+                  </div>
                   <div className="fixed bottom-12 right-12">
                      <Button
                         variant="contained"

@@ -19,7 +19,7 @@ import LogoutModal from '@/components/templates/logout-modal/logout-modal';
 
 // Apis
 import useGetInfo from '@/apis/adminPanel/home/useGetInfo';
-import useGetTicketsCount from '@/apis/tickets/useGetTicketsCount';
+import useGetTicketsCount from '@/apis/adminPanel/tickets/useGetTicketsCount';
 
 function AdminSideBar() {
    const [showLogoutModal, setShowLogoutModal] = useState(false);
