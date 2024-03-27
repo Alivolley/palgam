@@ -19,7 +19,7 @@ axiosInstance.interceptors.request.use(
          config.headers.Authorization = `Bearer ${accessToken}`;
       }
 
-      if (lang && config.method !== 'post') {
+      if (lang && config.method !== 'post' && config.method !== 'delete') {
          config.params = { ...config.params, lang };
       }
 

@@ -38,7 +38,7 @@ const CkEditorStyle = styled.div(() => ({
    },
 
    '.ck-content': {
-      minHeight: '500px',
+      height: '400px',
       lineHeight: '27px',
       padding: '0 25px !important',
    },

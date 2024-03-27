@@ -1,9 +1,18 @@
+import { useState } from 'react';
+
 // MUI
 import { Button } from '@mui/material';
 
 // Icons
 import { FaUser } from 'react-icons/fa6';
 import { MdDateRange } from 'react-icons/md';
+
+// Components
+import ConfirmModal from '@/components/templates/confirm-modal/confirm-modal';
+
+// Apis
+import useDeleteBlog from '@/apis/adminPanel/blog/useDeleteBlog';
+import useShowHideBlog from '@/apis/adminPanel/blog/useShowHideBlog';
 
 const buttonStyle = {
    borderRadius: '12px',
@@ -13,7 +22,36 @@ const buttonStyle = {
    fontFamily: 'poppinsSemibold',
 };
 
-function BlogCart({ detail }) {
+function BlogCart({ detail, blogsDataMutate }) {
+   const [showDeleteModal, setShowDeleteModal] = useState(false);
+   const [showHideModal, setShowHideModal] = useState(false);
+
+   const { trigger: deleteBlogTrigger, isMutating: deleteBlogIsMutating } = useDeleteBlog();
+   const { trigger: showHideBlogTrigger, isMutating: showHideBlogIsMutating } = useShowHideBlog();
+
+   const deleteBlogHandler = () => {
+      deleteBlogTrigger(detail?.id, {
+         onSuccess: () => {
+            blogsDataMutate();
+            setShowDeleteModal(false);
+         },
+      });
+   };
+
+   const hideShowHandler = () => {
+      const newData = {
+         id: detail?.id,
+         is_hide: !detail?.is_hide,
+      };
+
+      showHideBlogTrigger(newData, {
+         onSuccess: () => {
+            blogsDataMutate();
+            setShowHideModal(false);
+         },
+      });
+   };
+
    return (
       <div className="rounded-xl border border-solid border-[#ffffff26] p-6">
          <div className="flex items-center justify-between">
@@ -64,8 +102,9 @@ function BlogCart({ detail }) {
                }}
                fullWidth
                variant="contained"
+               onClick={() => setShowHideModal(true)}
             >
-               Hide blog
+               {detail?.is_hide ? 'Show blog' : 'Hide blog'}
             </Button>
             <Button
                sx={{
@@ -76,10 +115,27 @@ function BlogCart({ detail }) {
                }}
                fullWidth
                variant="contained"
+               onClick={() => setShowDeleteModal(true)}
             >
                Delete blog
             </Button>
          </div>
+
+         <ConfirmModal
+            closeModal={() => setShowDeleteModal(false)}
+            title="Are you sure about deleting this blog ?"
+            confirmHandler={deleteBlogHandler}
+            open={showDeleteModal}
+            confirmLoading={deleteBlogIsMutating}
+         />
+
+         <ConfirmModal
+            closeModal={() => setShowHideModal(false)}
+            title={`Are you sure about ${detail?.is_hide ? 'showing' : 'hiding'} this blog ?`}
+            confirmHandler={hideShowHandler}
+            open={showHideModal}
+            confirmLoading={showHideBlogIsMutating}
+         />
       </div>
    );
 }
