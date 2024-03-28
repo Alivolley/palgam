@@ -8,8 +8,8 @@ import { FiPlus } from 'react-icons/fi';
 
 // Components
 import AdminLayout from '@/components/layout/admin-layout/admin-layout';
-import BlogCart from '@/components/pages/admin-panel/blog-cart/blog-cart';
-import AddEditBlogSection from '@/components/pages/admin-panel/addEditBlogSection/addEditBlogSection';
+import BlogCart from '@/components/pages/admin-panel/blog/blog-cart/blog-cart';
+import AddEditBlogSection from '@/components/pages/admin-panel/blog/addEditBlogSection/addEditBlogSection';
 
 // Apis
 import useGetBlogs from '@/apis/adminPanel/blog/useGetBlogs';

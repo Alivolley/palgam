@@ -41,7 +41,7 @@ function BlogCart({ detail, blogsDataMutate, setEditHandler }) {
    const hideShowHandler = () => {
       const formData = new FormData();
       formData?.append('id', detail?.id);
-      formData?.append('is_hide', detail?.is_hide);
+      formData?.append('is_hide', !detail?.is_hide);
 
       showHideBlogTrigger(formData, {
          onSuccess: () => {
