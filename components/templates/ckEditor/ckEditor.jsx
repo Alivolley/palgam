@@ -12,8 +12,8 @@ function uploadAdapter(loader) {
             loader.file.then(file => {
                body.append('image', file);
                axiosInstance
-                  .post('url', body)
-                  .then(res => resolve({ default: res.data.url }))
+                  .post('blog/uploadImage', body)
+                  .then(res => resolve({ default: res.data.data }))
                   .catch(err => reject(err));
             });
          }),
@@ -50,8 +50,6 @@ const editorConfiguration = {
 };
 
 function CkEditor({ initialData, onChange }) {
-   // console.log(initialData);
-
    return (
       <CkEditorStyle>
          <CKEditor

@@ -22,7 +22,7 @@ const buttonStyle = {
    fontFamily: 'poppinsSemibold',
 };
 
-function BlogCart({ detail, blogsDataMutate }) {
+function BlogCart({ detail, blogsDataMutate, setEditHandler }) {
    const [showDeleteModal, setShowDeleteModal] = useState(false);
    const [showHideModal, setShowHideModal] = useState(false);
 
@@ -39,12 +39,11 @@ function BlogCart({ detail, blogsDataMutate }) {
    };
 
    const hideShowHandler = () => {
-      const newData = {
-         id: detail?.id,
-         is_hide: !detail?.is_hide,
-      };
+      const formData = new FormData();
+      formData?.append('id', detail?.id);
+      formData?.append('is_hide', detail?.is_hide);
 
-      showHideBlogTrigger(newData, {
+      showHideBlogTrigger(formData, {
          onSuccess: () => {
             blogsDataMutate();
             setShowHideModal(false);
@@ -90,15 +89,24 @@ function BlogCart({ detail, blogsDataMutate }) {
                }}
                fullWidth
                variant="contained"
+               onClick={() => setEditHandler(detail)}
             >
                Edit blog
             </Button>
             <Button
                sx={{
                   ...buttonStyle,
-                  backgroundColor: '#ffc7001f',
-                  color: '#FFC700',
-                  ':hover': { backgroundColor: '#ffc7000d' },
+                  ...(detail?.is_hide
+                     ? {
+                          backgroundColor: '#4ade801f',
+                          color: '#4ade80',
+                          ':hover': { backgroundColor: '#4ade800d' },
+                       }
+                     : {
+                          backgroundColor: '#ffc7001f',
+                          color: '#FFC700',
+                          ':hover': { backgroundColor: '#ffc7000d' },
+                       }),
                }}
                fullWidth
                variant="contained"

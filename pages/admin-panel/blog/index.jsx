@@ -17,8 +17,14 @@ import useGetBlogs from '@/apis/adminPanel/blog/useGetBlogs';
 function Blog() {
    const [pageStatus, setPageStatus] = useState(1);
    const [isAddEditBlogSection, setIsAddEditBlogSection] = useState(false);
+   const [chosenBlogForEdit, setChosenBlogForEdit] = useState();
 
    const { data: blogsData, isLoading: blogsDataIsLoading, mutate: blogsDataMutate } = useGetBlogs(pageStatus);
+
+   const setEditHandler = item => {
+      setChosenBlogForEdit(item);
+      setIsAddEditBlogSection(true);
+   };
 
    return (
       <AdminLayout>
@@ -27,6 +33,9 @@ function Blog() {
                <AddEditBlogSection
                   setIsAddEditBlogSection={setIsAddEditBlogSection}
                   blogsDataMutate={blogsDataMutate}
+                  chosenBlogForEdit={chosenBlogForEdit}
+                  isEditBlog={!!chosenBlogForEdit}
+                  setChosenBlogForEdit={setChosenBlogForEdit}
                />
             ) : (
                <div>
@@ -39,7 +48,12 @@ function Blog() {
                         <>
                            <div className="space-y-4">
                               {blogsData?.data?.map(item => (
-                                 <BlogCart key={item?.id} detail={item} blogsDataMutate={blogsDataMutate} />
+                                 <BlogCart
+                                    key={item?.id}
+                                    detail={item}
+                                    blogsDataMutate={blogsDataMutate}
+                                    setEditHandler={setEditHandler}
+                                 />
                               ))}
                            </div>
                            <div className="mt-16 flex items-center justify-center">
