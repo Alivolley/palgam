@@ -15,6 +15,11 @@ import HomeSection3 from '@/components/pages/admin-panel/page-edit/home-section3
 import HomeSection4 from '@/components/pages/admin-panel/page-edit/home-section4/home-section4';
 import HomeSection5 from '@/components/pages/admin-panel/page-edit/home-section5/home-section5';
 import HomeSection6 from '@/components/pages/admin-panel/page-edit/home-section6/home-section6';
+import SupportWhitePaper from '@/components/pages/admin-panel/page-edit/support-whitePaper/support-whitePaper';
+import SupportPrivacyPolicy from '@/components/pages/admin-panel/page-edit/support-privacyPolicy/support-privacyPolicy';
+import SupportTerms from '@/components/pages/admin-panel/page-edit/support-terms/support-terms';
+import SupportContactUs from '@/components/pages/admin-panel/page-edit/support-contactUs/support-contactUs';
+import SupportLicense from '@/components/pages/admin-panel/page-edit/support-license/support-license';
 
 const pageButtonSx = {
    flex: '1 1 0%',
@@ -62,60 +67,110 @@ function PageEdit() {
                </Button>
             </div>
             <div className="mt-6">
-               <Grid container spacing="16px">
-                  <Grid item md={6}>
-                     <div className="space-y-4">
-                        <div className="rounded-2xl bg-[#ffffff0d] p-4">
-                           <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
-                              <p className="font-poppinsRegular text-sm leading-6">Section 1</p>
-                              <Image src={taskSquareGray} alt="icon" />
+               {chosenPage === 'homePage' ? (
+                  <Grid container spacing="16px">
+                     <Grid item md={6}>
+                        <div className="space-y-4">
+                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">Section 1</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              <HomeSection1 />
                            </div>
-                           <HomeSection1 />
-                        </div>
-                        <div className="rounded-2xl bg-[#ffffff0d] p-4">
-                           <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
-                              <p className="font-poppinsRegular text-sm leading-6">Section 3</p>
-                              <Image src={taskSquareGray} alt="icon" />
+                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">Section 3</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              <HomeSection3 />
                            </div>
-                           <HomeSection3 />
-                        </div>
-                        <div className="rounded-2xl bg-[#ffffff0d] p-4">
-                           <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
-                              <p className="font-poppinsRegular text-sm leading-6">Section 5</p>
-                              <Image src={taskSquareGray} alt="icon" />
+                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">Section 5</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              <HomeSection5 />
                            </div>
-                           <HomeSection5 />
                         </div>
-                     </div>
-                  </Grid>
-                  <Grid item md={6}>
-                     <div className="space-y-4">
-                        <div className="rounded-2xl bg-[#ffffff0d] p-4">
-                           <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
-                              <p className="font-poppinsRegular text-sm leading-6">Section 2</p>
-                              <Image src={taskSquareGray} alt="icon" />
+                     </Grid>
+                     <Grid item md={6}>
+                        <div className="space-y-4">
+                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">Section 2</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              <HomeSection2 />
                            </div>
-                           <HomeSection2 />
-                        </div>
 
-                        <div className="rounded-2xl bg-[#ffffff0d] p-4">
-                           <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
-                              <p className="font-poppinsRegular text-sm leading-6">Section 4</p>
-                              <Image src={taskSquareGray} alt="icon" />
+                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">Section 4</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              <HomeSection4 />
                            </div>
-                           <HomeSection4 />
-                        </div>
 
-                        <div className="rounded-2xl bg-[#ffffff0d] p-4">
-                           <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
-                              <p className="font-poppinsRegular text-sm leading-6">Section 6</p>
-                              <Image src={taskSquareGray} alt="icon" />
+                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">Section 6</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              <HomeSection6 />
                            </div>
-                           <HomeSection6 />
                         </div>
-                     </div>
+                     </Grid>
                   </Grid>
-               </Grid>
+               ) : chosenPage === 'supportPages' ? (
+                  <Grid container spacing="16px">
+                     <Grid item md={6}>
+                        <div className="space-y-4">
+                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">White paper</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              <SupportWhitePaper />
+                           </div>
+                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">Terms and Conditions</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              <SupportTerms />
+                           </div>
+                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">Contact us</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              <SupportContactUs />
+                           </div>
+                        </div>
+                     </Grid>
+                     <Grid item md={6}>
+                        <div className="space-y-4">
+                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">Privacy policy</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              <SupportPrivacyPolicy />
+                           </div>
+                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">License</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              <SupportLicense />
+                           </div>
+                        </div>
+                     </Grid>
+                  </Grid>
+               ) : chosenPage === 'affiliateProgram' ? (
+                  ''
+               ) : null}
             </div>
          </div>
       </AdminLayout>
