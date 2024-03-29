@@ -10,7 +10,7 @@ import { LoadingButton } from '@mui/lab';
 import { BiEditAlt } from 'react-icons/bi';
 
 // Assets
-import homeSection1Pic from '@/assets/images/adminPanel/home-section1.png';
+import homeSection2Pic from '@/assets/images/adminPanel/home-section2.png';
 
 // Components
 import LanguageBar from '../language-bar/language-bar';
@@ -26,7 +26,7 @@ const InputStyle = {
    },
 };
 
-function HomeSection1() {
+function HomeSection2() {
    const [chosenLang, setChosenLang] = useState('en');
    const [changeLangLoading, setChangeLangLoading] = useState(false);
 
@@ -35,6 +35,9 @@ function HomeSection1() {
 
    const { register, handleSubmit, setValue } = useForm({
       defaultValues: {
+         labelEn: '',
+         labelEs: '',
+         labelRu: '',
          titleEn: '',
          titleEs: '',
          titleRu: '',
@@ -47,21 +50,23 @@ function HomeSection1() {
    const formSubmit = data => {
       const newData = {
          page_name: 'home_page',
-         key_name: 'section1',
+         key_name: 'section2',
          english_data: {
+            label: data?.labelEn,
             title: data?.titleEn,
             description: data?.descriptionEn,
          },
          spanish_data: {
+            label: data?.labelEs,
             title: data?.titleEs,
             description: data?.descriptionEs,
          },
          russian_data: {
+            label: data?.labelRu,
             title: data?.titleRu,
             description: data?.descriptionRu,
          },
       };
-
       addEditTrigger(newData, {
          onSuccess: () => pagesDataMutate(),
       });
@@ -69,12 +74,15 @@ function HomeSection1() {
 
    useEffect(() => {
       if (pagesData) {
-         setValue('titleEn', pagesData?.home_page?.english_data?.section1?.title);
-         setValue('titleEs', pagesData?.home_page?.spanish_data?.section1?.title);
-         setValue('titleRu', pagesData?.home_page?.russian_data?.section1?.title);
-         setValue('descriptionEn', pagesData?.home_page?.english_data?.section1?.description);
-         setValue('descriptionEs', pagesData?.home_page?.spanish_data?.section1?.description);
-         setValue('descriptionRu', pagesData?.home_page?.russian_data?.section1?.description);
+         setValue('labelEn', pagesData?.home_page?.english_data?.section2?.label);
+         setValue('labelEs', pagesData?.home_page?.spanish_data?.section2?.label);
+         setValue('labelRu', pagesData?.home_page?.russian_data?.section2?.label);
+         setValue('titleEn', pagesData?.home_page?.english_data?.section2?.title);
+         setValue('titleEs', pagesData?.home_page?.spanish_data?.section2?.title);
+         setValue('titleRu', pagesData?.home_page?.russian_data?.section2?.title);
+         setValue('descriptionEn', pagesData?.home_page?.english_data?.section2?.description);
+         setValue('descriptionEs', pagesData?.home_page?.spanish_data?.section2?.description);
+         setValue('descriptionRu', pagesData?.home_page?.russian_data?.section2?.description);
       }
    }, [pagesData]);
 
@@ -88,7 +96,7 @@ function HomeSection1() {
    return (
       <div className="mt-6">
          <div className="h-[300px] w-full">
-            <Image src={homeSection1Pic} alt="sample" className="size-full rounded-2xl object-cover" />
+            <Image src={homeSection2Pic} alt="sample" className="size-full rounded-2xl object-cover" />
          </div>
          <div className="my-6">
             <LanguageBar chosenLang={chosenLang} setChosenLang={setChosenLang} />
@@ -100,6 +108,19 @@ function HomeSection1() {
                </div>
             ) : chosenLang === 'en' ? (
                <>
+                  <div className="space-y-2">
+                     <p className="font-poppinsLight text-xl leading-6">Label</p>
+                     <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
+                        <OutlinedInput
+                           {...register('labelEn')}
+                           endAdornment={
+                              <InputAdornment position="end">
+                                 <BiEditAlt size="24px" />
+                              </InputAdornment>
+                           }
+                        />
+                     </FormControl>
+                  </div>
                   <div className="space-y-2">
                      <p className="font-poppinsLight text-xl leading-6">Title</p>
                      <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
@@ -137,6 +158,19 @@ function HomeSection1() {
             ) : chosenLang === 'es' ? (
                <>
                   <div className="space-y-2">
+                     <p className="font-poppinsLight text-xl leading-6">Label</p>
+                     <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
+                        <OutlinedInput
+                           {...register('labelEs')}
+                           endAdornment={
+                              <InputAdornment position="end">
+                                 <BiEditAlt size="24px" />
+                              </InputAdornment>
+                           }
+                        />
+                     </FormControl>
+                  </div>
+                  <div className="space-y-2">
                      <p className="font-poppinsLight text-xl leading-6">Title</p>
                      <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
                         <OutlinedInput
@@ -172,6 +206,19 @@ function HomeSection1() {
                </>
             ) : chosenLang === 'ru' ? (
                <>
+                  <div className="space-y-2">
+                     <p className="font-poppinsLight text-xl leading-6">Label</p>
+                     <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
+                        <OutlinedInput
+                           {...register('labelRu')}
+                           endAdornment={
+                              <InputAdornment position="end">
+                                 <BiEditAlt size="24px" />
+                              </InputAdornment>
+                           }
+                        />
+                     </FormControl>
+                  </div>
                   <div className="space-y-2">
                      <p className="font-poppinsLight text-xl leading-6">Title</p>
                      <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
@@ -223,4 +270,4 @@ function HomeSection1() {
    );
 }
 
-export default HomeSection1;
+export default HomeSection2;
