@@ -37,6 +37,9 @@ function AffiliateSection4() {
 
    const { register, handleSubmit, setValue } = useForm({
       defaultValues: {
+         labelEn: '',
+         labelEs: '',
+         labelRu: '',
          titleEn: '',
          titleEs: '',
          titleRu: '',
@@ -101,6 +104,7 @@ function AffiliateSection4() {
          page_name: 'affiliate_page',
          key_name: 'section4',
          english_data: {
+            label: data?.labelEn,
             title: data?.titleEn,
             description: data?.descriptionEn,
             block1: {
@@ -126,6 +130,7 @@ function AffiliateSection4() {
             },
          },
          spanish_data: {
+            label: data?.labelEs,
             title: data?.titleEs,
             description: data?.descriptionEs,
             block1: {
@@ -151,6 +156,7 @@ function AffiliateSection4() {
             },
          },
          russian_data: {
+            label: data?.labelRu,
             title: data?.titleRu,
             description: data?.descriptionRu,
             block1: {
@@ -183,6 +189,9 @@ function AffiliateSection4() {
 
    useEffect(() => {
       if (pagesData) {
+         setValue('labelEn', pagesData?.affiliate_page?.english_data?.section4?.label);
+         setValue('labelEs', pagesData?.affiliate_page?.spanish_data?.section4?.label);
+         setValue('labelRu', pagesData?.affiliate_page?.russian_data?.section4?.label);
          setValue('titleEn', pagesData?.affiliate_page?.english_data?.section4?.title);
          setValue('titleEs', pagesData?.affiliate_page?.spanish_data?.section4?.title);
          setValue('titleRu', pagesData?.affiliate_page?.russian_data?.section4?.title);
@@ -269,6 +278,19 @@ function AffiliateSection4() {
             ) : chosenLang === 'en' ? (
                <>
                   <div className="space-y-2">
+                     <p className="font-poppinsLight text-xl leading-6">Label</p>
+                     <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
+                        <OutlinedInput
+                           {...register('labelEn')}
+                           endAdornment={
+                              <InputAdornment position="end">
+                                 <BiEditAlt size="24px" />
+                              </InputAdornment>
+                           }
+                        />
+                     </FormControl>
+                  </div>
+                  <div className="space-y-2">
                      <p className="font-poppinsLight text-xl leading-6">Title</p>
                      <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
                         <OutlinedInput
@@ -335,6 +357,19 @@ function AffiliateSection4() {
                </>
             ) : chosenLang === 'es' ? (
                <>
+                  <div className="space-y-2">
+                     <p className="font-poppinsLight text-xl leading-6">Label</p>
+                     <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
+                        <OutlinedInput
+                           {...register('labelEs')}
+                           endAdornment={
+                              <InputAdornment position="end">
+                                 <BiEditAlt size="24px" />
+                              </InputAdornment>
+                           }
+                        />
+                     </FormControl>
+                  </div>
                   <div className="space-y-2">
                      <p className="font-poppinsLight text-xl leading-6">Title</p>
                      <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
@@ -403,6 +438,19 @@ function AffiliateSection4() {
                </>
             ) : chosenLang === 'ru' ? (
                <>
+                  <div className="space-y-2">
+                     <p className="font-poppinsLight text-xl leading-6">Label</p>
+                     <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
+                        <OutlinedInput
+                           {...register('labelRu')}
+                           endAdornment={
+                              <InputAdornment position="end">
+                                 <BiEditAlt size="24px" />
+                              </InputAdornment>
+                           }
+                        />
+                     </FormControl>
+                  </div>
                   <div className="space-y-2">
                      <p className="font-poppinsLight text-xl leading-6">Title</p>
                      <FormControl variant="outlined" fullWidth color="customPurple" sx={InputStyle}>
