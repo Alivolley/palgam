@@ -20,6 +20,11 @@ import SupportPrivacyPolicy from '@/components/pages/admin-panel/page-edit/suppo
 import SupportTerms from '@/components/pages/admin-panel/page-edit/support-terms/support-terms';
 import SupportContactUs from '@/components/pages/admin-panel/page-edit/support-contactUs/support-contactUs';
 import SupportLicense from '@/components/pages/admin-panel/page-edit/support-license/support-license';
+import AffiliateSection1 from '@/components/pages/admin-panel/page-edit/affiliate-section1/affiliate-section1';
+import AffiliateSection3 from '@/components/pages/admin-panel/page-edit/affiliate-section3/affiliate-section3';
+import AffiliateSection5 from '@/components/pages/admin-panel/page-edit/affiliate-section5/affiliate-section5';
+import AffiliateSection6 from '@/components/pages/admin-panel/page-edit/affiliate-section6/affiliate-section6';
+import AffiliateSection4 from '@/components/pages/admin-panel/page-edit/affiliate-section4/affiliate-section4';
 
 const pageButtonSx = {
    flex: '1 1 0%',
@@ -169,7 +174,58 @@ function PageEdit() {
                      </Grid>
                   </Grid>
                ) : chosenPage === 'affiliateProgram' ? (
-                  ''
+                  <Grid container spacing="16px">
+                     <Grid item md={6}>
+                        <div className="space-y-4">
+                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">Section 1</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              <AffiliateSection1 />
+                           </div>
+                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">Section 3</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              <AffiliateSection3 />
+                           </div>
+                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">Section 5</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              <AffiliateSection5 />
+                           </div>
+                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">Section 6</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              <AffiliateSection6 />
+                           </div>
+                        </div>
+                     </Grid>
+                     <Grid item md={6}>
+                        <div className="space-y-4">
+                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">Section 2</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              {/* <SupportPrivacyPolicy /> */}
+                           </div>
+                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">Section 4</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              <AffiliateSection4 />
+                           </div>
+                        </div>
+                     </Grid>
+                  </Grid>
                ) : null}
             </div>
          </div>
