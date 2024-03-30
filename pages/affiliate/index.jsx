@@ -19,8 +19,9 @@ import Tab3 from '@/components/pages/affiliate/tab3/tab3';
 import Tab4 from '@/components/pages/affiliate/tab4/tab4';
 import Tab5 from '@/components/pages/affiliate/tab5/tab5';
 import AffiliateStyle from './affiliate.style';
+import axiosInstance from '@/configs/axiosInstance';
 
-function Affiliate() {
+function Affiliate({ affiliateData }) {
    const [tabsValue, setTabsValue] = useState(1);
    const isDesktop = useMediaQuery(`(min-width: 900px)`);
 
@@ -64,15 +65,13 @@ function Affiliate() {
                   className="mb-12 rounded-2xl bg-[#ffffff1a] px-6 py-2 text-center font-poppinsLight
                    text-xs leading-[24px] text-white backdrop-blur-[12px] customMd:text-[18px] customMd:leading-[32px]"
                >
-                  What is Affiliate Marketing ?
+                  {affiliateData?.data?.section1?.label}
                </p>
                <p className="text-center font-arimaBold text-[50px] leading-[56px] text-white customMd:text-[88px] customMd:leading-[112px]">
-                  Affiliate Marketing in <span id="palgamWord">Palgam</span>
+                  {affiliateData?.data?.section1?.title}
                </p>
                <p className="max-w-[1167px] text-center font-poppinsLight text-xs leading-[24px] text-[#ffffffb3] customMd:text-[18px] customMd:leading-[32px]">
-                  In a nutshell, affiliate marketing involves a team dedicating significant effort to develop a product
-                  and also handling its support. But you, by just introducing this product to your audience, can earn up
-                  to 40% of its profits in partnership with the products creator. isnt this an excellent opportunity?
+                  {affiliateData?.data?.section1?.description}
                </p>
             </div>
          </div>
@@ -95,15 +94,15 @@ function Affiliate() {
 
          <div>
             {tabsValue === 1 ? (
-               <Tab1 />
+               <Tab1 affiliateData={affiliateData} />
             ) : tabsValue === 2 ? (
-               <Tab2 />
+               <Tab2 affiliateData={affiliateData} />
             ) : tabsValue === 3 ? (
-               <Tab3 />
+               <Tab3 affiliateData={affiliateData} />
             ) : tabsValue === 4 ? (
-               <Tab4 />
+               <Tab4 affiliateData={affiliateData} />
             ) : tabsValue === 5 ? (
-               <Tab5 />
+               <Tab5 affiliateData={affiliateData} />
             ) : null}
          </div>
       </AffiliateStyle>
@@ -111,3 +110,15 @@ function Affiliate() {
 }
 
 export default Affiliate;
+
+export async function getStaticProps(context) {
+   const affiliateData = await axiosInstance(`page/?lang=${context.locale}&page=affiliate_page`).then(res => res.data);
+
+   return {
+      props: {
+         messages: (await import(`@/messages/${context.locale}.json`)).default,
+         affiliateData,
+      },
+      revalidate: 5,
+   };
+}

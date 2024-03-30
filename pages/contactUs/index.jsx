@@ -4,20 +4,25 @@ import { useForm } from 'react-hook-form';
 // MUI
 import { TextField, Grid } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+import axiosInstance from '@/configs/axiosInstance';
+import useSendTicket from '@/apis/contactUs/useSendTicket';
 
 // Assets
 const importAll = r => r.keys().map(r);
 const images = importAll(require.context('@/assets/images/cards', false, /\.(png|jpe?g|svg)$/));
 
-function ContactUs() {
+function ContactUs({ contactUsData }) {
    const firstArray = images.slice(0, 9);
    const secondArray = images.slice(10, 20);
    const thirdArray = images.slice(20);
+
+   const { trigger: sentTicketTrigger, isMutating: sendTicketIsMutating } = useSendTicket();
 
    const {
       register,
       handleSubmit,
       formState: { errors },
+      reset,
    } = useForm({
       defaultValues: {
          firstName: '',
@@ -30,7 +35,16 @@ function ContactUs() {
    });
 
    const formSubmit = data => {
-      console.log(data);
+      const newTicket = {
+         name: `${data?.firstName} ${data?.lastName}`,
+         email: data?.email,
+         text: data?.message,
+         title: data?.title,
+      };
+
+      sentTicketTrigger(newTicket, {
+         onSuccess: () => reset(),
+      });
    };
 
    return (
@@ -76,11 +90,10 @@ function ContactUs() {
                   style={{ background: 'linear-gradient(180deg, #5922E9 0%, #DD43EF 100%)' }}
                />
                <p className="relative text-center font-arimaBold text-[50px] leading-[56px] text-white customMd:text-start customMd:text-[88px] customMd:leading-[112px]">
-                  CONTACT US
+                  {contactUsData?.data?.contactUs?.title}
                </p>
                <p className="relative mt-2 text-center font-poppinsExtraLight text-xs leading-6 text-[#ffffffb3] customMd:text-start customMd:text-[18px] customMd:leading-8">
-                  Feel free to reach out to us the contact form Our team is here to support you and answer any questions
-                  you may have. We appreciate the opportunity to communicate with our users and give insights.
+                  {contactUsData?.data?.contactUs?.description}
                </p>
                <form className="relative mt-16" onSubmit={handleSubmit(formSubmit)}>
                   <Grid container spacing="32px">
@@ -104,7 +117,7 @@ function ContactUs() {
                            }}
                            error={!!errors?.firstName}
                            helperText={errors?.firstName?.message}
-                           //    disabled={loginIsMutating}
+                           disabled={sendTicketIsMutating}
                         />
                      </Grid>
                      <Grid item xs={12} md={6}>
@@ -127,7 +140,7 @@ function ContactUs() {
                            }}
                            error={!!errors?.lastName}
                            helperText={errors?.lastName?.message}
-                           //    disabled={loginIsMutating}
+                           disabled={sendTicketIsMutating}
                         />
                      </Grid>
                      <Grid item xs={12} md={6}>
@@ -154,7 +167,7 @@ function ContactUs() {
                            }}
                            error={!!errors?.email}
                            helperText={errors?.email?.message}
-                           //    disabled={loginIsMutating}
+                           disabled={sendTicketIsMutating}
                         />
                      </Grid>
                      <Grid item xs={12} md={6}>
@@ -177,7 +190,7 @@ function ContactUs() {
                            }}
                            error={!!errors?.title}
                            helperText={errors?.title?.message}
-                           //    disabled={loginIsMutating}
+                           disabled={sendTicketIsMutating}
                         />
                      </Grid>
                      <Grid item xs={12}>
@@ -201,21 +214,22 @@ function ContactUs() {
                            }}
                            error={!!errors?.message}
                            helperText={errors?.message?.message}
-                           //    disabled={loginIsMutating}
+                           disabled={sendTicketIsMutating}
                         />
                      </Grid>
                   </Grid>
                   <div className="mt-8 flex justify-end">
                      <LoadingButton
                         type="submit"
+                        variant="contained"
+                        color="secondary"
                         className="h-[48px] w-[200px] text-xs customMd:h-[56px] customMd:w-[252px] customMd:text-sm"
                         sx={{
                            borderRadius: '12px',
-                           backgroundColor: '#8C72E2',
-                           color: 'white',
                            fontFamily: 'poppinsRegular',
                            ':hover': { backgroundColor: '#221C34' },
                         }}
+                        loading={sendTicketIsMutating}
                      >
                         Submit
                      </LoadingButton>
@@ -228,3 +242,15 @@ function ContactUs() {
 }
 
 export default ContactUs;
+
+export async function getStaticProps(context) {
+   const contactUsData = await axiosInstance(`page/?lang=${context.locale}&page=suppurt_pages`).then(res => res.data);
+
+   return {
+      props: {
+         messages: (await import(`@/messages/${context.locale}.json`)).default,
+         contactUsData,
+      },
+      revalidate: 5,
+   };
+}

@@ -7,7 +7,7 @@ import whyPalgamPurpleLines from '@/assets/images/whyPalgamPurpleLines.png';
 import whyPalgamTrophy from '@/assets/images/whyPalgamTrophy.png';
 import Block2Style from './block2.style';
 
-function Block2() {
+function Block2({ detail }) {
    return (
       <Block2Style className="relative flex shrink-0 flex-col justify-between overflow-hidden rounded-[24px] bg-[#8c72e21a] customMd:h-[360px] customMd:flex-1">
          <div className="mt-[48px] flex items-center justify-center gap-3">
@@ -62,12 +62,9 @@ function Block2() {
          </div>
          <div className="relative p-6 text-white">
             <p className="font-poppinsExtraBold text-[20px] leading-[28px] customMd:text-[24px] customMd:leading-[32px]">
-               Exciting Tournaments
+               {detail?.title}
             </p>
-            <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-               Palgam hosts thrilling tournaments, providing users with competitive gaming opportunities and chances to
-               win exciting prizes.
-            </p>
+            <p className="mt-1 font-poppinsThin text-sm leading-[24px]">{detail?.description}</p>
          </div>
          <div className="absolute inset-0">
             <Image src={dotedNoise} alt="profile frame" className="size-full" />

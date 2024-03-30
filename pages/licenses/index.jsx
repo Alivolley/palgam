@@ -1,7 +1,9 @@
 // MUI
 import { Grid } from '@mui/material';
 
-function Licenses() {
+import axiosInstance from '@/configs/axiosInstance';
+
+function Licenses({ licenseData }) {
    return (
       <div>
          <div className="sticky top-0 overflow-hidden border-b border-solid border-[#ffffff26] bg-[#080609]">
@@ -10,8 +12,7 @@ function Licenses() {
                   Licenses
                </p>
                <p className="mt-2 font-poppinsExtraLight text-[12px] leading-6 customMd:text-[18px] customMd:leading-8">
-                  Palgam has made extensive efforts to provide its users with maximum transparency andsecurity by
-                  obtaining various licenses.
+                  {licenseData?.data?.license?.description}
                </p>
             </div>
             <div
@@ -27,10 +28,10 @@ function Licenses() {
                         1
                      </p>
                      <p className="mb-4 mt-8 font-poppinsExtraBold text-[20px] leading-7 text-white customMd:text-[24px] customMd:leading-8">
-                        License from Curacao
+                        {licenseData?.data?.license?.block1?.title}
                      </p>
                      <p className="font-poppinsExtraLight text-[12px] leading-6 text-[#ffffffb3] customMd:text-[18px] customMd:leading-8">
-                        It demonstrates that Palgam s management has embraced financial transparency and responsibility.
+                        {licenseData?.data?.license?.block1?.description}
                      </p>
                   </div>
                </Grid>
@@ -40,11 +41,10 @@ function Licenses() {
                         2
                      </p>
                      <p className="mb-4 mt-8 font-poppinsExtraBold text-[20px] leading-7 text-white customMd:text-[24px] customMd:leading-8">
-                        Smart Contract Verification License
+                        {licenseData?.data?.license?.block2?.title}
                      </p>
                      <p className="font-poppinsExtraLight text-[12px] leading-6 text-[#ffffffb3] customMd:text-[18px] customMd:leading-8">
-                        t confirms that Palgam s financial system and affiliate program are 100% decentralized, with
-                        zero possibility of manipulation from thePalgam management or other users.
+                        {licenseData?.data?.license?.block2?.description}
                      </p>
                   </div>
                </Grid>
@@ -54,11 +54,10 @@ function Licenses() {
                         3
                      </p>
                      <p className="mb-4 mt-8 font-poppinsExtraBold text-[20px] leading-7 text-white customMd:text-[24px] customMd:leading-8">
-                        RNG Testing License
+                        {licenseData?.data?.license?.block3?.title}
                      </p>
                      <p className="font-poppinsExtraLight text-[12px] leading-6 text-[#ffffffb3] customMd:text-[18px] customMd:leading-8">
-                        It affirms that all cards and numbers in Palgam are generated 100%randomly, and there is no
-                        possibility of cheating, either by the management team or otherusers.
+                        {licenseData?.data?.license?.block3?.description}
                      </p>
                   </div>
                </Grid>
@@ -68,13 +67,10 @@ function Licenses() {
                         4
                      </p>
                      <p className="mb-4 mt-8 font-poppinsExtraBold text-[20px] leading-7 text-white customMd:text-[24px] customMd:leading-8">
-                        License from Apple Store and Google Play
+                        {licenseData?.data?.license?.block4?.title}
                      </p>
                      <p className="font-poppinsExtraLight text-[12px] leading-6 text-[#ffffffb3] customMd:text-[18px] customMd:leading-8">
-                        The presence of the application on Apple Store and Google Play confirms that the application has
-                        undergone a rigorous examination by experts from Apple and Google in terms of honesty,
-                        transparency, and functionality, and has been granted permission to be published on these
-                        platforms.
+                        {licenseData?.data?.license?.block4?.description}
                      </p>
                   </div>
                </Grid>
@@ -85,3 +81,15 @@ function Licenses() {
 }
 
 export default Licenses;
+
+export async function getStaticProps(context) {
+   const licenseData = await axiosInstance(`page/?lang=${context.locale}&page=suppurt_pages`).then(res => res.data);
+
+   return {
+      props: {
+         messages: (await import(`@/messages/${context.locale}.json`)).default,
+         licenseData,
+      },
+      revalidate: 5,
+   };
+}

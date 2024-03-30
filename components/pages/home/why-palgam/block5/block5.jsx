@@ -7,7 +7,7 @@ import bettingProfile2 from '@/assets/images/bettingProfile2.png';
 import bettingLightning from '@/assets/images/bettingLightning.png';
 import Block5Style from './block5.style';
 
-function Block5() {
+function Block5({ detail }) {
    return (
       <Block5Style className="relative h-[360px] shrink-0 overflow-hidden rounded-[24px] customMd:flex-1">
          <div className="absolute inset-0">
@@ -26,11 +26,9 @@ function Block5() {
          </div>
          <div className="relative flex h-full flex-col justify-end p-6 text-white">
             <p className="font-poppinsExtraBold text-[20px] leading-[28px] customMd:text-[24px] customMd:leading-[32px]">
-               Betting tables
+               {detail?.title}
             </p>
-            <p className="mt-1 max-w-[193px] font-poppinsThin text-sm leading-[24px]">
-               Compete with online users and win Tether
-            </p>
+            <p className="mt-1 max-w-[193px] font-poppinsThin text-sm leading-[24px]">{detail?.description}</p>
          </div>
       </Block5Style>
    );

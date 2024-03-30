@@ -10,7 +10,7 @@ import moreAboutPic3 from '@/assets/images/moreAboutPic3.png';
 import moreAboutPic4 from '@/assets/images/moreAboutPic4.png';
 import moreAboutPic5 from '@/assets/images/moreAboutPic5.png';
 
-function MoreAbout() {
+function MoreAbout({ homePageData }) {
    const wrapperRef = useRef();
    const cart1Ref = useRef();
    const cart2Ref = useRef();
@@ -59,12 +59,11 @@ function MoreAbout() {
          <div className="absolute inset-0">
             <div className="flex size-full flex-col items-center justify-center">
                <p className="text-center font-arimaBold text-[50px] leading-[56px] text-white customMd:text-[88px] customMd:leading-[112px]">
-                  More About Our Games
+                  {homePageData?.data?.section4?.title}
                </p>
-               <p className="max-w-[892px] text-center font-poppinsLight text-xs leading-[24px] text-[#ffffffb3] customMd:text-[18px] customMd:leading-[32px]">
-                  Our diverse gaming portfolio is designed to cater to a wide range of players from casual enthusiasts
-                  to competitive strategists.
-               </p>
+               <pre className="max-w-[892px] whitespace-pre-line text-center font-poppinsLight text-xs leading-[24px] text-[#ffffffb3] customMd:text-[18px] customMd:leading-[32px]">
+                  {homePageData?.data?.section4?.description}
+               </pre>
             </div>
          </div>
 

@@ -16,7 +16,7 @@ import HomeBannerStyle from './home-banner.style';
 // Components
 import AppStoreModal from '@/components/templates/app-store-modal/app-store-modal';
 
-function HomeBanner() {
+function HomeBanner({ homePageData }) {
    const [showAppStoreModal, setShowAppStoreModal] = useState(false);
 
    return (
@@ -34,18 +34,15 @@ function HomeBanner() {
                   <span className="font-arimaBold" id="palgamWord">
                      PALGAM
                   </span>{' '}
-                  is the <span className="font-arimaBold">BEST</span> way to{' '}
-                  <span className="font-arimaBold">PLAY</span> and <span className="font-arimaBold">EARN MONEY</span>
+                  <span className="font-arimaBold">{homePageData?.data?.section1?.title}</span>
                </h1>
-               <p
-                  className="mt-4 text-center font-poppinsThin text-sm leading-[24px] text-white lg:text-start lg:text-[18px] lg:leading-[32px]"
+               <pre
+                  className="mt-4 whitespace-pre-line text-center font-poppinsThin text-sm leading-[24px] text-white lg:text-start lg:text-[18px] lg:leading-[32px]"
                   data-aos="zoom-in"
                   data-aos-delay="300"
                >
-                  Palgam in the first the Play to Earn mobile app with its unique blockchain-based gaming system,
-                  offering fun, crypto gains & betting against real players, as well as a secure, decentralized
-                  financial system, now available on iOS and Android.
-               </p>
+                  {homePageData?.data?.section1?.description}
+               </pre>
                <div
                   className="mt-10 flex items-center justify-center gap-6 lg:justify-start"
                   data-aos="fade-up"

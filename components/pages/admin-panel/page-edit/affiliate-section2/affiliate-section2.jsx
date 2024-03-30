@@ -622,8 +622,6 @@ function AffiliateSection2() {
       }
    }, [pagesData]);
 
-   //    console.log(pagesData);
-
    useEffect(() => {
       setChangeLangLoading(true);
       setTimeout(() => {

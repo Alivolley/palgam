@@ -9,7 +9,7 @@ import block8Profile3 from '@/assets/images/block8Profile3.png';
 import block8Profile4 from '@/assets/images/block8Profile4.png';
 import block8Noise from '@/assets/images/block8Noise.png';
 
-function Block8() {
+function Block8({ detail }) {
    return (
       <BlockStyle className="relative h-[360px] shrink-0 overflow-hidden rounded-[24px] bg-[#ffffff1a] customMd:flex-1">
          <div className="flex h-full flex-col justify-between">
@@ -32,11 +32,9 @@ function Block8() {
             </div>
             <div className="flex flex-col p-6 text-white">
                <p className="font-poppinsExtraBold text-[20px] leading-[28px] customMd:text-[24px] customMd:leading-[32px]">
-                  Play and Chat With Friends
+                  {detail?.title}
                </p>
-               <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-                  Users can challenge their friends to games, engage in chats.
-               </p>
+               <p className="mt-1 font-poppinsThin text-sm leading-[24px]">{detail?.description}</p>
             </div>
          </div>
          <div className="absolute inset-0">

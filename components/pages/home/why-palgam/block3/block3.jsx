@@ -13,7 +13,7 @@ import supportHeart from '@/assets/images/supportHeart.png';
 import supportNoise from '@/assets/images/supportNoise.png';
 import Block3Style from './block3.style';
 
-function Block3() {
+function Block3({ detail }) {
    return (
       <Block3Style className="relative h-[360px] shrink-0 overflow-hidden rounded-[24px] bg-[#ffffff1a] customMd:flex-1">
          <div className="-mt-5 flex items-center justify-center gap-2 transition-all duration-700" id="supportMargin">
@@ -150,11 +150,9 @@ function Block3() {
          </div>
          <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
             <p className="font-poppinsExtraBold text-[20px] leading-[28px] customMd:text-[24px] customMd:leading-[32px]">
-               24/7 Support
+               {detail?.title}
             </p>
-            <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-               Palgam provides users with round-the-clock customer support.
-            </p>
+            <p className="mt-1 font-poppinsThin text-sm leading-[24px]">{detail?.description}</p>
          </div>
       </Block3Style>
    );

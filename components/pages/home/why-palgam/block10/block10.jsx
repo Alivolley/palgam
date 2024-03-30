@@ -7,7 +7,7 @@ import block10AppStore from '@/assets/images/block10AppStore.png';
 import block10GooglePlay from '@/assets/images/block10GooglePlay.png';
 import block10AppStoreActive from '@/assets/images/block10AppStoreActive.png';
 
-function Block10() {
+function Block10({ detail }) {
    return (
       <Block10Style className="relative h-[360px] shrink-0 overflow-hidden rounded-[24px] bg-[#ffffff1a] customMd:flex-1">
          <div className="absolute inset-0 transition-all duration-700" id="mainBackground">
@@ -29,11 +29,9 @@ function Block10() {
          </div>
          <div className="relative flex h-full flex-col justify-end p-6 text-white">
             <p className="font-poppinsExtraBold text-[20px] leading-[28px] customMd:text-[24px] customMd:leading-[32px]">
-               legal license
+               {detail?.title}
             </p>
-            <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-               Legally authorized in five major countries, and accessible through Google Play and App Store.
-            </p>
+            <p className="mt-1 font-poppinsThin text-sm leading-[24px]">{detail?.description}</p>
          </div>
       </Block10Style>
    );

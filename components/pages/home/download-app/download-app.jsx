@@ -15,7 +15,7 @@ import googlePlayLogo from '@/assets/icons/googlePlayLogo.svg';
 // Components
 import AppStoreModal from '@/components/templates/app-store-modal/app-store-modal';
 
-function DownloadApp() {
+function DownloadApp({ homePageData }) {
    const [showAppStoreModal, setShowAppStoreModal] = useState(false);
 
    const isDesktop = useMediaQuery(`(min-width: 900px)`);
@@ -40,12 +40,11 @@ function DownloadApp() {
                   className="rounded-2xl bg-[#ffffff1a] px-6 py-2 text-center font-poppinsExtraLight text-xs
                    leading-[24px] text-white backdrop-blur-[12px] customMd:text-[18px] customMd:leading-[32px]"
                >
-                  What are you waiting for?
+                  {homePageData?.data?.section7?.label}
                </p>
-               <div className="mt-6 text-center font-arimaBold text-[44px] leading-[50px] text-white customMd:text-[72px] customMd:leading-[80px]">
-                  <p>Are You Ready?</p>
-                  <p>Download Palgam Now!</p>
-               </div>
+               <pre className="mt-6 whitespace-pre-line text-center font-arimaBold text-[44px] leading-[50px] text-white customMd:text-[72px] customMd:leading-[80px]">
+                  {homePageData?.data?.section7?.title}
+               </pre>
 
                <div className="mt-4 flex flex-col items-center justify-center gap-4 customMd:flex-row customMd:gap-6">
                   <Button

@@ -15,7 +15,7 @@ import WhatIsCard from '@/components/templates/whatIs-card/whatIs-card';
 const importAll = r => r.keys().map(r);
 const images = importAll(require.context('@/assets/images/cards', false, /\.(png|jpe?g|svg)$/));
 
-function WhatIs() {
+function WhatIs({ homePageData }) {
    const isDesktop = useMediaQuery(`(min-width: 900px)`);
 
    const firstArray = images.slice(0, 10);
@@ -82,18 +82,18 @@ function WhatIs() {
                      className="rounded-2xl bg-[#ffffff1a] px-6 py-2 text-center font-poppinsLight text-xs
                    leading-[24px] text-white backdrop-blur-[12px] customMd:text-[18px] customMd:leading-[32px]"
                   >
-                     A Revolutionary Blockchain-Based Play to Earn Mobile Gaming Application
+                     {homePageData?.data?.section2?.label}
                   </p>
                   <div className="mt-10 customMd:mt-12">
                      <p className="text-center font-arimaBold text-[50px] leading-[56px] text-white customMd:text-[88px] customMd:leading-[112px]">
-                        What is <span id="palgamWord">Palgam?</span>
+                        <span id="palgamWord">{homePageData?.data?.section2?.title}</span>
                      </p>
-                     <p className="max-w-[892px] text-center font-poppinsLight text-xs leading-[24px] text-[#ffffffb3] customMd:text-[18px] customMd:leading-[32px]">
-                        At Palgam, We are revolutionizing mobile gaming application with a dynamic mix: skill-based
-                        challenges, foolproof cheat prevention, and real-player matchups. We deliver an unparalleled
-                        experience where players abilities directly influence their earnings, all within a trusted,
-                        decentralized financial framework.
-                     </p>
+                     <pre
+                        className="max-w-[892px] whitespace-pre-line text-center font-poppinsLight text-xs leading-[24px]
+                      text-[#ffffffb3] customMd:text-[18px] customMd:leading-[32px]"
+                     >
+                        {homePageData?.data?.section2?.description}
+                     </pre>
                   </div>
                </div>
             </div>

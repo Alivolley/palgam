@@ -16,15 +16,15 @@ import ourTableBlock5Icon from '@/assets/images/ourTableBlock5Icon.png';
 import block5background from '@/assets/images/block5background.png';
 import OurTablesStyle from '../../home/our-tables/our-tables.style';
 
-function Tab2() {
+function Tab2({ affiliateData }) {
    return (
       <OurTablesStyle className="relative mt-14 overflow-hidden px-4 customMd:px-20">
          <div>
             <p className="text-center font-arimaBold text-[50px] leading-[56px] text-white customMd:text-[88px] customMd:leading-[112px]">
-               Our Tables
+               {affiliateData?.data?.section3?.title}
             </p>
             <p className="text-center font-poppinsExtraLight text-xs leading-6 text-[#ffffffb3] customMd:text-[18px] customMd:leading-8">
-               Explore our diverse table options, discover your preferred table, and enjoy playing.
+               {affiliateData?.data?.section3?.description}
             </p>
          </div>
 
@@ -55,10 +55,10 @@ function Tab2() {
                            className="text-nowrap font-poppinsExtraBold text-[20px] leading-[28px] transition-all duration-700 customMd:text-[24px] customMd:leading-[32px]"
                            id="blockText"
                         >
-                           Free
+                           {affiliateData?.data?.section3?.block1?.title}
                         </p>
                         <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-                           Players can enjoy competing with other players online without any monetary exchange.
+                           {affiliateData?.data?.section3?.block1?.description}
                         </p>
                      </div>
 
@@ -93,11 +93,10 @@ function Tab2() {
                            className="text-nowrap font-poppinsExtraBold text-[20px] leading-[28px] transition-all duration-700 customMd:text-[24px] customMd:leading-[32px]"
                            id="blockText"
                         >
-                           Offline
+                           {affiliateData?.data?.section3?.block2?.title}
                         </p>
                         <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-                           Ideal for training and familiarizing with the games, this table allows users to play against
-                           the application s bot without internet connection.
+                           {affiliateData?.data?.section3?.block2?.description}
                         </p>
                      </div>
 
@@ -132,11 +131,10 @@ function Tab2() {
                            className="text-nowrap font-poppinsExtraBold text-[20px] leading-[28px] transition-all duration-700 customMd:text-[24px] customMd:leading-[32px]"
                            id="blockText"
                         >
-                           Play to Earn
+                           {affiliateData?.data?.section3?.block3?.title}
                         </p>
                         <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-                           This table offers a decentralized online competition, two players compete in games, bet with
-                           crypto, and the winner takes the prize.
+                           {affiliateData?.data?.section3?.block3?.description}
                         </p>
                      </div>
 
@@ -171,10 +169,10 @@ function Tab2() {
                            className="text-nowrap font-poppinsExtraBold text-[20px] leading-[28px] transition-all duration-700 customMd:text-[24px] customMd:leading-[32px]"
                            id="blockText"
                         >
-                           With Friend
+                           {affiliateData?.data?.section3?.block4?.title}
                         </p>
                         <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-                           Here, users have the flexibility to compete against friends from their list..
+                           {affiliateData?.data?.section3?.block4?.description}
                         </p>
                      </div>
 
@@ -209,11 +207,10 @@ function Tab2() {
                            className="text-nowrap font-poppinsExtraBold text-[20px] leading-[28px] transition-all duration-700 customMd:text-[24px] customMd:leading-[32px]"
                            id="blockText"
                         >
-                           Tournaments
+                           {affiliateData?.data?.section3?.block5?.title}
                         </p>
                         <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-                           Players enter the tournaments by paying a fee and compete at scheduled competition, and
-                           embrace the thrill of victory with prizes on the line.
+                           {affiliateData?.data?.section3?.block5?.description}
                         </p>
                      </div>
 

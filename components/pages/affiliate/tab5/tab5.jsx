@@ -6,7 +6,7 @@ import { Accordion, AccordionDetails, AccordionSummary, useMediaQuery } from '@m
 // Icons
 import { FiPlus } from 'react-icons/fi';
 
-function Tab5() {
+function Tab5({ affiliateData }) {
    const [expanded, setExpanded] = useState(false);
    const isDesktop = useMediaQuery(`(min-width: 900px)`);
 
@@ -22,7 +22,7 @@ function Tab5() {
          />
 
          <p className="relative text-center font-arimaBold text-[50px] leading-[56px] text-white customMd:text-[88px] customMd:leading-[112px]">
-            Frequently Asked Questions
+            {affiliateData?.data?.section5?.title}
          </p>
 
          <div className="relative mt-[120px]">
@@ -37,14 +37,12 @@ function Tab5() {
                      sx={{ '.Mui-expanded': { svg: { transform: 'rotate(45deg)' } } }}
                   >
                      <p className="font-poppinsExtraBold text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                        1.How can I have a custom referral code with my desired name?
+                        {affiliateData?.data?.section5?.block1?.title}
                      </p>
                   </AccordionSummary>
                   <AccordionDetails>
                      <p className="font-poppinsExtraLight text-xs leading-6 customMd:text-[18px] customMd:leading-8">
-                        Commission in Tether: Your commission is calculated in Tether (USDT), where 1 Tether equals 1
-                        USD. You can withdraw your commission at any moment from the Settings/Referral Code section in
-                        the app.
+                        {affiliateData?.data?.section5?.block1?.description}
                      </p>
                   </AccordionDetails>
                </Accordion>
@@ -61,14 +59,12 @@ function Tab5() {
                      sx={{ '.Mui-expanded': { svg: { transform: 'rotate(45deg)' } } }}
                   >
                      <p className="font-poppinsExtraBold text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                        2.How will my Commission be paid?
+                        {affiliateData?.data?.section5?.block2?.title}
                      </p>
                   </AccordionSummary>
                   <AccordionDetails>
                      <p className="font-poppinsExtraLight text-xs leading-6 customMd:text-[18px] customMd:leading-8">
-                        Commission in Tether: Your commission is calculated in Tether (USDT), where 1 Tether equals 1
-                        USD. You can withdraw your commission at any moment from the Settings/Referral Code section in
-                        the app.
+                        {affiliateData?.data?.section5?.block2?.description}
                      </p>
                   </AccordionDetails>
                </Accordion>
@@ -86,14 +82,12 @@ function Tab5() {
                      sx={{ '.Mui-expanded': { svg: { transform: 'rotate(45deg)' } } }}
                   >
                      <p className="font-poppinsExtraBold text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                        3. Is account recovery possible if I lose the 12 words given at registration?
+                        {affiliateData?.data?.section5?.block3?.title}
                      </p>
                   </AccordionSummary>
                   <AccordionDetails>
                      <p className="font-poppinsExtraLight text-xs leading-6 customMd:text-[18px] customMd:leading-8">
-                        Commission in Tether: Your commission is calculated in Tether (USDT), where 1 Tether equals 1
-                        USD. You can withdraw your commission at any moment from the Settings/Referral Code section in
-                        the app.
+                        {affiliateData?.data?.section5?.block3?.description}
                      </p>
                   </AccordionDetails>
                </Accordion>
@@ -111,14 +105,12 @@ function Tab5() {
                      sx={{ '.Mui-expanded': { svg: { transform: 'rotate(45deg)' } } }}
                   >
                      <p className="font-poppinsExtraBold text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                        4.How long does it take for my commission to be added to my Palgam account?
+                        {affiliateData?.data?.section5?.block4?.title}
                      </p>
                   </AccordionSummary>
                   <AccordionDetails>
                      <p className="font-poppinsExtraLight text-xs leading-6 customMd:text-[18px] customMd:leading-8">
-                        Commission in Tether: Your commission is calculated in Tether (USDT), where 1 Tether equals 1
-                        USD. You can withdraw your commission at any moment from the Settings/Referral Code section in
-                        the app.
+                        {affiliateData?.data?.section5?.block4?.description}
                      </p>
                   </AccordionDetails>
                </Accordion>
@@ -136,14 +128,12 @@ function Tab5() {
                      sx={{ '.Mui-expanded': { svg: { transform: 'rotate(45deg)' } } }}
                   >
                      <p className="font-poppinsExtraBold text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                        5.Will the losses of my referrals lead to a negative balance for me?
+                        {affiliateData?.data?.section5?.block5?.title}
                      </p>
                   </AccordionSummary>
                   <AccordionDetails>
                      <p className="font-poppinsExtraLight text-xs leading-6 customMd:text-[18px] customMd:leading-8">
-                        Commission in Tether: Your commission is calculated in Tether (USDT), where 1 Tether equals 1
-                        USD. You can withdraw your commission at any moment from the Settings/Referral Code section in
-                        the app.
+                        {affiliateData?.data?.section5?.block5?.description}
                      </p>
                   </AccordionDetails>
                </Accordion>
@@ -161,15 +151,12 @@ function Tab5() {
                      sx={{ '.Mui-expanded': { svg: { transform: 'rotate(45deg)' } } }}
                   >
                      <p className="font-poppinsExtraBold text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                        6.Why emphasize that the affiliate program in Palgam is decentralized and based on smart
-                        contracts?
+                        {affiliateData?.data?.section5?.block6?.title}
                      </p>
                   </AccordionSummary>
                   <AccordionDetails>
                      <p className="font-poppinsExtraLight text-xs leading-6 customMd:text-[18px] customMd:leading-8">
-                        Commission in Tether: Your commission is calculated in Tether (USDT), where 1 Tether equals 1
-                        USD. You can withdraw your commission at any moment from the Settings/Referral Code section in
-                        the app.
+                        {affiliateData?.data?.section5?.block6?.description}
                      </p>
                   </AccordionDetails>
                </Accordion>

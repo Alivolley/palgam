@@ -6,7 +6,7 @@ import Block1Style from './block1.style';
 const importAll = r => r.keys().map(r);
 const images = importAll(require.context('@/assets/images/cards', false, /\.(png|jpe?g|svg)$/));
 
-function Block1() {
+function Block1({ detail }) {
    const firstArray = images.slice(0, 12);
    const secondArray = images.slice(10, 20);
    const thirdArray = images.slice(17);
@@ -62,12 +62,9 @@ function Block1() {
 
          <div className="relative flex h-full flex-col justify-end p-6 text-white">
             <p className="font-poppinsExtraBold text-[20px] leading-[28px] customMd:text-[24px] customMd:leading-[32px]">
-               Exceptional Gameplay and Graphics
+               {detail?.title}
             </p>
-            <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-               Our games are designed to be visually stunning and engaging, offering a seamless and captivating
-               experience on mobile devices.
-            </p>
+            <p className="mt-1 font-poppinsThin text-sm leading-[24px]">{detail?.description}</p>
          </div>
       </Block1Style>
    );

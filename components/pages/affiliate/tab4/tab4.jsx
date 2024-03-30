@@ -4,7 +4,7 @@ import Image from 'next/image';
 import tab4Background1 from '@/assets/images/affiliate/tab4Background1.png';
 import tab4Background2 from '@/assets/images/affiliate/tab4Background2.png';
 
-function Tab4() {
+function Tab4({ affiliateData }) {
    return (
       <div className="relative py-[88px]">
          <div className="absolute inset-0">
@@ -17,19 +17,11 @@ function Tab4() {
                   <Image src={tab4Background2} alt="galaxy" className="size-full object-cover" />
                </div>
                <p className="relative font-arimaBold text-[44px] leading-[50px] text-white customMd:text-[88px] customMd:leading-[112px]">
-                  IMPORTANT !!!
+                  {affiliateData?.data?.section6?.title}
                </p>
-               <p className="relative mt-6 font-poppinsExtraLight text-xs leading-6 text-[#ffffffb3] customMd:mt-16 customMd:text-[18px] customMd:leading-8">
-                  Unlike all play to earn sites that give you a negative balance, you will never have a negative balance
-                  in Palgam and will always profit. Unlike other websites in the world where partner profit is based on
-                  the losses of their referrals and the wins of the referrals partner lead to a negative balance for the
-                  partner, we in Palgam for the first time in the world calculate your profit based on your referrals
-                  wins, and their losses are not considered as your negative balance! It is the first time in the world
-                  that an affiliate system is written based on a blockchain smart contract. This provides you with 100%
-                  confidence and transparency that you will not lose even 1 cent of your commission, and thePalgam
-                  application never has the ability to change your percentage, something that has often been manipulated
-                  in other betting sites due to the centralized and opaque nature of this section.
-               </p>
+               <pre className="relative mt-6 whitespace-pre-line font-poppinsExtraLight text-xs leading-6 text-[#ffffffb3] customMd:mt-16 customMd:text-[18px] customMd:leading-8">
+                  {affiliateData?.data?.section6?.description}
+               </pre>
             </div>
          </div>
       </div>

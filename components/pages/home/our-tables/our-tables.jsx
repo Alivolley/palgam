@@ -16,16 +16,16 @@ import block4background from '@/assets/images/block4background.png';
 import ourTableBlock5Icon from '@/assets/images/ourTableBlock5Icon.png';
 import block5background from '@/assets/images/block5background.png';
 
-function OurTables() {
+function OurTables({ homePageData }) {
    return (
       <OurTablesStyle className="relative mt-[100px] overflow-hidden px-4 customMd:px-20">
          <div>
             <p className="font-arimaBold text-[50px] leading-[56px] text-white customMd:text-[88px] customMd:leading-[112px]">
-               Our Tables
+               {homePageData?.data?.section5?.title}
             </p>
-            <p className="font-poppinsExtraLight text-xs leading-6 text-[#ffffffb3] customMd:text-[18px] customMd:leading-8">
-               Explore our diverse table options, discover your preferred table, and enjoy playing.
-            </p>
+            <pre className="whitespace-pre-line font-poppinsExtraLight text-xs leading-6 text-[#ffffffb3] customMd:text-[18px] customMd:leading-8">
+               {homePageData?.data?.section5?.description}
+            </pre>
          </div>
 
          <div className="mt-14">
@@ -55,11 +55,11 @@ function OurTables() {
                            className="text-nowrap font-poppinsExtraBold text-[20px] leading-[28px] transition-all duration-700 customMd:text-[24px] customMd:leading-[32px]"
                            id="blockText"
                         >
-                           Free
+                           {homePageData?.data?.section5?.block1?.title}
                         </p>
-                        <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-                           Players can enjoy competing with other players online without any monetary exchange.
-                        </p>
+                        <pre className="mt-1 whitespace-pre-line font-poppinsThin text-sm leading-[24px]">
+                           {homePageData?.data?.section5?.block1?.description}
+                        </pre>
                      </div>
 
                      <div className="absolute bottom-0 right-0">
@@ -92,11 +92,11 @@ function OurTables() {
                            className="text-nowrap font-poppinsExtraBold text-[20px] leading-[28px] transition-all duration-700 customMd:text-[24px] customMd:leading-[32px]"
                            id="blockText"
                         >
-                           With Friend
+                           {homePageData?.data?.section5?.block2?.title}
                         </p>
-                        <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-                           Here, users have the flexibility to compete against friends from their list..
-                        </p>
+                        <pre className="mt-1 whitespace-pre-line font-poppinsThin text-sm leading-[24px]">
+                           {homePageData?.data?.section5?.block2?.description}
+                        </pre>
                      </div>
 
                      <div className="absolute bottom-0 right-0">
@@ -129,12 +129,11 @@ function OurTables() {
                            className="text-nowrap font-poppinsExtraBold text-[20px] leading-[28px] transition-all duration-700 customMd:text-[24px] customMd:leading-[32px]"
                            id="blockText"
                         >
-                           Offline
+                           {homePageData?.data?.section5?.block3?.title}
                         </p>
-                        <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-                           Ideal for training and familiarizing with the games, this table allows users to play against
-                           the application s bot without internet connection.
-                        </p>
+                        <pre className="mt-1 whitespace-pre-line font-poppinsThin text-sm leading-[24px]">
+                           {homePageData?.data?.section5?.block3?.description}
+                        </pre>
                      </div>
 
                      <div className="absolute bottom-0 right-0">
@@ -167,12 +166,11 @@ function OurTables() {
                            className="text-nowrap font-poppinsExtraBold text-[20px] leading-[28px] transition-all duration-700 customMd:text-[24px] customMd:leading-[32px]"
                            id="blockText"
                         >
-                           Tournaments
+                           {homePageData?.data?.section5?.block4?.title}
                         </p>
-                        <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-                           Players enter the tournaments by paying a fee and compete at scheduled competition, and
-                           embrace the thrill of victory with prizes on the line.
-                        </p>
+                        <pre className="mt-1 whitespace-pre-line font-poppinsThin text-sm leading-[24px]">
+                           {homePageData?.data?.section5?.block4?.description}
+                        </pre>
                      </div>
 
                      <div className="absolute bottom-0 right-0">
@@ -205,12 +203,11 @@ function OurTables() {
                            className="text-nowrap font-poppinsExtraBold text-[20px] leading-[28px] transition-all duration-700 customMd:text-[24px] customMd:leading-[32px]"
                            id="blockText"
                         >
-                           Play to Earn
+                           {homePageData?.data?.section5?.block5?.title}
                         </p>
-                        <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-                           This table offers a decentralized online competition, two players compete in games, bet with
-                           crypto, and the winner takes the prize.
-                        </p>
+                        <pre className="mt-1 whitespace-pre-line font-poppinsThin text-sm leading-[24px]">
+                           {homePageData?.data?.section5?.block5?.description}
+                        </pre>
                      </div>
 
                      <div className="absolute bottom-0 right-0">

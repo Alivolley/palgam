@@ -5,8 +5,9 @@ import WhitePaperStyle from './whitePaper.style';
 
 // Assets
 import whitePaperPic from '@/assets/images/whitePaperPic.png';
+import axiosInstance from '@/configs/axiosInstance';
 
-function WhitePaper() {
+function WhitePaper({ whitePaperData }) {
    return (
       <WhitePaperStyle className="relative">
          <div className="flex flex-col pt-[90px] customMd:flex-row customMd:items-start customMd:gap-12 customMd:pt-[80px]">
@@ -21,15 +22,13 @@ function WhitePaper() {
                <div className="mt-6 space-y-6 customMd:mt-12 customMd:space-y-12">
                   <div className="flex items-start gap-[34px]">
                      <p className="font-poppinsExtraBold text-[32px] leading-[48px] text-[#8C72E2] customMd:text-[40px] customMd:leading-[64px]">
-                        1
+                        {/* 1 */}
                      </p>
-                     <p className="font-poppinsThin text-xs leading-6 text-[#ffffffb3] customMd:text-[18px] customMd:leading-8">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book. It has survived not only five centuries.
-                     </p>
+                     <pre className="whitespace-pre-line font-poppinsThin text-xs leading-6 text-[#ffffffb3] customMd:text-[18px] customMd:leading-8">
+                        {whitePaperData?.data?.whitePaper?.description}
+                     </pre>
                   </div>
-                  <div className="flex items-start gap-[34px]">
+                  {/* <div className="flex items-start gap-[34px]">
                      <p className="font-poppinsExtraBold text-[32px] leading-[48px] text-[#8C72E2] customMd:text-[40px] customMd:leading-[64px]">
                         2
                      </p>
@@ -70,7 +69,7 @@ function WhitePaper() {
                         the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley
                         of type and scrambled it to make a type specimen book. It has survived not only five centuries.
                      </p>
-                  </div>
+                  </div> */}
                </div>
             </div>
          </div>
@@ -79,3 +78,15 @@ function WhitePaper() {
 }
 
 export default WhitePaper;
+
+export async function getStaticProps(context) {
+   const whitePaperData = await axiosInstance(`page/?lang=${context.locale}&page=suppurt_pages`).then(res => res.data);
+
+   return {
+      props: {
+         messages: (await import(`@/messages/${context.locale}.json`)).default,
+         whitePaperData,
+      },
+      revalidate: 5,
+   };
+}

@@ -26,7 +26,7 @@ import tab1Icon15 from '@/assets/images/affiliate/tab1Icon15.png';
 import tab1Icon16 from '@/assets/images/affiliate/tab1Icon16.png';
 import tab1Icon17 from '@/assets/images/affiliate/tab1Icon17.png';
 
-function Tab1() {
+function Tab1({ affiliateData }) {
    const [expanded, setExpanded] = useState(false);
 
    const isDesktop = useMediaQuery(`(min-width: 900px)`);
@@ -44,11 +44,10 @@ function Tab1() {
 
          <div className="text-center">
             <p className="font-arimaBold text-[50px] leading-[56px] text-white customMd:text-[88px] customMd:leading-[112px]">
-               Unique Features
+               {affiliateData?.data?.section2?.title}
             </p>
             <p className="font-poppinsExtraLight text-xs leading-6 text-[#ffffffb3] customMd:text-[18px] customMd:leading-8">
-               Palgam is a blockchain-based gaming application for iOS and Android devices. Users can compete in games
-               and win prizes. Palgam includes five popular games: Hokam,Poker, Backgammon, Table Soccer, and Billiards.
+               {affiliateData?.data?.section2?.description}
             </p>
          </div>
 
@@ -78,7 +77,7 @@ function Tab1() {
                      }}
                   >
                      <p className="font-poppinsExtraLight text-xs leading-6 customMd:text-[18px] customMd:leading-8">
-                        Licensing and Accessibility
+                        {affiliateData?.data?.section2?.features1?.title}
                      </p>
                   </AccordionSummary>
                   <AccordionDetails>
@@ -88,9 +87,10 @@ function Tab1() {
                               <Image src={tab1Icon1} alt="icon" className="size-full" />
                            </div>
                            <p className="mt-4 font-poppinsExtraLight text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                              <span className="font-poppinsExtraBold">Palgam is legally authorized:</span> in many
-                              countries, including Canada, and accessible through Google Play and the Apple Store in
-                              different countries.
+                              <span className="font-poppinsExtraBold">
+                                 {affiliateData?.data?.section2?.features1?.text1}
+                              </span>{' '}
+                              {affiliateData?.data?.section2?.features1?.description1}
                            </p>
                         </div>
                         <div className="rounded-3xl border border-solid border-[#ffffff26] px-4 py-6 customMd:px-6">
@@ -98,8 +98,10 @@ function Tab1() {
                               <Image src={tab1Icon2} alt="icon" className="size-full" />
                            </div>
                            <p className="mt-4 font-poppinsExtraLight text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                              <span className="font-poppinsExtraBold">Curacao License:</span> Our dedication to
-                              financial integrity and accountability.
+                              <span className="font-poppinsExtraBold">
+                                 {affiliateData?.data?.section2?.features1?.text2}
+                              </span>{' '}
+                              {affiliateData?.data?.section2?.features1?.description2}
                            </p>
                         </div>
                         <div className="rounded-3xl border border-solid border-[#ffffff26] px-4 py-6 customMd:px-6">
@@ -107,9 +109,10 @@ function Tab1() {
                               <Image src={tab1Icon3} alt="icon" className="size-full" />
                            </div>
                            <p className="mt-4 font-poppinsExtraLight text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                              <span className="font-poppinsExtraBold">Smart Contract Verification License:</span>{' '}
-                              Guarantees that Palgam s operations, including our affiliate program, run on a fully
-                              decentralized system, eliminating any room for manipulation.
+                              <span className="font-poppinsExtraBold">
+                                 {affiliateData?.data?.section2?.features1?.text3}
+                              </span>{' '}
+                              {affiliateData?.data?.section2?.features1?.description3}
                            </p>
                         </div>
                         <div className="rounded-3xl border border-solid border-[#ffffff26] px-4 py-6 customMd:px-6">
@@ -117,9 +120,10 @@ function Tab1() {
                               <Image src={tab1Icon4} alt="icon" className="size-full" />
                            </div>
                            <p className="mt-4 font-poppinsExtraLight text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                              <span className="font-poppinsExtraBold">RNG Testing License:</span> Ensures that all game
-                              outcomes are generated with absolute randomness, maintaining a fair play environment free
-                              from internal or external interference.
+                              <span className="font-poppinsExtraBold">
+                                 {affiliateData?.data?.section2?.features1?.text4}
+                              </span>{' '}
+                              {affiliateData?.data?.section2?.features1?.description4}
                            </p>
                         </div>
                         <div className="rounded-3xl border border-solid border-[#ffffff26] px-4 py-6 customMd:px-6">
@@ -127,9 +131,10 @@ function Tab1() {
                               <Image src={tab1Icon5} alt="icon" className="size-full" />
                            </div>
                            <p className="mt-4 font-poppinsExtraLight text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                              <span className="font-poppinsExtraBold">Apple Store and Google Play Licenses:</span>{' '}
-                              Affirms our app s quality and reliability, having passed thorough evaluations for honesty,
-                              transparency, and functionality by tech giants Apple and Google.
+                              <span className="font-poppinsExtraBold">
+                                 {affiliateData?.data?.section2?.features1?.text5}
+                              </span>{' '}
+                              {affiliateData?.data?.section2?.features1?.description5}
                            </p>
                         </div>
                      </div>
@@ -161,7 +166,7 @@ function Tab1() {
                      }}
                   >
                      <p className="font-poppinsExtraLight text-xs leading-6 customMd:text-[18px] customMd:leading-8">
-                        Blockchain Security, Decentralization & User Privacy
+                        {affiliateData?.data?.section2?.features2?.title}
                      </p>
                   </AccordionSummary>
                   <AccordionDetails>
@@ -171,10 +176,10 @@ function Tab1() {
                               <Image src={tab1Icon6} alt="icon" className="size-full" />
                            </div>
                            <p className="mt-4 font-poppinsExtraLight text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                              <span className="font-poppinsExtraBold">Decentralized Cryptocurrency Wallet:</span> This
-                              feature allows financial transactions within the app to be used as a decentralized
-                              cryptocurrency wallet. Palgam does not have access to users funds. Balances are stored in
-                              a decentralized blockchain environment, secured by 12 security words.
+                              <span className="font-poppinsExtraBold">
+                                 {affiliateData?.data?.section2?.features2?.text1}
+                              </span>{' '}
+                              {affiliateData?.data?.section2?.features2?.description1}
                            </p>
                         </div>
                         <div className="rounded-3xl border border-solid border-[#ffffff26] px-4 py-6 customMd:px-6">
@@ -183,9 +188,9 @@ function Tab1() {
                            </div>
                            <p className="mt-4 font-poppinsExtraLight text-sm leading-6 customMd:text-[18px] customMd:leading-8">
                               <span className="font-poppinsExtraBold">
-                                 Decentralized games and execution via smart contracts prevent cheating:
+                                 {affiliateData?.data?.section2?.features2?.text2}
                               </span>{' '}
-                              All payments are made through smart contracts, ensuring transparency and speed.
+                              {affiliateData?.data?.section2?.features2?.description2}
                            </p>
                         </div>
                      </div>
@@ -217,7 +222,7 @@ function Tab1() {
                      }}
                   >
                      <p className="font-poppinsExtraLight text-xs leading-6 customMd:text-[18px] customMd:leading-8">
-                        Next Level Gaming Experience
+                        {affiliateData?.data?.section2?.features3?.title}
                      </p>
                   </AccordionSummary>
                   <AccordionDetails>
@@ -227,8 +232,10 @@ function Tab1() {
                               <Image src={tab1Icon8} alt="icon" className="size-full" />
                            </div>
                            <p className="mt-4 font-poppinsExtraLight text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                              <span className="font-poppinsExtraBold">Play to earn feature</span> & real player betting
-                              in games.
+                              <span className="font-poppinsExtraBold">
+                                 {affiliateData?.data?.section2?.features3?.text1}
+                              </span>{' '}
+                              {affiliateData?.data?.section2?.features3?.description1}
                            </p>
                         </div>
                         <div className="rounded-3xl border border-solid border-[#ffffff26] px-4 py-6 customMd:px-6">
@@ -236,8 +243,10 @@ function Tab1() {
                               <Image src={tab1Icon9} alt="icon" className="size-full" />
                            </div>
                            <p className="mt-4 font-poppinsExtraLight text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                              <span className="font-poppinsExtraBold">Superior Graphics:</span> Palgam app pages are
-                              designed with stunning, attractive, and professional graphics by top designers.
+                              <span className="font-poppinsExtraBold">
+                                 {affiliateData?.data?.section2?.features3?.text2}
+                              </span>{' '}
+                              {affiliateData?.data?.section2?.features3?.description2}
                            </p>
                         </div>
                         <div className="rounded-3xl border border-solid border-[#ffffff26] px-4 py-6 customMd:px-6">
@@ -245,8 +254,10 @@ function Tab1() {
                               <Image src={tab1Icon10} alt="icon" className="size-full" />
                            </div>
                            <p className="mt-4 font-poppinsExtraLight text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                              <span className="font-poppinsExtraBold">Five Popular and Well-Known Games:</span> These
-                              games are so popular that almost every user knows at least one of them
+                              <span className="font-poppinsExtraBold">
+                                 {affiliateData?.data?.section2?.features3?.text3}
+                              </span>{' '}
+                              {affiliateData?.data?.section2?.features3?.description3}
                            </p>
                         </div>
                         <div className="rounded-3xl border border-solid border-[#ffffff26] px-4 py-6 customMd:px-6">
@@ -255,9 +266,9 @@ function Tab1() {
                            </div>
                            <p className="mt-4 font-poppinsExtraLight text-sm leading-6 customMd:text-[18px] customMd:leading-8">
                               <span className="font-poppinsExtraBold">
-                                 Play with Friends with features like chat and choosing the amount:
+                                 {affiliateData?.data?.section2?.features3?.text4}
                               </span>{' '}
-                              In Palgam, you can invite your friend to a game and compete with or without betting.
+                              {affiliateData?.data?.section2?.features3?.description4}
                            </p>
                         </div>
                         <div className="rounded-3xl border border-solid border-[#ffffff26] px-4 py-6 customMd:px-6">
@@ -265,8 +276,10 @@ function Tab1() {
                               <Image src={tab1Icon12} alt="icon" className="size-full" />
                            </div>
                            <p className="mt-4 font-poppinsExtraLight text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                              <span className="font-poppinsExtraBold">Exciting Tournaments:</span> Tournaments are a
-                              prominent feature of this application.
+                              <span className="font-poppinsExtraBold">
+                                 {affiliateData?.data?.section2?.features3?.text5}
+                              </span>{' '}
+                              {affiliateData?.data?.section2?.features3?.description5}
                            </p>
                         </div>
                      </div>
@@ -299,7 +312,7 @@ function Tab1() {
                      }}
                   >
                      <p className="font-poppinsExtraLight text-xs leading-6 customMd:text-[18px] customMd:leading-8">
-                        Rewards and Incentives
+                        {affiliateData?.data?.section2?.features4?.title}
                      </p>
                   </AccordionSummary>
                   <AccordionDetails>
@@ -309,8 +322,10 @@ function Tab1() {
                               <Image src={tab1Icon13} alt="icon" className="size-full" />
                            </div>
                            <p className="mt-4 font-poppinsExtraLight text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                              <span className="font-poppinsExtraBold">$1 Bonus to Users After 20 Wins:</span> Any user
-                              who achieves 20 wins at free tables receives a $1 bonus from the application.
+                              <span className="font-poppinsExtraBold">
+                                 {affiliateData?.data?.section2?.features4?.text1}
+                              </span>{' '}
+                              {affiliateData?.data?.section2?.features4?.description1}
                            </p>
                         </div>
                         <div className="rounded-3xl border border-solid border-[#ffffff26] px-4 py-6 customMd:px-6">
@@ -318,8 +333,10 @@ function Tab1() {
                               <Image src={tab1Icon14} alt="icon" className="size-full" />
                            </div>
                            <p className="mt-4 font-poppinsExtraLight text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                              <span className="font-poppinsExtraBold">Referral Code Bonus for Users:</span> Palgam
-                              offers a $1 bonus to every user who registers using a referral code
+                              <span className="font-poppinsExtraBold">
+                                 {affiliateData?.data?.section2?.features4?.text2}
+                              </span>{' '}
+                              {affiliateData?.data?.section2?.features4?.description2}
                            </p>
                         </div>
                      </div>
@@ -352,7 +369,7 @@ function Tab1() {
                      }}
                   >
                      <p className="font-poppinsExtraLight text-xs leading-6 customMd:text-[18px] customMd:leading-8">
-                        User Support and Accessibility
+                        {affiliateData?.data?.section2?.features5?.title}
                      </p>
                   </AccordionSummary>
                   <AccordionDetails>
@@ -362,8 +379,10 @@ function Tab1() {
                               <Image src={tab1Icon15} alt="icon" className="size-full" />
                            </div>
                            <p className="mt-4 font-poppinsExtraLight text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                              <span className="font-poppinsExtraBold">24-hour support application:</span> with language
-                              settings available in English,Arabic, Spanish, and Russian.
+                              <span className="font-poppinsExtraBold">
+                                 {affiliateData?.data?.section2?.features5?.text1}
+                              </span>{' '}
+                              {affiliateData?.data?.section2?.features5?.description1}
                            </p>
                         </div>
                         <div className="rounded-3xl border border-solid border-[#ffffff26] px-4 py-6 customMd:px-6">
@@ -371,8 +390,10 @@ function Tab1() {
                               <Image src={tab1Icon16} alt="icon" className="size-full" />
                            </div>
                            <p className="mt-4 font-poppinsExtraLight text-sm leading-6 customMd:text-[18px] customMd:leading-8">
-                              <span className="font-poppinsExtraBold">The possibility of depositing and</span>{' '}
-                              withdrawing money using Tether cryptocurrency, MasterCard, and Visa cards.
+                              <span className="font-poppinsExtraBold">
+                                 {affiliateData?.data?.section2?.features5?.text2}
+                              </span>{' '}
+                              {affiliateData?.data?.section2?.features5?.description2}
                            </p>
                         </div>
                         <div className="rounded-3xl border border-solid border-[#ffffff26] px-4 py-6 customMd:px-6">
@@ -381,10 +402,9 @@ function Tab1() {
                            </div>
                            <p className="mt-4 font-poppinsExtraLight text-sm leading-6 customMd:text-[18px] customMd:leading-8">
                               <span className="font-poppinsExtraBold">
-                                 Registration without email, password, or mobile phone number:
+                                 {affiliateData?.data?.section2?.features5?.text3}
                               </span>{' '}
-                              At registration, a user selects a username, and a wallet is created with 12security words
-                              to be saved. To log in, the user enters the 12 security words received at registration.
+                              {affiliateData?.data?.section2?.features5?.description3}
                            </p>
                         </div>
                      </div>

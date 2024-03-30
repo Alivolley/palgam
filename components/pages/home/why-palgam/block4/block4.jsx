@@ -6,7 +6,7 @@ import whyPalgamCoinNoise from '@/assets/images/whyPalgamCoinNoise.png';
 import Coin from '@/assets/images/Coin.png';
 import Block4Style from './block4.style';
 
-function Block4() {
+function Block4({ detail }) {
    return (
       <Block4Style
          className="relative flex h-[360px] shrink-0 flex-col justify-between overflow-hidden rounded-[24px] customMd:flex-1"
@@ -26,11 +26,9 @@ function Block4() {
          </div>
          <div className="relative p-6 text-white">
             <p className="font-poppinsExtraBold text-[20px] leading-[28px] customMd:text-[24px] customMd:leading-[32px]">
-               Rewarding Achievements
+               {detail?.title}
             </p>
-            <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-               Upon achieving 20 wins in free tables, users are rewarded with a $1 bonus.
-            </p>
+            <p className="mt-1 font-poppinsThin text-sm leading-[24px]">{detail?.description}</p>
          </div>
          <div className="absolute inset-0 z-[2]">
             <Image src={whyPalgamCoinNoise} alt="coin noise" className="size-full" />

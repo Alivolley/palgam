@@ -7,7 +7,7 @@ import block7Box from '@/assets/images/block7Box.png';
 import block7Check from '@/assets/images/block7Check.png';
 import block7LikeShape from '@/assets/images/block7LikeShape.png';
 
-function Block7() {
+function Block7({ detail }) {
    return (
       <Block7Style className="relative h-[360px] shrink-0 overflow-hidden rounded-[24px] customMd:flex-1">
          <div className="absolute inset-0 bg-[#ffffff1a]">
@@ -103,12 +103,9 @@ function Block7() {
 
             <div className="flex flex-col px-6 text-white">
                <p className="font-poppinsExtraBold text-[20px] leading-[28px] customMd:text-[24px] customMd:leading-[32px]">
-                  Smart Contract Verification License
+                  {detail?.title}
                </p>
-               <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
-                  Guarantees that Palgam s operations, including our affiliate program, run on a fully decentralized
-                  system, eliminating any room for manipulation.
-               </p>
+               <p className="mt-1 font-poppinsThin text-sm leading-[24px]">{detail?.description}</p>
             </div>
          </div>
       </Block7Style>
