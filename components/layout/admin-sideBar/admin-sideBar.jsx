@@ -131,9 +131,9 @@ function AdminSideBar() {
                </div>
             </Button>
 
-            <p className="mb-6 mt-[61px] text-center font-poppinsExtraLight text-sm uppercase text-[#ffffff80]">
+            {/* <p className="mb-6 mt-[61px] text-center font-poppinsExtraLight text-sm uppercase text-[#ffffff80]">
                ©2024 ALL Rights Reserved
-            </p>
+            </p> */}
          </div>
 
          <LogoutModal show={showLogoutModal} onClose={() => setShowLogoutModal(false)} />
