@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 
 // MUI
-import { Button, Grid } from '@mui/material';
+import { Button, Grid, Pagination } from '@mui/material';
 
 // Assets
 import blogHeaderBg from '@/assets/images/blogHeaderBg.png';
@@ -11,6 +11,7 @@ import BlogsStyle from './blogs.style';
 
 // Components
 import BlogCart from '@/components/templates/blog-cart/blog-cart';
+import axiosInstance from '@/configs/axiosInstance';
 
 const categoryButtonSx = {
    height: '56px',
@@ -25,7 +26,7 @@ const categoryButtonSx = {
    flexShrink: 0,
 };
 
-function Blogs() {
+function Blogs({ blogsData, allCategories }) {
    const [chosenCategory, setChosenCategory] = useState('');
    const { push, query } = useRouter();
 
@@ -45,6 +46,15 @@ function Blogs() {
          setChosenCategory(query?.category);
       }
    }, [query]);
+
+   const changePageHandler = (e, newValue) => {
+      push({
+         query: {
+            ...query,
+            page: newValue,
+         },
+      });
+   };
 
    return (
       <BlogsStyle>
@@ -75,117 +85,70 @@ function Blogs() {
                   >
                      All
                   </Button>
-                  <Button
-                     sx={{
-                        ...categoryButtonSx,
-                        ...(chosenCategory === 'crypto' && {
-                           backgroundColor: 'transparent',
-                           color: '#fff',
-                           borderColor: '#8C72E2',
-                        }),
-                     }}
-                     onClick={() => changeCategoryHandler('crypto')}
-                  >
-                     Crypto & Blockchain Updates
-                  </Button>
-                  <Button
-                     sx={{
-                        ...categoryButtonSx,
-                        ...(chosenCategory === 'invest' && {
-                           backgroundColor: 'transparent',
-                           color: '#fff',
-                           borderColor: '#8C72E2',
-                        }),
-                     }}
-                     onClick={() => changeCategoryHandler('invest')}
-                  >
-                     Crypto Investment
-                  </Button>
-                  <Button
-                     sx={{
-                        ...categoryButtonSx,
-                        ...(chosenCategory === 'playToEarn' && {
-                           backgroundColor: 'transparent',
-                           color: '#fff',
-                           borderColor: '#8C72E2',
-                        }),
-                     }}
-                     onClick={() => changeCategoryHandler('playToEarn')}
-                  >
-                     Play-to-Earn Tips and Tricks
-                  </Button>
-                  <Button
-                     sx={{
-                        ...categoryButtonSx,
-                        ...(chosenCategory === 'community' && {
-                           backgroundColor: 'transparent',
-                           color: '#fff',
-                           borderColor: '#8C72E2',
-                        }),
-                     }}
-                     onClick={() => changeCategoryHandler('community')}
-                  >
-                     Palgam Community
-                  </Button>
-                  <Button
-                     sx={{
-                        ...categoryButtonSx,
-                        ...(chosenCategory === 'tutorials' && {
-                           backgroundColor: 'transparent',
-                           color: '#fff',
-                           borderColor: '#8C72E2',
-                        }),
-                     }}
-                     onClick={() => changeCategoryHandler('tutorials')}
-                  >
-                     Tutorials
-                  </Button>
+                  {allCategories?.data?.map(item => (
+                     <Button
+                        key={item?.id}
+                        sx={{
+                           ...categoryButtonSx,
+                           ...(chosenCategory === item?.name && {
+                              backgroundColor: 'transparent',
+                              color: '#fff',
+                              borderColor: '#8C72E2',
+                           }),
+                        }}
+                        onClick={() => changeCategoryHandler(item?.name)}
+                     >
+                        {item?.name}
+                     </Button>
+                  ))}
                </div>
             </div>
          </div>
 
          <div className="relative mx-auto mt-[-150px] max-w-[1112px] px-4 customSm:mt-[-70px]">
             <Grid container spacing="24px">
-               <Grid item xs={12} sm={6} md={4}>
-                  <BlogCart />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <BlogCart />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <BlogCart />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <BlogCart />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <BlogCart />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <BlogCart />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <BlogCart />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <BlogCart />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <BlogCart />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <BlogCart />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <BlogCart />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <BlogCart />
-               </Grid>
+               {blogsData?.data?.map(item => (
+                  <Grid item xs={12} sm={6} md={4} key={item?.id}>
+                     <BlogCart detail={item} />
+                  </Grid>
+               ))}
             </Grid>
+
+            <div className="mt-16 flex items-center justify-center">
+               <Pagination
+                  count={blogsData?.total_pages}
+                  onChange={changePageHandler}
+                  page={Number(query?.page) || 1}
+                  color="secondary"
+               />
+            </div>
          </div>
       </BlogsStyle>
    );
 }
 
 export default Blogs;
+
+export async function getServerSideProps(context) {
+   const { query } = context;
+
+   let queryString = `blog/list?lang=${context.locale}`;
+
+   if (query?.page) {
+      queryString += `&page=${query.page}`;
+   }
+   if (query?.category) {
+      queryString += `&category=${query.category}`;
+   }
+
+   const blogsData = await axiosInstance(queryString).then(res => res.data);
+   const allCategories = await axiosInstance(`blog/categories?lang=${context.locale}`).then(res => res.data);
+
+   return {
+      props: {
+         messages: (await import(`@/messages/${context.locale}.json`)).default,
+         blogsData,
+         allCategories,
+      },
+   };
+}

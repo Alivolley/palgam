@@ -3,22 +3,12 @@ import styled from '@emotion/styled';
 const CkEditorStyle = styled.div(() => ({
    width: '100%',
 
-   strong: {
-      fontFamily: 'poppinsExtraBold',
+   'strong , i , h2 , h3 , h4 , p , a , img': {
+      all: 'revert',
    },
 
-   i: {
-      fontStyle: 'italic',
-   },
-
-   h2: {
-      fontSize: '33px',
-   },
-   h3: {
-      fontSize: '28px',
-   },
-   h4: {
-      fontSize: '23px',
+   a: {
+      color: 'white',
    },
 
    '.ck-editor': {
@@ -39,7 +29,6 @@ const CkEditorStyle = styled.div(() => ({
 
    '.ck-content': {
       height: '400px',
-      lineHeight: '27px',
       padding: '0 25px !important',
    },
 

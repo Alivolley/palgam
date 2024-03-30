@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
@@ -7,13 +8,11 @@ import { Button } from '@mui/material';
 // Icons
 import { GoArrowLeft } from 'react-icons/go';
 
-// Assets
-import testPic from '@/assets/images/blogDetailPic.png';
-
 // Styles
 import BlogDetailStyle from './blogDetail.style';
+import axiosInstance from '@/configs/axiosInstance';
 
-function BlogDetail() {
+function BlogDetail({ blogDetail }) {
    const { back } = useRouter();
 
    return (
@@ -35,67 +34,36 @@ function BlogDetail() {
             </Button>
             <div className="my-8 h-px bg-[#ffffff4d]" />
 
-            <div className="w-full">
-               <Image
-                  src={testPic}
-                  alt="blog"
-                  className="size-full rounded-[24px] border border-solid border-[#ffffff26]"
-               />
+            <div className="relative aspect-video w-full overflow-hidden rounded-[24px] border border-solid border-[#ffffff26]">
+               <Image src={blogDetail?.banner} alt="blog" className="object-cover" fill />
             </div>
 
             <div className="mt-8 flex flex-wrap items-center justify-between gap-y-4">
                <div className="flex flex-wrap items-center gap-4">
-                  <p
-                     className="whitespace-nowrap rounded-xl bg-[#ffffff26] px-6 py-3 font-poppinsExtraLight text-10
+                  {blogDetail?.categories?.map(item => (
+                     <p
+                        key={crypto.randomUUID()}
+                        className="whitespace-nowrap rounded-xl bg-[#ffffff26] px-6 py-3 font-poppinsExtraLight text-10
                    leading-[14px] text-[#ffffff80] customSm:text-xs customSm:leading-5 customMd:py-[18px]"
-                  >
-                     Crypto Investment
-                  </p>
-                  <p
-                     className="whitespace-nowrap rounded-xl bg-[#ffffff26] px-6 py-3 font-poppinsExtraLight text-10
-                   leading-[14px] text-[#ffffff80] customSm:text-xs customSm:leading-5 customMd:py-[18px]"
-                  >
-                     Tutorials
-                  </p>
+                     >
+                        {item}
+                     </p>
+                  ))}
                </div>
                <p className="font-poppinsThin text-xs leading-6 text-[#ffffff4d] customMd:text-[18px] customMd:leading-8">
-                  29 December 2024 | By Alexis Richard
+                  {blogDetail?.created_at} | By {blogDetail?.author}
                </p>
             </div>
 
             <div className="mt-12">
                <p className="max-w-[745px] font-poppinsExtraBold text-[32px] leading-[48px] text-white customMd:text-[40px] customMd:leading-[64px]">
-                  Lorem Ipsum is simply dummy text of the printing.
+                  {blogDetail?.title}
                </p>
-               <p className="mt-2 font-poppinsThin text-xs leading-6 text-[#ffffff80] customMd:text-[18px] customMd:leading-8">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                  industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                  scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                  into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-                  release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-                  software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of
-                  the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever
-                  since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-                  remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-                  containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-                  PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,
-                  when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-                  survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
-                  unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-                  of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                  has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley
-                  of type and scrambled it to make a type specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the
-                  1960s with the relea Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when
-                  an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-                  survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
-                  unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-                  of Lorem Ipsum.
-               </p>
+               <div
+                  id="content"
+                  className="mt-2 font-poppinsThin text-xs leading-6 text-[#ffffff80] customMd:text-[18px] customMd:leading-8"
+                  dangerouslySetInnerHTML={{ __html: blogDetail?.text }}
+               />
             </div>
          </div>
       </BlogDetailStyle>
@@ -103,3 +71,18 @@ function BlogDetail() {
 }
 
 export default BlogDetail;
+
+export async function getServerSideProps(context) {
+   const { query } = context;
+
+   const blogDetail = await axiosInstance(`blog/detail?lang=${context.locale}&title=${query?.blogTitle}`).then(
+      res => res.data
+   );
+
+   return {
+      props: {
+         messages: (await import(`@/messages/${context.locale}.json`)).default,
+         blogDetail,
+      },
+   };
+}

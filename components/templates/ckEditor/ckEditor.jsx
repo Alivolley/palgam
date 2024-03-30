@@ -41,7 +41,7 @@ const editorConfiguration = {
       // 'indent',
       '|',
       'imageUpload',
-      // 'blockQuote',
+      'blockQuote',
       // 'insertTable',
       // 'mediaEmbed',
       'undo',

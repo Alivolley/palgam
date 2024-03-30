@@ -98,8 +98,10 @@ function CategoryModal({
       formData.append('english_summary', inputValues?.en?.summary);
       formData.append('spanish_summary', inputValues?.es?.summary);
       formData.append('russian_summary', inputValues?.ru?.summary);
-      if (coverPic && bannerPic) {
+      if (coverPic) {
          formData.append('cover', coverPic);
+      }
+      if (bannerPic) {
          formData.append('banner', bannerPic);
       }
       if (isEditBlog) {
