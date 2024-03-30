@@ -25,6 +25,7 @@ import AffiliateSection3 from '@/components/pages/admin-panel/page-edit/affiliat
 import AffiliateSection5 from '@/components/pages/admin-panel/page-edit/affiliate-section5/affiliate-section5';
 import AffiliateSection6 from '@/components/pages/admin-panel/page-edit/affiliate-section6/affiliate-section6';
 import AffiliateSection4 from '@/components/pages/admin-panel/page-edit/affiliate-section4/affiliate-section4';
+import AffiliateSection2 from '@/components/pages/admin-panel/page-edit/affiliate-section2/affiliate-section2';
 
 const pageButtonSx = {
    flex: '1 1 0%',
@@ -214,7 +215,7 @@ function PageEdit() {
                                  <p className="font-poppinsRegular text-sm leading-6">Section 2</p>
                                  <Image src={taskSquareGray} alt="icon" />
                               </div>
-                              {/* <SupportPrivacyPolicy /> */}
+                              <AffiliateSection2 />
                            </div>
                            <div className="rounded-2xl bg-[#ffffff0d] p-4">
                               <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">

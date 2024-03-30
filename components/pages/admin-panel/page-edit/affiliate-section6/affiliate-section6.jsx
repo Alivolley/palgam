@@ -10,7 +10,7 @@ import { LoadingButton } from '@mui/lab';
 import { BiEditAlt } from 'react-icons/bi';
 
 // Assets
-import affiliateSection1Pic from '@/assets/images/adminPanel/affiliate-section6Pic.png';
+import affiliateSection6Pic from '@/assets/images/adminPanel/affiliate-section6Pic.png';
 
 // Components
 import LanguageBar from '../language-bar/language-bar';
@@ -88,7 +88,7 @@ function AffiliateSection6() {
    return (
       <div className="mt-6">
          <div className="w-full">
-            <Image src={affiliateSection1Pic} alt="sample" className="size-full rounded-2xl object-cover" />
+            <Image src={affiliateSection6Pic} alt="sample" className="size-full rounded-2xl object-cover" />
          </div>
          <div className="my-6">
             <LanguageBar chosenLang={chosenLang} setChosenLang={setChosenLang} />
