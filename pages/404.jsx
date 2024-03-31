@@ -1,5 +1,5 @@
 export default function Custom404() {
-   return <h1>صفحه پیدا نشد</h1>;
+   return <h1 className="flex h-screen items-center justify-center text-5xl text-white">Page not found !!!</h1>;
 }
 
 export async function getStaticProps(context) {

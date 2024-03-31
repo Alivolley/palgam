@@ -11,7 +11,14 @@ import FooterEmailIcon from '@/assets/icons/components/footerEmailIcon';
 // Assets
 import footerLogo from '@/assets/images/footerLogo.png';
 
+// Apis
+import useGetAllLinks from '@/apis/adminPanel/home/useGetAllLinks';
+import useGetOthers from '@/apis/adminPanel/others/useGetOthers';
+
 function Footer() {
+   const { data: linksData } = useGetAllLinks();
+   const { data: othersData } = useGetOthers();
+
    return (
       <footer className="relative bg-[#100C16]">
          <div className="absolute inset-y-0 w-[310px] customMd:w-[550px]">
@@ -58,27 +65,47 @@ function Footer() {
 
             <div className="relative mx-auto flex max-w-[1112px] items-center justify-center customMd:justify-between">
                <div className="mt-10 flex items-center justify-center gap-3">
-                  <a href="/some" className="flex size-14 items-center justify-center rounded-xl bg-[#d73f9033]">
-                     <FooterInstagramIcon />
-                  </a>
-                  <a href="/some" className="flex size-14 items-center justify-center rounded-xl bg-[#5865f233]">
-                     <FooterDiscordIcon />
-                  </a>
-                  <a href="/some" className="flex size-14 items-center justify-center rounded-xl bg-[#039be526]">
-                     <FooterTelegramIcon />
-                  </a>
-                  <a href="/some" className="flex size-14 items-center justify-center rounded-xl bg-[#8c72e226]">
-                     <FooterEmailIcon />
-                  </a>
+                  {linksData?.data?.instagram?.link_active && (
+                     <a
+                        href={linksData?.data?.instagram?.link}
+                        className="flex size-14 items-center justify-center rounded-xl bg-[#d73f9033] transition-all duration-200 hover:bg-[#00000048]"
+                     >
+                        <FooterInstagramIcon />
+                     </a>
+                  )}
+                  {linksData?.data?.discord?.link_active && (
+                     <a
+                        href={linksData?.data?.discord?.link}
+                        className="flex size-14 items-center justify-center rounded-xl bg-[#5865f233] transition-all duration-200 hover:bg-[#00000048]"
+                     >
+                        <FooterDiscordIcon />
+                     </a>
+                  )}
+                  {linksData?.data?.telegram?.link_active && (
+                     <a
+                        href={linksData?.data?.telegram?.link}
+                        className="flex size-14 items-center justify-center rounded-xl bg-[#039be526] transition-all duration-200 hover:bg-[#00000048]"
+                     >
+                        <FooterTelegramIcon />
+                     </a>
+                  )}
+                  {linksData?.data?.email?.link_active && (
+                     <a
+                        href={linksData?.data?.email?.link}
+                        className="flex size-14 items-center justify-center rounded-xl bg-[#8c72e226] transition-all duration-200 hover:bg-[#00000048]"
+                     >
+                        <FooterEmailIcon />
+                     </a>
+                  )}
                </div>
                <p className="mt-6 hidden text-center font-poppinsExtraLight text-xs leading-6 text-white customMd:block">
-                  © 2023, All Rights Reserved
+                  {othersData?.copyright}
                </p>
             </div>
             <div className="my-6 h-px bg-[#ffffff26] customMd:hidden" />
 
             <p className="mt-6 text-center font-poppinsExtraLight text-xs leading-6 text-white customMd:hidden">
-               © 2023, All Rights Reserved
+               {othersData?.copyright}
             </p>
          </div>
       </footer>

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import axiosInstance from '@/configs/axiosInstance';
 
 // Components
@@ -9,9 +10,15 @@ import OurTables from '@/components/pages/home/our-tables/our-tables';
 import WhatIs from '@/components/pages/home/whatIs/whatIs';
 import WhyPalgam from '@/components/pages/home/why-palgam/why-palgam';
 
-export default function Home({ homePageData }) {
+export default function Home({ homePageData, othersData }) {
    return (
       <div>
+         <Head>
+            <title>{othersData?.site_name}</title>
+            <meta name="author" content={othersData?.site_name} />
+            <meta name="google-site-verification" content={othersData?.google_console} />
+            <link rel="icon" href={othersData?.fav_icon} />
+         </Head>
          <HomeBanner homePageData={homePageData} />
          <WhatIs homePageData={homePageData} />
          <WhyPalgam homePageData={homePageData} />
@@ -25,6 +32,7 @@ export default function Home({ homePageData }) {
 
 export async function getStaticProps(context) {
    const homePageData = await axiosInstance(`page/?lang=${context.locale}&page=home_page`).then(res => res.data);
+   const othersData = await axiosInstance(`page/other?lang=${context.locale}`).then(res => res.data);
 
    // const newestList = await axiosInstance(`store/products/list_create/?lang=${context.locale}&ordering=created`).then(
    //    res => res.data
@@ -38,6 +46,7 @@ export async function getStaticProps(context) {
       props: {
          messages: (await import(`@/messages/${context.locale}.json`)).default,
          homePageData,
+         othersData,
          // newestList,
          // bestSellersList,
       },

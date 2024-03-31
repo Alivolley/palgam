@@ -16,8 +16,17 @@ import HomeBannerStyle from './home-banner.style';
 // Components
 import AppStoreModal from '@/components/templates/app-store-modal/app-store-modal';
 
+// Apis
+import useGetStoreLink from '@/apis/adminPanel/home/useGetStoreLink';
+
 function HomeBanner({ homePageData }) {
    const [showAppStoreModal, setShowAppStoreModal] = useState(false);
+
+   const { data: storeLinkData } = useGetStoreLink();
+
+   const downloadGoogleHandler = () => {
+      window.location.href = storeLinkData?.google_play_link;
+   };
 
    return (
       <HomeBannerStyle className="relative overflow-hidden customMd:overflow-visible lg:ps-20">
@@ -77,6 +86,7 @@ function HomeBanner({ homePageData }) {
                   <Button
                      className="h-[72px] w-[191px] overflow-hidden !rounded-2xl !border !border-solid !border-[#ffffff80]
                     !text-white customMd:h-[80px] customMd:w-[240px]"
+                     onClick={downloadGoogleHandler}
                   >
                      <div className="flex size-full items-center justify-center gap-4" id="btnApp">
                         <div className="size-[32px] lg:size-[34px]">

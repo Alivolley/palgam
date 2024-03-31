@@ -9,13 +9,17 @@ import { Button, Drawer } from '@mui/material';
 import { IoIosClose } from 'react-icons/io';
 
 // Assets
-import logoPic from '@/assets/images/Logo.png';
 import usFlag from '@/assets/icons/usFlag.svg';
 import ruFlag from '@/assets/icons/ruFlag.svg';
 import esFlag from '@/assets/icons/esFlag.svg';
 
+// Apis
+import useGetOthers from '@/apis/adminPanel/others/useGetOthers';
+
 function MobileMenu({ open, onClose, showLanguageDialogHandler }) {
    const { locale, pathname } = useRouter();
+
+   const { data: othersData, isLoading: othersIsLoading } = useGetOthers();
 
    return (
       <Drawer
@@ -29,8 +33,12 @@ function MobileMenu({ open, onClose, showLanguageDialogHandler }) {
       >
          <div className="h-full max-h-screen min-h-screen overflow-auto bg-[#00000099] px-[16px] py-[48px] backdrop-blur-[12px]">
             <div className="flex items-center justify-between">
-               <div className="size-[72px]">
-                  <Image src={logoPic} alt="logo" className="size-full" />
+               <div className="relative size-[72px]">
+                  {othersIsLoading ? (
+                     <div className="size-full animate-pulse rounded-full bg-[#ffffff23]" />
+                  ) : (
+                     <Image src={othersData?.logo || ''} alt="logo" fill />
+                  )}
                </div>
                <Button
                   className="size-[48px] !rounded-xl !border !border-solid !border-[#ffffff80] !text-white"

@@ -14,7 +14,6 @@ import { CgMenuLeft } from 'react-icons/cg';
 import MobileMenu from '../mobile-menu/mobile-menu';
 
 // Assets
-import logoPic from '@/assets/images/Logo.png';
 import downloadSvg from '@/assets/icons/Download.svg';
 import usFlag from '@/assets/icons/usFlag.svg';
 import ruFlag from '@/assets/icons/ruFlag.svg';
@@ -22,6 +21,9 @@ import esFlag from '@/assets/icons/esFlag.svg';
 
 // Components
 import DownloadAppModal from '@/components/templates/download-app-modal/download-app-modal';
+
+// Apis
+import useGetOthers from '@/apis/adminPanel/others/useGetOthers';
 
 const languageButtonSx = {
    height: '56px',
@@ -35,6 +37,8 @@ function Header() {
    const [languageDropDown, setLanguageDropDown] = useState(false);
    const [showLanguageDialog, setShowLanguageDialog] = useState(false);
    const [showDownloadModal, setShowDownloadModal] = useState(false);
+
+   const { data: othersData, isLoading: othersIsLoading } = useGetOthers();
 
    const languageRef = useRef();
 
@@ -61,8 +65,12 @@ function Header() {
          data-aos-delay="900"
       >
          <div className="flex items-center justify-between">
-            <Link href="/" className="block size-[72px] customMd:size-16">
-               <Image src={logoPic} alt="logo" className="size-full" />
+            <Link href="/" className="relative block size-[72px] customMd:size-16">
+               {othersIsLoading ? (
+                  <div className="size-full animate-pulse rounded-full bg-[#ffffff23]" />
+               ) : (
+                  <Image src={othersData?.logo || ''} alt="logo" fill />
+               )}
             </Link>
             <div className="hidden items-center gap-6 font-poppinsRegular text-[#ffffff4d] customMd:flex lg:gap-14">
                <Link
@@ -195,8 +203,12 @@ function Header() {
          >
             <div className="h-full min-h-screen overflow-auto bg-[#00000099] py-[48px] backdrop-blur-[12px]">
                <div className="flex items-center justify-between px-[16px]">
-                  <div className="size-[72px]">
-                     <Image src={logoPic} alt="logo" className="size-full" />
+                  <div className="relative size-[72px]">
+                     {othersIsLoading ? (
+                        <div className="size-full animate-pulse rounded-full bg-[#ffffff23]" />
+                     ) : (
+                        <Image src={othersData?.logo || ''} alt="logo" fill />
+                     )}
                   </div>
                   <Button
                      className="size-[48px] !rounded-xl !border !border-solid !border-[#ffffff80] !text-white"

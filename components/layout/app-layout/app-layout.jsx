@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
@@ -16,6 +17,9 @@ import LoadingComponent from '@/components/templates/loading-component/loading-c
 
 // Styles
 import getDesignTokens from '@/configs/theme';
+
+// Apis
+import useGetOthers from '@/apis/adminPanel/others/useGetOthers';
 
 function Loading() {
    const [loading, setLoading] = useState(false);
@@ -45,6 +49,8 @@ function AppLayout({ children }) {
    const { locale } = useRouter();
    const themeConfig = createTheme(getDesignTokens('dark', locale));
 
+   const { data: othersData } = useGetOthers();
+
    useEffect(() => {
       Cookies.set('NEXT_LOCALE', locale, { expires: 365 });
 
@@ -53,6 +59,14 @@ function AppLayout({ children }) {
 
    return (
       <ThemeProvider theme={themeConfig}>
+         {othersData && (
+            <Head>
+               <title>{othersData?.site_name}</title>
+               <meta name="author" content={othersData?.site_name} />
+               <meta name="google-site-verification" content={othersData?.google_console} />
+               <link rel="icon" href={othersData?.fav_icon} />
+            </Head>
+         )}
          <Toaster
             position="top-left"
             toastOptions={{

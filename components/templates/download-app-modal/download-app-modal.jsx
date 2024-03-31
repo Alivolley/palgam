@@ -17,10 +17,19 @@ import googlePlayPicDesktop from '@/assets/images/GooglePlayPicDesktop.png';
 import appStorePicDesktop from '@/assets/images/appStorePicDesktop.png';
 import AppStoreModal from '../app-store-modal/app-store-modal';
 
+// Apis
+import useGetStoreLink from '@/apis/adminPanel/home/useGetStoreLink';
+
 function DownloadAppModal({ open, onClose }) {
    const [showAppStoreModal, setShowAppStoreModal] = useState(false);
 
+   const { data: storeLinkData } = useGetStoreLink();
+
    const isDesktop = useMediaQuery(`(min-width: 500px)`);
+
+   const downloadGoogleHandler = () => {
+      window.location.href = storeLinkData?.google_play_link;
+   };
 
    return (
       <Drawer
@@ -59,6 +68,7 @@ function DownloadAppModal({ open, onClose }) {
                      <Button
                         fullWidth
                         className="mt-[10px] h-[48px] !rounded-xl !border !border-solid !border-[#ffffff80] !font-poppinsRegular text-xs !text-white custom500:text-sm"
+                        onClick={downloadGoogleHandler}
                      >
                         Download
                      </Button>

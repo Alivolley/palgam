@@ -15,10 +15,19 @@ import googlePlayLogo from '@/assets/icons/googlePlayLogo.svg';
 // Components
 import AppStoreModal from '@/components/templates/app-store-modal/app-store-modal';
 
+// Apis
+import useGetStoreLink from '@/apis/adminPanel/home/useGetStoreLink';
+
 function DownloadApp({ homePageData }) {
    const [showAppStoreModal, setShowAppStoreModal] = useState(false);
 
+   const { data: storeLinkData } = useGetStoreLink();
+
    const isDesktop = useMediaQuery(`(min-width: 900px)`);
+
+   const downloadGoogleHandler = () => {
+      window.location.href = storeLinkData?.google_play_link;
+   };
 
    return (
       <DownloadAppStyle className="relative mt-[30px] overflow-hidden px-4 customMd:px-20">
@@ -72,7 +81,10 @@ function DownloadApp({ homePageData }) {
                         </div>
                      </div>
                   </Button>
-                  <Button className="h-[72px] w-[191px] overflow-hidden !rounded-2xl bg-[#ffffff1a] !text-white backdrop-blur-[12px] customMd:h-[80px] customMd:w-[240px]">
+                  <Button
+                     className="h-[72px] w-[191px] overflow-hidden !rounded-2xl bg-[#ffffff1a] !text-white backdrop-blur-[12px] customMd:h-[80px] customMd:w-[240px]"
+                     onClick={downloadGoogleHandler}
+                  >
                      <div className="flex size-full items-center justify-center gap-4" id="btnApp">
                         <div className="size-[32px] lg:size-[34px]">
                            <Image src={googlePlayLogo} alt="google play" className="size-full" />
