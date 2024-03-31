@@ -29,6 +29,7 @@ import othersTabPic from '@/assets/images/adminPanel/othersTabPic.png';
 
 // Components
 import AdminLayout from '@/components/layout/admin-layout/admin-layout';
+import IosInputs from '@/components/pages/admin-panel/others/ios-inputs/ios-inputs';
 
 // Apis
 import useGetOthers from '@/apis/adminPanel/others/useGetOthers';
@@ -138,6 +139,7 @@ function Others() {
                         <p className="font-poppinsRegular text-sm leading-6">iOS Download Popup</p>
                         <Image src={appleIcon} alt="icon" />
                      </div>
+                     <IosInputs />
                   </div>
                </Grid>
                <Grid item lg={4}>
