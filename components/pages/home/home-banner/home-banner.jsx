@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 // MUI
@@ -23,6 +23,18 @@ function HomeBanner({ homePageData }) {
    const [showAppStoreModal, setShowAppStoreModal] = useState(false);
 
    const { data: storeLinkData } = useGetStoreLink();
+
+   const video1Ref = useRef();
+   const video2Ref = useRef();
+
+   useEffect(() => {
+      if (video1Ref.current) {
+         video1Ref.current.play();
+      }
+      if (video2Ref.current) {
+         video2Ref.current.play();
+      }
+   }, [video1Ref, video2Ref]);
 
    const downloadGoogleHandler = () => {
       window.location.href = storeLinkData?.google_play_link;
@@ -115,8 +127,8 @@ function HomeBanner({ homePageData }) {
                   src="/video1.mp4"
                   className="size-full object-cover customLg:object-contain"
                   loop
-                  autoPlay
                   muted
+                  ref={video1Ref}
                />
 
                <div
@@ -138,8 +150,8 @@ function HomeBanner({ homePageData }) {
                   src="/video2.mp4"
                   className="size-full object-cover customLg:object-contain"
                   loop
-                  autoPlay
                   muted
+                  ref={video2Ref}
                />
 
                <div
