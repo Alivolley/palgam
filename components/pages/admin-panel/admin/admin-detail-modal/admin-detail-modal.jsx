@@ -12,6 +12,7 @@ import userProfile from '@/assets/images/adminPanel/userProfile.png';
 
 // Components
 import ConfirmModal from '@/components/templates/confirm-modal/confirm-modal';
+import AddAdminModal from '../addAdminModal/addAdminModal';
 
 // Apis
 import useBanUnbanAdmin from '@/apis/adminPanel/admin/useBanUnbanAdmin';
@@ -28,6 +29,7 @@ const buttonStyle = {
 function AdminDetailModal({ onClose, open, adminsDataMutate, detail }) {
    const [showBanModal, setShowBanModal] = useState(false);
    const [showDeleteModal, setShowDeleteModal] = useState(false);
+   const [showAddAdminModal, setShowAddAdminModal] = useState(false);
 
    const { trigger: banUnbanAdminTrigger, isMutating: banUnbanAdminIsMutating } = useBanUnbanAdmin();
    const { trigger: deleteAdminTrigger, isMutating: deleteAdminIsMutating } = useDeleteAdmin();
@@ -97,7 +99,7 @@ function AdminDetailModal({ onClose, open, adminsDataMutate, detail }) {
                   }}
                   fullWidth
                   variant="contained"
-                  //   onClick={() => setEditHandler(detail)}
+                  onClick={() => setShowAddAdminModal(true)}
                >
                   Edit information
                </Button>
@@ -194,6 +196,16 @@ function AdminDetailModal({ onClose, open, adminsDataMutate, detail }) {
                open={showBanModal}
                confirmLoading={banUnbanAdminIsMutating}
             />
+
+            {showAddAdminModal && (
+               <AddAdminModal
+                  open={showAddAdminModal}
+                  onClose={() => setShowAddAdminModal(false)}
+                  adminsDataMutate={adminsDataMutate}
+                  chosenAdminForEdit={detail}
+                  isEdit
+               />
+            )}
          </div>
       </Dialog>
    );
