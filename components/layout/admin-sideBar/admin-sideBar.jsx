@@ -25,7 +25,7 @@ function AdminSideBar() {
    const [showLogoutModal, setShowLogoutModal] = useState(false);
    const { pathname } = useRouter();
 
-   const { data: infoData } = useGetInfo();
+   const { data: infoData, isLoading: infoDataIsLoading } = useGetInfo();
    const { data: ticketsData } = useGetTicketsCount();
 
    return (
@@ -39,76 +39,105 @@ function AdminSideBar() {
             <p className="mt-2 font-poppinsExtraLight text-sm leading-6">Last Update, {infoData?.last_update}</p>
          </div>
 
-         <div className="mt-10 flex flex-col gap-2 font-poppinsRegular">
-            <Link
-               href="/admin-panel/home"
-               className={`flex items-center gap-2 rounded-xl border border-solid border-transparent
+         {infoDataIsLoading ? (
+            <div className="mt-10 flex flex-col gap-2 ">
+               <div className="h-[62px] animate-pulse rounded-xl bg-[#ffffff1a]" />
+               <div className="h-[62px] animate-pulse rounded-xl bg-[#ffffff1a]" />
+               <div className="h-[62px] animate-pulse rounded-xl bg-[#ffffff1a]" />
+               <div className="h-[62px] animate-pulse rounded-xl bg-[#ffffff1a]" />
+               <div className="h-[62px] animate-pulse rounded-xl bg-[#ffffff1a]" />
+               <div className="h-[62px] animate-pulse rounded-xl bg-[#ffffff1a]" />
+               <div className="h-[62px] animate-pulse rounded-xl bg-[#ffffff1a]" />
+            </div>
+         ) : (
+            <div className="mt-10 flex flex-col gap-2 font-poppinsRegular">
+               {infoData?.access?.home && (
+                  <Link
+                     href="/admin-panel/home"
+                     className={`flex items-center gap-2 rounded-xl border border-solid border-transparent
                 px-4 py-[18px] transition-all duration-200 hover:border-[#ffffff59] hover:bg-[#ffffff1a] hover:text-white ${
                    pathname === '/admin-panel/home' ? '!border-[#ffffff59] bg-[#ffffff1a]' : 'text-[#ffffff4d]'
                 }`}
-            >
-               <HiMiniHome size="24px" /> Home
-            </Link>
-            <Link
-               href="/admin-panel/blog"
-               className={`flex items-center gap-2 rounded-xl border border-solid border-transparent
+                  >
+                     <HiMiniHome size="24px" /> Home
+                  </Link>
+               )}
+
+               {infoData?.access?.blog && (
+                  <Link
+                     href="/admin-panel/blog"
+                     className={`flex items-center gap-2 rounded-xl border border-solid border-transparent
                 px-4 py-[18px] transition-all duration-200 hover:border-[#ffffff59] hover:bg-[#ffffff1a] hover:text-white ${
                    pathname === '/admin-panel/blog' ? '!border-[#ffffff59] bg-[#ffffff1a]' : 'text-[#ffffff4d]'
                 }`}
-            >
-               <PiNotepadFill size="24px" /> Blog
-            </Link>
-            <Link
-               href="/admin-panel/page-edit"
-               className={`flex items-center gap-2 rounded-xl border border-solid border-transparent
+                  >
+                     <PiNotepadFill size="24px" /> Blog
+                  </Link>
+               )}
+
+               {infoData?.access?.page && (
+                  <Link
+                     href="/admin-panel/page-edit"
+                     className={`flex items-center gap-2 rounded-xl border border-solid border-transparent
                 px-4 py-[18px] transition-all duration-200 hover:border-[#ffffff59] hover:bg-[#ffffff1a] hover:text-white ${
                    pathname === '/admin-panel/page-edit' ? '!border-[#ffffff59] bg-[#ffffff1a]' : 'text-[#ffffff4d]'
                 }`}
-            >
-               <LiaPagerSolid size="24px" /> Page edit
-            </Link>
-            <Link
-               href="/admin-panel/admin"
-               className={`flex items-center gap-2 rounded-xl border border-solid border-transparent
+                  >
+                     <LiaPagerSolid size="24px" /> Page edit
+                  </Link>
+               )}
+
+               {infoData?.access?.admin && (
+                  <Link
+                     href="/admin-panel/admin"
+                     className={`flex items-center gap-2 rounded-xl border border-solid border-transparent
                 px-4 py-[18px] transition-all duration-200 hover:border-[#ffffff59] hover:bg-[#ffffff1a] hover:text-white ${
                    pathname === '/admin-panel/admin' ? '!border-[#ffffff59] bg-[#ffffff1a]' : 'text-[#ffffff4d]'
                 }`}
-            >
-               <RiShieldUserFill size="24px" /> Admin
-            </Link>
-            <Link
-               href="/admin-panel/security"
-               className={`flex items-center gap-2 rounded-xl border border-solid border-transparent
-                px-4 py-[18px] transition-all duration-200 hover:border-[#ffffff59] hover:bg-[#ffffff1a] hover:text-white ${
-                   pathname === '/admin-panel/security' ? '!border-[#ffffff59] bg-[#ffffff1a]' : 'text-[#ffffff4d]'
-                }`}
-            >
-               <BsShieldFillCheck size="24px" /> Security
-            </Link>
-            <Link
-               href="/admin-panel/tickets"
-               className={`relative flex items-center gap-2 rounded-xl border border-solid border-transparent
-                px-4 py-[18px] transition-all duration-200 hover:border-[#ffffff59] hover:bg-[#ffffff1a] hover:text-white ${
-                   pathname === '/admin-panel/tickets' ? '!border-[#ffffff59] bg-[#ffffff1a]' : 'text-[#ffffff4d]'
-                }`}
-            >
-               <BiSolidMessageDetail size="24px" /> Tickets
-               {ticketsData?.has_new_ticket && (
-                  <div className="absolute right-4 flex size-8 items-center justify-center rounded-full bg-[#F23645] text-sm text-white">
-                     {ticketsData?.new_ticket_count}
-                  </div>
+                  >
+                     <RiShieldUserFill size="24px" /> Admin
+                  </Link>
                )}
-            </Link>
-            <Link
-               href="/admin-panel/others"
-               className={`flex items-center gap-2 rounded-xl border border-solid border-transparent
-                px-4 py-[18px] transition-all duration-200 hover:border-[#ffffff59] hover:bg-[#ffffff1a] hover:text-white ${
-                   pathname === '/admin-panel/others' ? '!border-[#ffffff59] bg-[#ffffff1a]' : 'text-[#ffffff4d]'
-                }`}
-            >
-               <PiCirclesThreeFill size="24px" /> Others
-            </Link>
-         </div>
+               <Link
+                  href="/admin-panel/security"
+                  className={`flex items-center gap-2 rounded-xl border border-solid border-transparent
+               px-4 py-[18px] transition-all duration-200 hover:border-[#ffffff59] hover:bg-[#ffffff1a] hover:text-white ${
+                  pathname === '/admin-panel/security' ? '!border-[#ffffff59] bg-[#ffffff1a]' : 'text-[#ffffff4d]'
+               }`}
+               >
+                  <BsShieldFillCheck size="24px" /> Security
+               </Link>
+
+               {infoData?.access?.ticket && (
+                  <Link
+                     href="/admin-panel/tickets"
+                     className={`relative flex items-center gap-2 rounded-xl border border-solid border-transparent
+               px-4 py-[18px] transition-all duration-200 hover:border-[#ffffff59] hover:bg-[#ffffff1a] hover:text-white ${
+                  pathname === '/admin-panel/tickets' ? '!border-[#ffffff59] bg-[#ffffff1a]' : 'text-[#ffffff4d]'
+               }`}
+                  >
+                     <BiSolidMessageDetail size="24px" /> Tickets
+                     {ticketsData?.has_new_ticket && (
+                        <div className="absolute right-4 flex size-8 items-center justify-center rounded-full bg-[#F23645] text-sm text-white">
+                           {ticketsData?.new_ticket_count}
+                        </div>
+                     )}
+                  </Link>
+               )}
+
+               {infoData?.access?.others && (
+                  <Link
+                     href="/admin-panel/others"
+                     className={`flex items-center gap-2 rounded-xl border border-solid border-transparent
+               px-4 py-[18px] transition-all duration-200 hover:border-[#ffffff59] hover:bg-[#ffffff1a] hover:text-white ${
+                  pathname === '/admin-panel/others' ? '!border-[#ffffff59] bg-[#ffffff1a]' : 'text-[#ffffff4d]'
+               }`}
+                  >
+                     <PiCirclesThreeFill size="24px" /> Others
+                  </Link>
+               )}
+            </div>
+         )}
 
          <div className="mt-[61px]">
             <Button

@@ -1,7 +1,7 @@
 import { Controller, useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { QRCodeSVG } from 'qrcode.react';
+import { QRCodeCanvas } from 'qrcode.react';
 
 // MUI
 import styled from '@emotion/styled';
@@ -526,7 +526,7 @@ function AddAdminModal({ onClose, open, adminsDataMutate, isEdit = false, chosen
             {showQrCode && (
                <Dialog open={showQrCode} onClose={() => setShowQrCode(false)} sx={{ backdropFilter: 'blur(12px)' }}>
                   <div
-                     className="bg-[#080609] p-7 font-poppinsRegular"
+                     className="bg-black p-7 font-poppinsRegular"
                      style={{ boxShadow: '0px 12px 64px 0px rgba(0, 0, 0, 0.20)' }}
                   >
                      <div className="flex items-center justify-between gap-20 pb-10">
@@ -537,7 +537,7 @@ function AddAdminModal({ onClose, open, adminsDataMutate, isEdit = false, chosen
                      </div>
 
                      <div className="flex items-center justify-center">
-                        <QRCodeSVG value={`otpauth://totp/palgam?secret=${totpData?.data}&issuer=Palgam`} />
+                        <QRCodeCanvas value={`otpauth://totp/palgam?secret=${totpData?.data}&issuer=Palgam`} />
                      </div>
                   </div>
                </Dialog>

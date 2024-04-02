@@ -43,7 +43,7 @@ function HomeBanner({ homePageData }) {
    return (
       <HomeBannerStyle className="relative overflow-hidden customMd:overflow-visible lg:ps-20">
          <div className="relative z-[2] flex flex-col justify-between lg:flex-row">
-            <div className="relative z-[3] mt-[140px] px-4 lg:mt-[241px] lg:max-w-[578px] lg:px-0">
+            <div className="relative z-[3] mt-[140px] px-4 lg:mt-[200px] lg:max-w-[578px] lg:px-0">
                <div
                   className="absolute left-[-50%] top-0 h-[524px] w-[436px] rounded-[524px] opacity-[0.4] blur-[150px] customMd:hidden"
                   style={{ background: 'linear-gradient(180deg, #5922E9 0%, #DD43EF 100%)' }}
@@ -129,6 +129,7 @@ function HomeBanner({ homePageData }) {
                   loop
                   muted
                   ref={video1Ref}
+                  autoPlay
                />
 
                <div
@@ -142,17 +143,11 @@ function HomeBanner({ homePageData }) {
                data-aos="fade-zoom-in"
                data-aos-easing="ease-in-back"
                data-aos-delay="900"
-               className="relative hidden lg:block customXl:min-w-[800px] customXl:max-w-[880px]"
+               className="relative hidden lg:block customXl:min-w-[800px] customXl:grow"
             >
                {/* <Image src={homeBannerPic} alt="homeBanner" className="size-full object-cover customLg:object-contain" /> */}
 
-               <video
-                  src="/video2.mp4"
-                  className="size-full object-cover customLg:object-contain"
-                  loop
-                  muted
-                  ref={video2Ref}
-               />
+               <video src="/vid.mp4" className="size-full object-cover" loop muted ref={video2Ref} />
 
                <div
                   className="absolute inset-0"
