@@ -122,7 +122,7 @@ function HomeBanner({ homePageData }) {
                   </Button>
                </div>
             </div>
-            <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" className="relative lg:hidden">
+            <div className="relative lg:hidden">
                <video
                   src="/video1.mp4"
                   className="size-full object-cover customLg:object-contain"
