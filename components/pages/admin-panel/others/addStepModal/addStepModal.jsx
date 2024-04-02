@@ -100,7 +100,7 @@ function AddStepModal({ open, onClose, stepsMutate }) {
    };
 
    return (
-      <Dialog open={open} onClose={closeHandler} fullWidth>
+      <Dialog open={open} onClose={closeHandler} fullWidth sx={{ backdropFilter: 'blur(15px)' }}>
          <div className="bg-[#080609] p-7" style={{ boxShadow: '0px 12px 64px 0px rgba(0, 0, 0, 0.20)' }}>
             <div className="flex items-center justify-end">
                <Button className="rounded-full" onClick={closeHandler} disabled={addStepIsMutating}>

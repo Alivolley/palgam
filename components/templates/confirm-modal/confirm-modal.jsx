@@ -7,7 +7,7 @@ import { IoIosCloseCircleOutline } from 'react-icons/io';
 
 function ConfirmModal({ closeModal, title, confirmHandler, open, confirmLoading = false }) {
    return (
-      <Dialog open={open} onClose={closeModal} fullWidth>
+      <Dialog open={open} onClose={closeModal} fullWidth sx={{ backdropFilter: 'blur(12px)' }}>
          <div className="bg-[#080609] p-7" style={{ boxShadow: '0px 12px 64px 0px rgba(0, 0, 0, 0.20)' }}>
             <div className="flex items-center justify-end">
                <Button className="rounded-full" onClick={closeModal}>

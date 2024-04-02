@@ -20,7 +20,7 @@ function LogoutModal({ show, onClose }) {
    };
 
    return (
-      <Dialog open={show} onClose={onClose} fullWidth>
+      <Dialog open={show} onClose={onClose} fullWidth sx={{ backdropFilter: 'blur(12px)' }}>
          <div className="bg-[#080609] p-10" style={{ boxShadow: '0px 12px 64px 0px rgba(0, 0, 0, 0.20)' }}>
             <div className="flex items-center justify-between">
                <p className="font-poppinsRegular text-[28px]">Logout</p>

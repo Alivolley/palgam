@@ -71,7 +71,7 @@ function AddEditCategoryModal({ onClose, open, categoriesDataMutate, detail, isE
    };
 
    return (
-      <Dialog open={open} onClose={closeModalHandler} fullWidth>
+      <Dialog open={open} onClose={closeModalHandler} fullWidth sx={{ backdropFilter: 'blur(12px)' }}>
          <form
             onSubmit={handleSubmit(formSubmit)}
             className="bg-[#080609] p-7"

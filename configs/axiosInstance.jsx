@@ -60,13 +60,17 @@ axiosInstance.interceptors.response.use(
          Cookies.remove('palgam_accessToken');
          Cookies.remove('palgam_refreshToken');
          Cookies.remove('palgam_isLogin');
-         location.href = '/login';
+         if (location.pathname.includes('admin-panel')) {
+            location.href = '/login';
+         }
       } else if (error?.response?.data?.detail === 'Token is invalid or expired') {
          // refresh expired
          Cookies.remove('palgam_accessToken');
          Cookies.remove('palgam_refreshToken');
          Cookies.remove('palgam_isLogin');
-         location.href = '/login';
+         if (location.pathname.includes('admin-panel')) {
+            location.href = '/login';
+         }
       } else if (error?.response?.data?.message) {
          toast.error(error?.response?.data?.message);
       }
