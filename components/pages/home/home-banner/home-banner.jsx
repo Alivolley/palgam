@@ -129,7 +129,8 @@ function HomeBanner({ homePageData }) {
                   loop
                   muted
                   ref={video1Ref}
-                  autoPlay
+                  autoPlay="autoplay"
+                  playsInline
                />
 
                <div
@@ -145,7 +146,15 @@ function HomeBanner({ homePageData }) {
                data-aos-delay="900"
                className="relative hidden lg:block customXl:min-w-[800px] customXl:grow"
             >
-               <video src="/video2.mp4" className="size-full object-cover" loop muted ref={video2Ref} autoPlay />
+               <video
+                  src="/video2.mp4"
+                  className="size-full object-cover"
+                  loop
+                  muted
+                  ref={video2Ref}
+                  autoPlay="autoplay"
+                  playsInline
+               />
 
                <div
                   className="absolute inset-0"
