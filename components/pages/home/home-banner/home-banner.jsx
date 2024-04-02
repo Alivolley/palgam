@@ -124,7 +124,7 @@ function HomeBanner({ homePageData }) {
             </div>
             <div className="relative lg:hidden">
                <video
-                  src="/video1.mp4"
+                  src="/video11.mp4"
                   className="size-full object-cover customLg:object-contain"
                   loop
                   muted
@@ -145,9 +145,7 @@ function HomeBanner({ homePageData }) {
                data-aos-delay="900"
                className="relative hidden lg:block customXl:min-w-[800px] customXl:grow"
             >
-               {/* <Image src={homeBannerPic} alt="homeBanner" className="size-full object-cover customLg:object-contain" /> */}
-
-               <video src="/vid.mp4" className="size-full object-cover" loop muted ref={video2Ref} />
+               <video src="/video2.mp4" className="size-full object-cover" loop muted ref={video2Ref} autoPlay />
 
                <div
                   className="absolute inset-0"

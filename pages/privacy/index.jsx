@@ -101,6 +101,6 @@ export async function getStaticProps(context) {
          messages: (await import(`@/messages/${context.locale}.json`)).default,
          privacyData,
       },
-      revalidate: 5,
+      revalidate: 60,
    };
 }

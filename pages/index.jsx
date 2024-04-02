@@ -34,22 +34,12 @@ export async function getStaticProps(context) {
    const homePageData = await axiosInstance(`page/?lang=${context.locale}&page=home_page`).then(res => res.data);
    const othersData = await axiosInstance(`page/other?lang=${context.locale}`).then(res => res.data);
 
-   // const newestList = await axiosInstance(`store/products/list_create/?lang=${context.locale}&ordering=created`).then(
-   //    res => res.data
-   // );
-
-   // const bestSellersList = await axiosInstance(
-   //    `store/products/list_create/?lang=${context.locale}&ordering=sales`
-   // ).then(res => res.data);
-
    return {
       props: {
          messages: (await import(`@/messages/${context.locale}.json`)).default,
          homePageData,
          othersData,
-         // newestList,
-         // bestSellersList,
       },
-      revalidate: 5,
+      revalidate: 60,
    };
 }

@@ -87,6 +87,6 @@ export async function getStaticProps(context) {
          messages: (await import(`@/messages/${context.locale}.json`)).default,
          whitePaperData,
       },
-      revalidate: 5,
+      revalidate: 60,
    };
 }
