@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -40,6 +41,7 @@ function Header() {
 
    const { data: othersData, isLoading: othersIsLoading } = useGetOthers();
 
+   const t = useTranslations('header');
    const languageRef = useRef();
 
    const { locale, push, query, pathname, asPath } = useRouter();
@@ -77,25 +79,25 @@ function Header() {
                   href="/"
                   className={`transition-all duration-200 hover:text-white ${pathname === '/' ? 'text-white' : ''}`}
                >
-                  Home
+                  {t('Home')}
                </Link>
                <Link
                   href="/blogs"
                   className={`transition-all duration-200 hover:text-white ${pathname.startsWith('/blogs') ? 'text-white' : ''}`}
                >
-                  Blogs
+                  {t('Blogs')}
                </Link>
                <Link
                   href="/whitePaper"
                   className={`transition-all duration-200 hover:text-white ${pathname === '/whitePaper' ? 'text-white' : ''}`}
                >
-                  White paper
+                  {t('White paper')}
                </Link>
                <Link
                   href="/licenses"
                   className={`transition-all duration-200 hover:text-white ${pathname === '/licenses' ? 'text-white' : ''}`}
                >
-                  Licenses
+                  {t('Licenses')}
                </Link>
             </div>
 
@@ -110,7 +112,7 @@ function Header() {
                   }
                   onClick={() => setShowDownloadModal(true)}
                >
-                  Download
+                  {t('Download')}
                </Button>
                <div
                   className="hidden h-[56px] w-[122px] items-center justify-center gap-2 rounded-xl

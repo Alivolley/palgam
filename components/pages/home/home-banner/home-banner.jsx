@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import { useEffect, useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 // MUI
@@ -23,6 +24,8 @@ function HomeBanner({ homePageData }) {
    const [showAppStoreModal, setShowAppStoreModal] = useState(false);
 
    const { data: storeLinkData } = useGetStoreLink();
+
+   const t = useTranslations('home');
 
    const video1Ref = useRef();
    const video2Ref = useRef();
@@ -84,7 +87,7 @@ function HomeBanner({ homePageData }) {
                               className="font-poppinsExtraLight text-10 transition-all duration-200 lg:text-xs"
                               id="firstLine"
                            >
-                              Download on the
+                              {t('Download on the')}
                            </p>
                            <p
                               className="font-poppinsBold text-sm leading-6 transition-all duration-200 lg:text-[18px]"
@@ -109,7 +112,7 @@ function HomeBanner({ homePageData }) {
                               className="font-poppinsExtraLight text-10 transition-all duration-200 lg:text-xs"
                               id="firstLine"
                            >
-                              Get In On
+                              {t('Get it on')}
                            </p>
                            <p
                               className="font-poppinsBold text-sm leading-6 transition-all duration-200 lg:text-[18px]"

@@ -159,10 +159,6 @@ function AdminSideBar() {
                   <IoLogOut className="rotate-180" size="24px" /> Log Out
                </div>
             </Button>
-
-            {/* <p className="mb-6 mt-[61px] text-center font-poppinsExtraLight text-sm uppercase text-[#ffffff80]">
-               ©2024 ALL Rights Reserved
-            </p> */}
          </div>
 
          <LogoutModal show={showLogoutModal} onClose={() => setShowLogoutModal(false)} />

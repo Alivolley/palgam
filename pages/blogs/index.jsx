@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
@@ -29,6 +30,7 @@ const categoryButtonSx = {
 function Blogs({ blogsData, allCategories }) {
    const [chosenCategory, setChosenCategory] = useState('');
    const { push, query } = useRouter();
+   const t = useTranslations('blogs');
 
    const changeCategoryHandler = cat => {
       if (cat !== chosenCategory) {
@@ -65,10 +67,10 @@ function Blogs({ blogsData, allCategories }) {
             <div id="headerGradient" className="absolute inset-0" />
             <div className="absolute inset-0 left-1/2 top-1/2 mx-auto mt-14 w-full max-w-[1112px] -translate-x-1/2 -translate-y-1/2 px-4 customLg:px-0">
                <h1 className="text-center font-arimaBold text-[50px] leading-[56px] text-white customSm:text-[88px] customSm:leading-[112px]">
-                  Blogs
+                  {t('Blogs')}
                </h1>
                <p className="text-center font-poppinsThin text-[12px] leading-6 text-[#ffffffb3] customSm:text-[18px] customSm:leading-[32px]">
-                  Discover the latest in crypto and play-to-earn gaming
+                  {t('Discover the latest in crypto and play-to-earn gaming')}
                </p>
                <div className="my-12 h-px bg-[#ffffff4d]" />
                <div className="flex flex-nowrap items-center gap-4 overflow-auto pb-4 customLg:justify-center">
@@ -83,7 +85,7 @@ function Blogs({ blogsData, allCategories }) {
                      }}
                      onClick={() => changeCategoryHandler('')}
                   >
-                     All
+                     {t('All')}
                   </Button>
                   {allCategories?.data?.map(item => (
                      <Button

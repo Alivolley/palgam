@@ -26,7 +26,7 @@ function WhatIs({ homePageData }) {
    const thirdFirst = [50, 100, 250, 10, 2000, 50, 5000, 50, 100];
 
    return (
-      <WhatIsStyle className="relative mt-[180px] overflow-hidden customMd:h-[1217px]">
+      <WhatIsStyle className="relative mt-[90px] overflow-hidden customMd:mt-[180px] customMd:h-[1217px]">
          <div
             className="flex flex-col gap-2 customMd:mt-[-100px] customMd:gap-6"
             data-aos="fade-up"

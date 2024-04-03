@@ -1,4 +1,5 @@
 /* eslint-disable react/no-danger */
+import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
@@ -14,6 +15,7 @@ import axiosInstance from '@/configs/axiosInstance';
 
 function BlogDetail({ blogDetail }) {
    const { back } = useRouter();
+   const t = useTranslations('blogs');
 
    return (
       <BlogDetailStyle className="relative">
@@ -30,7 +32,7 @@ function BlogDetail({ blogDetail }) {
                   ':hover': { backgroundColor: 'transparent', color: '#ffffff80' },
                }}
             >
-               Go back
+               {t('Go back')}
             </Button>
             <div className="my-8 h-px bg-[#ffffff4d]" />
 

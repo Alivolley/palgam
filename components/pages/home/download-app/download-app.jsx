@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import Image from 'next/image';
 
@@ -23,6 +24,7 @@ function DownloadApp({ homePageData }) {
 
    const { data: storeLinkData } = useGetStoreLink();
 
+   const t = useTranslations('home');
    const isDesktop = useMediaQuery(`(min-width: 900px)`);
 
    const downloadGoogleHandler = () => {
@@ -70,7 +72,7 @@ function DownloadApp({ homePageData }) {
                               className="font-poppinsExtraLight text-10 transition-all duration-200 lg:text-xs"
                               id="firstLine"
                            >
-                              Download on the
+                              {t('Download on the')}
                            </p>
                            <p
                               className="font-poppinsBold text-sm leading-6 transition-all duration-200 lg:text-[18px]"
@@ -94,7 +96,7 @@ function DownloadApp({ homePageData }) {
                               className="font-poppinsExtraLight text-10 transition-all duration-200 lg:text-xs"
                               id="firstLine"
                            >
-                              Get In On
+                              {t('Get it on')}
                            </p>
                            <p
                               className="font-poppinsBold text-sm leading-6 transition-all duration-200 lg:text-[18px]"

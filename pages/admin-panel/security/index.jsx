@@ -94,7 +94,7 @@ function Security() {
                               </InputAdornment>
                            }
                            error={!!passwordErrors?.newPassword}
-                           //    disabled={loginIsMutating}
+                           disabled={changePasswordIsMutating}
                         />
                         {passwordErrors?.newPassword?.message && (
                            <FormHelperText error>{passwordErrors?.newPassword?.message}</FormHelperText>
@@ -130,7 +130,7 @@ function Security() {
                               </InputAdornment>
                            }
                            error={!!passwordErrors?.confirmPassword}
-                           //    disabled={loginIsMutating}
+                           disabled={changePasswordIsMutating}
                         />
                         {passwordErrors?.confirmPassword?.message && (
                            <FormHelperText error>{passwordErrors?.confirmPassword?.message}</FormHelperText>

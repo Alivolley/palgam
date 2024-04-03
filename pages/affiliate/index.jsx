@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { useRef, useState } from 'react';
 
 // MUI
@@ -24,6 +25,7 @@ import axiosInstance from '@/configs/axiosInstance';
 function Affiliate({ affiliateData }) {
    const [tabsValue, setTabsValue] = useState(1);
    const isDesktop = useMediaQuery(`(min-width: 900px)`);
+   const t = useTranslations('affiliate');
 
    const firstBg = useRef();
    const secondBg = useRef();
@@ -84,11 +86,11 @@ function Affiliate({ affiliateData }) {
                indicatorColor="secondary"
                variant="scrollable"
             >
-               <Tab label="Unique Features" value={1} />
-               <Tab label="Our Tables" value={2} />
-               <Tab label="Earnings, Profits and Commissions" value={3} />
-               <Tab label="IMPORTANT!!!" value={4} />
-               <Tab label="Frequently Asked Questions" value={5} />
+               <Tab label={t('Unique Features')} value={1} />
+               <Tab label={t('Our Tables')} value={2} />
+               <Tab label={t('Earnings, Profits and Commissions')} value={3} />
+               <Tab label={t('IMPORTANT!!!')} value={4} />
+               <Tab label={t('Frequently Asked Questions')} value={5} />
             </Tabs>
          </div>
 

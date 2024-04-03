@@ -1,15 +1,19 @@
+import { useTranslations } from 'next-intl';
+
 // MUI
 import { Grid } from '@mui/material';
 
 import axiosInstance from '@/configs/axiosInstance';
 
 function Licenses({ licenseData }) {
+   const t = useTranslations('footer');
+
    return (
       <div>
          <div className="sticky top-0 overflow-hidden border-b border-solid border-[#ffffff26] bg-[#080609]">
             <div className="pb-12 pt-[143px] text-center text-white">
                <p className="font-poppinsExtraBold text-[32px] leading-[48px] customMd:text-[40px] customMd:leading-[64px]">
-                  Licenses
+                  {t('Licenses')}
                </p>
                <p className="mt-2 font-poppinsExtraLight text-[12px] leading-6 customMd:text-[18px] customMd:leading-8">
                   {licenseData?.data?.license?.description}

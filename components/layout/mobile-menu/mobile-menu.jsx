@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -20,6 +21,7 @@ function MobileMenu({ open, onClose, showLanguageDialogHandler }) {
    const { locale, pathname } = useRouter();
 
    const { data: othersData, isLoading: othersIsLoading } = useGetOthers();
+   const t = useTranslations('header');
 
    return (
       <Drawer
@@ -50,31 +52,31 @@ function MobileMenu({ open, onClose, showLanguageDialogHandler }) {
 
             <div className="mt-[35px] flex flex-col items-center gap-14 font-poppinsExtraBold">
                <Link href="/" className={`text-[32px] ${pathname === '/' ? 'text-white' : 'text-[#ffffff4d]'}`}>
-                  Home
+                  {t('Home')}
                </Link>
                <Link
                   href="/blogs"
                   className={`text-[32px] ${pathname.startsWith('/blogs') ? 'text-white' : 'text-[#ffffff4d]'}`}
                >
-                  Blogs
+                  {t('Blogs')}
                </Link>
                <Link
                   href="/whitePaper"
                   className={`text-[32px] ${pathname === '/whitePaper' ? 'text-white' : 'text-[#ffffff4d]'}`}
                >
-                  White paper
+                  {t('White paper')}
                </Link>
                <Link
                   href="/licenses"
                   className={`text-[32px] ${pathname === '/licenses' ? 'text-white' : 'text-[#ffffff4d]'}`}
                >
-                  Licenses
+                  {t('Licenses')}
                </Link>
                <Button
                   className="!font-poppinsExtraBold !text-[32px] !text-[#ffffff4d]"
                   onClick={showLanguageDialogHandler}
                >
-                  Language:{locale.toUpperCase()}{' '}
+                  {t('Language')}:{locale.toUpperCase()}{' '}
                   <Image
                      src={locale === 'en' ? usFlag : locale === 'ru' ? ruFlag : locale === 'es' ? esFlag : null}
                      alt="flag"

@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
@@ -21,6 +22,8 @@ function AppStoreModal({ open, onClose }) {
    const { locale } = useRouter();
    const { data: stepsData, isLoading: stepsIsLoading } = useGetSteps(locale);
    const { data: storeLinkData } = useGetStoreLink();
+
+   const t = useTranslations('header');
 
    const backStepHandler = () => {
       if (step > 1) {
@@ -55,7 +58,7 @@ function AppStoreModal({ open, onClose }) {
             <div className="max-w-[640px] overflow-auto rounded-3xl bg-[#080609] p-6">
                <div className="flex items-start justify-between">
                   <p className="mt-7 font-poppinsExtraLight text-xs leading-6 text-[#ffffffb3] customMd:text-[18px] customMd:leading-8">
-                     Before downloading iOS version, be sure to pay attention to the following points.
+                     {t('Before downloading')}
                   </p>
                   <Button className="shrink-0 rounded-full" onClick={onClose}>
                      <IoIosCloseCircleOutline fontSize="32px" color="white" />
@@ -85,7 +88,7 @@ function AppStoreModal({ open, onClose }) {
                       border border-solid border-[#ffffff26] px-2 py-1 customMd:grow customMd:rounded-2xl"
                                     >
                                        <p className="font-poppinsExtraBold text-xl leading-7 text-[#ffffffb3] customMd:text-[40px] customMd:leading-[64px]">
-                                          Step {step} of {stepsData?.data?.length}
+                                          {t('Step')} {step} {t('of')} {stepsData?.data?.length}
                                        </p>
                                        <p className="font-poppinsExtraLight text-xs leading-6 text-white customMd:text-[18px] customMd:leading-8">
                                           {item?.description}
@@ -114,7 +117,7 @@ function AppStoreModal({ open, onClose }) {
                                           className="mt-2 h-12 rounded-xl border border-solid border-[#ffffff80] font-poppinsLight text-xs text-white customMd:hidden"
                                           onClick={downloadIosHandler}
                                        >
-                                          Download
+                                          {t('Download')}
                                        </Button>
                                     )}
                                  </div>
@@ -128,7 +131,7 @@ function AppStoreModal({ open, onClose }) {
                            fullWidth
                            onClick={downloadIosHandler}
                         >
-                           Download
+                           {t('Download')}
                         </Button>
                      )}
                   </>

@@ -1,5 +1,53 @@
 {
     "header": {
-        "language": "русский"
+        "Home": "Дом",
+        "Blogs": "Блоги",
+        "White paper": "белая бумага",
+        "Licenses": "Лицензии",
+        "Download": "Скачать",
+        "Language": "Язык",
+        "Before downloading": "Прежде чем скачивать версию для iOS, обязательно обратите внимание на следующие моменты.",
+        "Step": "Шаг",
+        "of": "из"
+    },
+    "home": {
+        "Get it on": "Получите это на",
+        "Download on the": "Загрузите на",
+        "Master the Board!": "Мастер доски!",
+        "Play Safe or Risk It All?": "Играть безопасно или рискнуть всем?",
+        "Break Hard, Clear Fast!": "Ломай сильно, очищай быстро!",
+        "Fold? Nah, Go All-In!": "Складывать? Нет, иди олл-ин!"
+    },
+    "blogs": {
+        "Blogs": "Блоги",
+        "Discover the latest in crypto and play-to-earn gaming": "Откройте для себя новейшие разработки в сфере криптовалют и игр с целью заработать",
+        "All": "Все",
+        "Go back": "Возвращаться"
+    },
+    "contact us": {
+        "First name": "Имя",
+        "Last name": "Фамилия",
+        "Email": "Электронная почта",
+        "Title": "Заголовок",
+        "Message": "Сообщение",
+        "This field is required": "Это поле обязательно к заполнению",
+        "Please enter a valid email": "Введите, пожалуйста, действительный адрес электронной почты",
+        "Submit": "Представлять на рассмотрение"
+    },
+    "affiliate": {
+        "Unique Features": "Уникальные черты",
+        "Our Tables": "Наши столы",
+        "Earnings, Profits and Commissions": "Доходы, прибыль и комиссии",
+        "IMPORTANT!!!": "ВАЖНЫЙ!!!",
+        "Frequently Asked Questions": "Часто задаваемые вопросы"
+    },
+    "footer": {
+        "White paper": "белая бумага",
+        "Terms and conditions": "Условия и положения",
+        "Licenses": "Лицензии",
+        "Privacy Policy": "политика конфиденциальности",
+        "Blogs": "Блоги",
+        "Affiliate program": "Партнерская программа",
+        "Contact us": "Связаться с нами"
     }
 }

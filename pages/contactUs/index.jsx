@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 
 // MUI
@@ -15,6 +16,8 @@ function ContactUs({ contactUsData }) {
    const firstArray = images.slice(0, 9);
    const secondArray = images.slice(10, 20);
    const thirdArray = images.slice(20);
+
+   const t = useTranslations('contact us');
 
    const { trigger: sentTicketTrigger, isMutating: sendTicketIsMutating } = useSendTicket();
 
@@ -100,12 +103,12 @@ function ContactUs({ contactUsData }) {
                      <Grid item xs={12} md={6}>
                         <TextField
                            fullWidth
-                           placeholder="First name"
+                           placeholder={t('First name')}
                            color="customPurple"
                            {...register('firstName', {
                               required: {
                                  value: true,
-                                 message: 'This filed is required',
+                                 message: t('This field is required'),
                               },
                            })}
                            sx={{
@@ -123,12 +126,12 @@ function ContactUs({ contactUsData }) {
                      <Grid item xs={12} md={6}>
                         <TextField
                            fullWidth
-                           placeholder="Last name"
+                           placeholder={t('Last name')}
                            color="customPurple"
                            {...register('lastName', {
                               required: {
                                  value: true,
-                                 message: 'This filed is required',
+                                 message: t('This field is required'),
                               },
                            })}
                            sx={{
@@ -146,16 +149,16 @@ function ContactUs({ contactUsData }) {
                      <Grid item xs={12} md={6}>
                         <TextField
                            fullWidth
-                           placeholder="Email"
+                           placeholder={t('Email')}
                            color="customPurple"
                            {...register('email', {
                               required: {
                                  value: true,
-                                 message: 'This filed is required',
+                                 message: t('This field is required'),
                               },
                               pattern: {
                                  value: /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/,
-                                 message: 'Please enter a valid email',
+                                 message: t('Please enter a valid email'),
                               },
                            })}
                            sx={{
@@ -173,12 +176,12 @@ function ContactUs({ contactUsData }) {
                      <Grid item xs={12} md={6}>
                         <TextField
                            fullWidth
-                           placeholder="Title"
+                           placeholder={t('Title')}
                            color="customPurple"
                            {...register('title', {
                               required: {
                                  value: true,
-                                 message: 'This filed is required',
+                                 message: t('This field is required'),
                               },
                            })}
                            sx={{
@@ -198,12 +201,12 @@ function ContactUs({ contactUsData }) {
                            fullWidth
                            multiline
                            minRows={5}
-                           placeholder="Message"
+                           placeholder={t('Message')}
                            color="customPurple"
                            {...register('message', {
                               required: {
                                  value: true,
-                                 message: 'This filed is required',
+                                 message: t('This field is required'),
                               },
                            })}
                            sx={{
@@ -231,7 +234,7 @@ function ContactUs({ contactUsData }) {
                         }}
                         loading={sendTicketIsMutating}
                      >
-                        Submit
+                        {t('Submit')}
                      </LoadingButton>
                   </div>
                </form>

@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import Image from 'next/image';
 
@@ -25,6 +26,7 @@ function DownloadAppModal({ open, onClose }) {
 
    const { data: storeLinkData } = useGetStoreLink();
 
+   const t = useTranslations('header');
    const isDesktop = useMediaQuery(`(min-width: 500px)`);
 
    const downloadGoogleHandler = () => {
@@ -70,7 +72,7 @@ function DownloadAppModal({ open, onClose }) {
                         className="mt-[10px] h-[48px] !rounded-xl !border !border-solid !border-[#ffffff80] !font-poppinsRegular text-xs !text-white custom500:text-sm"
                         onClick={downloadGoogleHandler}
                      >
-                        Download
+                        {t('Download')}
                      </Button>
                   </div>
                   <div className="flex-1 rounded-2xl bg-[#ffffff0a] p-2">
@@ -86,7 +88,7 @@ function DownloadAppModal({ open, onClose }) {
                         className="mt-[10px] h-[48px] !rounded-xl !border !border-solid !border-[#ffffff80] !font-poppinsRegular text-xs !text-white custom500:text-sm"
                         onClick={() => setShowAppStoreModal(true)}
                      >
-                        Download
+                        {t('Download')}
                      </Button>
                   </div>
                </div>

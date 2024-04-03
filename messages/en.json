@@ -1,5 +1,53 @@
 {
     "header": {
-        "language": "English"
+        "Home": "Home",
+        "Blogs": "Blogs",
+        "White paper": "White paper",
+        "Licenses": "Licenses",
+        "Download": "Download",
+        "Language": "Language",
+        "Before downloading": "Before downloading iOS version, be sure to pay attention to the following points.",
+        "Step": "Step",
+        "of": "of"
+    },
+    "home": {
+        "Get it on": "Get it on",
+        "Download on the": "Download on the",
+        "Master the Board!": "Master the Board!",
+        "Play Safe or Risk It All?": "Play Safe or Risk It All?",
+        "Break Hard, Clear Fast!": "Break Hard, Clear Fast!",
+        "Fold? Nah, Go All-In!": "Fold? Nah, Go All-In!"
+    },
+    "blogs": {
+        "Blogs": "Blogs",
+        "Discover the latest in crypto and play-to-earn gaming": "Discover the latest in crypto and play-to-earn gaming",
+        "All": "All",
+        "Go back": "Go back"
+    },
+    "contact us": {
+        "First name": "First name",
+        "Last name": "Last name",
+        "Email": "Email",
+        "Title": "Title",
+        "Message": "Message",
+        "This field is required": "This field is required",
+        "Please enter a valid email": "Please enter a valid email",
+        "Submit": "Submit"
+    },
+    "affiliate": {
+        "Unique Features": "Unique Features",
+        "Our Tables": "Our Tables",
+        "Earnings, Profits and Commissions": "Earnings, Profits and Commissions",
+        "IMPORTANT!!!": "IMPORTANT!!!",
+        "Frequently Asked Questions": "Frequently Asked Questions"
+    },
+    "footer": {
+        "Blogs": "Blogs",
+        "White paper": "White paper",
+        "Terms and conditions": "Terms and conditions",
+        "Affiliate program": "Affiliate program",
+        "Contact us": "Contact us",
+        "Licenses": "Licenses",
+        "Privacy Policy": "Privacy Policy"
     }
 }

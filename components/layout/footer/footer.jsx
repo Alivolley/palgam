@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -19,6 +20,8 @@ function Footer() {
    const { data: linksData } = useGetAllLinks();
    const { data: othersData } = useGetOthers();
 
+   const t = useTranslations('footer');
+
    return (
       <footer className="relative bg-[#100C16]">
          <div className="absolute inset-y-0 w-[310px] customMd:w-[550px]">
@@ -27,39 +30,39 @@ function Footer() {
          <div className="px-4 py-8">
             <div className="relative flex justify-evenly customMd:hidden">
                <div className="flex flex-col items-center gap-4 font-poppinsLight text-10 leading-[14px] text-white">
-                  <Link href="/blogs">Blogs</Link>
-                  <Link href="/whitePaper">White paper</Link>
-                  <Link href="/terms">Terms & conditions</Link>
+                  <Link href="/blogs">{t('Blogs')}</Link>
+                  <Link href="/whitePaper">{t('White paper')}</Link>
+                  <Link href="/terms">{t('Terms and conditions')}</Link>
                </div>
                <div className="flex flex-col items-center gap-4 font-poppinsLight text-10 leading-[14px] text-white">
-                  <Link href="/affiliate">Affiliate program</Link>
-                  <Link href="/licenses">Licenses</Link>
-                  <Link href="/contactUs">Contact us</Link>
-                  <Link href="/privacy">Privacy policy</Link>
+                  <Link href="/affiliate">{t('Affiliate program')}</Link>
+                  <Link href="/licenses">{t('Licenses')}</Link>
+                  <Link href="/contactUs">{t('Contact us')}</Link>
+                  <Link href="/privacy">{t('Privacy Policy')}</Link>
                </div>
             </div>
 
             <div className="relative mx-auto hidden max-w-[1112px] items-center justify-between gap-4 font-poppinsLight text-xs leading-[20px] text-white customMd:flex">
                <Link href="/blogs" className="transition-all duration-200 hover:text-[#ffffff80]">
-                  Blogs
+                  {t('Blogs')}
                </Link>
                <Link href="/whitePaper" className="transition-all duration-200 hover:text-[#ffffff80]">
-                  White paper
+                  {t('White paper')}
                </Link>
                <Link href="/terms" className="transition-all duration-200 hover:text-[#ffffff80]">
-                  Terms & conditions
+                  {t('Terms and conditions')}
                </Link>
                <Link href="/affiliate" className="transition-all duration-200 hover:text-[#ffffff80]">
-                  Affiliate program
+                  {t('Affiliate program')}
                </Link>
                <Link href="/licenses" className="transition-all duration-200 hover:text-[#ffffff80]">
-                  Licenses
+                  {t('Licenses')}
                </Link>
                <Link href="/contactUs" className="transition-all duration-200 hover:text-[#ffffff80]">
-                  Contact us
+                  {t('Contact us')}
                </Link>
                <Link href="/privacy" className="transition-all duration-200 hover:text-[#ffffff80]">
-                  Privacy policy
+                  {t('Privacy Policy')}
                </Link>
             </div>
 

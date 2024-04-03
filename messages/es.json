@@ -1,5 +1,53 @@
 {
     "header": {
-        "language": "España"
+        "Home": "Hogar",
+        "Blogs": "Blogs",
+        "White paper": "papel blanco",
+        "Licenses": "Licencias",
+        "Download": "Descargar",
+        "Language": "Idioma",
+        "Before downloading": "Antes de descargar la versión de iOS, asegúrese de prestar atención a los siguientes puntos.",
+        "Step": "Paso",
+        "of": "de"
+    },
+    "home": {
+        "Get it on": "Consíguelo",
+        "Download on the": "Descargar en el",
+        "Master the Board!": "Domina el tablero!",
+        "Play Safe or Risk It All?": "Jugar segura o arriesgarlo todo?",
+        "Break Hard, Clear Fast!": "Rompe fuerte, limpia rápido!",
+        "Fold? Nah, Go All-In!": "Doblar? No, ¡haz todo lo posible!"
+    },
+    "blogs": {
+        "Blogs": "Blogs",
+        "Discover the latest in crypto and play-to-earn gaming": "Descubra lo último en criptografía y juegos para ganar dinero",
+        "All": "All",
+        "Go back": "Regresa"
+    },
+    "contact us": {
+        "First name": "Nombre de pila",
+        "Last name": "Apellido",
+        "Email": "Correo electrónico",
+        "Title": "Título",
+        "Message": "Mensaje",
+        "This field is required": "Este campo es obligatorio",
+        "Please enter a valid email": "Por favor introduzca una dirección de correo electrónico válida",
+        "Submit": "Entregar"
+    },
+    "affiliate": {
+        "Unique Features": "Características unicas",
+        "Our Tables": "Nuestras Mesas",
+        "Earnings, Profits and Commissions": "Ganancias, Beneficios y Comisiones",
+        "IMPORTANT!!!": "IMPORTANTE!!!",
+        "Frequently Asked Questions": "Preguntas frecuentes"
+    },
+    "footer": {
+        "White paper": "papel blanco",
+        "Terms and conditions": "Términos y condiciones",
+        "Licenses": "Licencias",
+        "Privacy Policy": "política de privacidad",
+        "Blogs": "Blogs",
+        "Affiliate program": "Programa de afiliación",
+        "Contact us": "Contacta con nosotras"
     }
 }

@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { useRef } from 'react';
 import Image from 'next/image';
 
@@ -11,6 +12,8 @@ import moreAboutPic4 from '@/assets/images/moreAboutPic4.png';
 import moreAboutPic5 from '@/assets/images/moreAboutPic5.png';
 
 function MoreAbout({ homePageData }) {
+   const t = useTranslations('home');
+
    const wrapperRef = useRef();
    const cart1Ref = useRef();
    const cart2Ref = useRef();
@@ -84,7 +87,7 @@ function MoreAbout({ homePageData }) {
                   Backgammon
                </p>
                <p className="font-poppinsExtraLight text-xs leading-6 text-[#ffffff99] customMd:text-[18px] customMd:leading-8">
-                  Master the Board!
+                  {t('Master the Board!')}
                </p>
             </div>
 
@@ -100,7 +103,7 @@ function MoreAbout({ homePageData }) {
                   Table Soccer
                </p>
                <p className="font-poppinsExtraLight text-xs leading-6 text-[#ffffff99] customMd:text-[18px] customMd:leading-8">
-                  Play Safe or Risk It All?
+                  {t('Play Safe or Risk It All?')}
                </p>
             </div>
 
@@ -116,7 +119,7 @@ function MoreAbout({ homePageData }) {
                   8 Ball
                </p>
                <p className="font-poppinsExtraLight text-xs leading-6 text-[#ffffff99] customMd:text-[18px] customMd:leading-8">
-                  Break Hard, Clear Fast!
+                  {t('Break Hard, Clear Fast!')}
                </p>
             </div>
 
@@ -132,7 +135,7 @@ function MoreAbout({ homePageData }) {
                   Hokm
                </p>
                <p className="font-poppinsExtraLight text-xs leading-6 text-[#ffffff99] customMd:text-[18px] customMd:leading-8">
-                  Fold? Nah, Go All-In!
+                  {t('Fold? Nah, Go All-In!')}
                </p>
             </div>
 
@@ -145,10 +148,10 @@ function MoreAbout({ homePageData }) {
                   <Image src={moreAboutPic1} alt="cart" className="size-full rounded-[28px] object-cover" />
                </div>
                <p className="mb-1 font-poppinsExtraBold text-xl leading-7 text-white customMd:text-2xl customMd:leading-8">
-                  8 Ball
+                  Hokm
                </p>
                <p className="font-poppinsExtraLight text-xs leading-6 text-[#ffffff99] customMd:text-[18px] customMd:leading-8">
-                  Break Hard, Clear Fast!
+                  {t('Break Hard, Clear Fast!')}
                </p>
             </div>
          </div>
