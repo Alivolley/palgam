@@ -61,7 +61,7 @@ axiosInstance.interceptors.response.use(
          Cookies.remove('palgam_refreshToken');
          Cookies.remove('palgam_isLogin');
          if (location.pathname.includes('admin-panel')) {
-            location.href = '/login';
+            location.href = '/tyu516wxcvb6';
          }
       } else if (error?.response?.data?.detail === 'Token is invalid or expired') {
          // refresh expired
@@ -69,7 +69,7 @@ axiosInstance.interceptors.response.use(
          Cookies.remove('palgam_refreshToken');
          Cookies.remove('palgam_isLogin');
          if (location.pathname.includes('admin-panel')) {
-            location.href = '/login';
+            location.href = '/tyu516wxcvb6';
          }
       } else if (error?.response?.data?.message) {
          toast.error(error?.response?.data?.message);

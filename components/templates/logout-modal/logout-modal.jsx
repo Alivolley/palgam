@@ -16,7 +16,7 @@ function LogoutModal({ show, onClose }) {
       Cookies.remove('palgam_accessToken');
       Cookies.remove('palgam_refreshToken');
       Cookies.remove('palgam_isLogin');
-      window.location.href = '/login';
+      window.location.href = '/tyu516wxcvb6';
    };
 
    return (

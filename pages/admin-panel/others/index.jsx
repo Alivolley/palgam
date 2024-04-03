@@ -357,7 +357,7 @@ export async function getServerSideProps(context) {
    if (!accessToken && !refreshToken) {
       return {
          redirect: {
-            destination: '/login',
+            destination: '/tyu516wxcvb6',
          },
       };
    }

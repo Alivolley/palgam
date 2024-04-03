@@ -10,16 +10,16 @@ function PagesLayout({ children }) {
 
    return (
       <div className="font-arimaRegular">
-         {pathname !== '/login' && !pathname.startsWith('/admin-panel') && <Header />}
+         {pathname !== '/tyu516wxcvb6' && !pathname.startsWith('/admin-panel') && <Header />}
 
          <main
-            className={`bg-[#080609] ${pathname !== '/login' && !pathname.startsWith('/admin-panel') ? 'pb-12' : ''}`}
+            className={`bg-[#080609] ${pathname !== '/tyu516wxcvb6' && !pathname.startsWith('/admin-panel') ? 'pb-12' : ''}`}
          >
             {children}
-            {pathname !== '/login' && !pathname.startsWith('/admin-panel') && <FloatingButtons />}
+            {pathname !== '/tyu516wxcvb6' && !pathname.startsWith('/admin-panel') && <FloatingButtons />}
          </main>
 
-         {pathname !== '/login' && !pathname.startsWith('/admin-panel') && <Footer />}
+         {pathname !== '/tyu516wxcvb6' && !pathname.startsWith('/admin-panel') && <Footer />}
       </div>
    );
 }
