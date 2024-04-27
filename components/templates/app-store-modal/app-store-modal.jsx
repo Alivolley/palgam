@@ -79,7 +79,7 @@ function AppStoreModal({ open, onClose }) {
                                  key={item?.step}
                               >
                                  <div className="relative mx-auto h-[320px] w-full shrink-0 customMd:h-[488px] customMd:w-[240px]">
-                                    <Image src={item?.image || ''} alt="mobile" className="object-cover" fill />
+                                    <Image src={item?.image || ''} alt="mobile" className="object-contain" fill />
                                  </div>
 
                                  <div className="flex flex-col gap-2 customMd:grow customMd:gap-6">

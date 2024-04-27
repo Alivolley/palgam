@@ -33,6 +33,7 @@ function Footer() {
                   <Link href="/blogs">{t('Blogs')}</Link>
                   <Link href="/whitePaper">{t('White paper')}</Link>
                   <Link href="/terms">{t('Terms and conditions')}</Link>
+                  <Link href="/self">{t('Self-Exclusion Process')}</Link>
                </div>
                <div className="flex flex-col items-center gap-4 font-poppinsLight text-10 leading-[14px] text-white">
                   <Link href="/affiliate">{t('Affiliate program')}</Link>
@@ -63,6 +64,9 @@ function Footer() {
                </Link>
                <Link href="/privacy" className="transition-all duration-200 hover:text-[#ffffff80]">
                   {t('Privacy Policy')}
+               </Link>
+               <Link href="/self" className="transition-all duration-200 hover:text-[#ffffff80]">
+                  {t('Self-Exclusion Process')}
                </Link>
             </div>
 
