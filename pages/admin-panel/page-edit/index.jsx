@@ -139,7 +139,7 @@ function PageEdit() {
                   </Grid>
                ) : chosenPage === 'supportPages' ? (
                   <Grid container spacing="16px">
-                     <Grid item md={6}>
+                     <Grid item xs={12}>
                         <div className="space-y-4">
                            <div className="rounded-2xl bg-[#ffffff0d] p-4">
                               <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
@@ -157,23 +157,23 @@ function PageEdit() {
                            </div>
                            <div className="rounded-2xl bg-[#ffffff0d] p-4">
                               <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
-                                 <p className="font-poppinsRegular text-sm leading-6">Contact us</p>
-                                 <Image src={taskSquareGray} alt="icon" />
-                              </div>
-                              <SupportContactUs />
-                           </div>
-                        </div>
-                     </Grid>
-                     <Grid item md={6}>
-                        <div className="space-y-4">
-                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
-                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
                                  <p className="font-poppinsRegular text-sm leading-6">Privacy policy</p>
                                  <Image src={taskSquareGray} alt="icon" />
                               </div>
                               <SupportPrivacyPolicy />
                            </div>
-                           <div className="rounded-2xl bg-[#ffffff0d] p-4">
+                        </div>
+                     </Grid>
+                     <Grid item xs={12}>
+                        <div className="flex items-start gap-4">
+                           <div className="flex-1 rounded-2xl bg-[#ffffff0d] p-4">
+                              <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
+                                 <p className="font-poppinsRegular text-sm leading-6">Contact us</p>
+                                 <Image src={taskSquareGray} alt="icon" />
+                              </div>
+                              <SupportContactUs />
+                           </div>
+                           <div className="flex-1 rounded-2xl bg-[#ffffff0d] p-4">
                               <div className="flex items-center justify-between rounded-xl bg-[#ffffff0d] p-3">
                                  <p className="font-poppinsRegular text-sm leading-6">License</p>
                                  <Image src={taskSquareGray} alt="icon" />

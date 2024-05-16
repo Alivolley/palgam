@@ -26,6 +26,7 @@ function CategoryModal({
    blogsDataMutate,
    coverPic,
    bannerPic,
+   blogVideo,
    inputValues,
    goBackHandler,
    isEditBlog,
@@ -103,6 +104,9 @@ function CategoryModal({
       }
       if (bannerPic) {
          formData.append('banner', bannerPic);
+      }
+      if (blogVideo) {
+         formData.append('video', blogVideo);
       }
       if (isEditBlog) {
          formData.append('id', chosenBlogForEdit?.id);

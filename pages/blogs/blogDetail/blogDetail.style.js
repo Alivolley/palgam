@@ -10,9 +10,8 @@ const BlogDetailStyle = styled.div(() => ({
    '#content': {
       img: {
          display: 'block',
-         margin: '0 auto',
          maxWidth: '100%',
-         objectFit: 'cover',
+         height: 'fit-content',
       },
 
       'strong , i , h2 , h3 , h4 , p , a , ul , ol': {

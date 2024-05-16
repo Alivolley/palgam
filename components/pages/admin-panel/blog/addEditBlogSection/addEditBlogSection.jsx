@@ -10,6 +10,7 @@ import styled from '@emotion/styled';
 // Icons
 import { GoArrowLeft } from 'react-icons/go';
 import { ImFilePicture } from 'react-icons/im';
+import { FaPhotoVideo } from 'react-icons/fa';
 
 // Assets
 import usFlag from '@/assets/icons/usFlag.svg';
@@ -60,6 +61,8 @@ function AddEditBlogSection({
    const [coverPicUrl, setCoverPicUrl] = useState();
    const [bannerPic, setBannerPic] = useState();
    const [bannerPicUrl, setBannerPicUrl] = useState();
+   const [blogVideo, setBlogVideo] = useState();
+   const [blogVideoUrl, setBlogVideoUrl] = useState();
    const [showCategoryModal, setShowCategoryModal] = useState(false);
    const [inputValues, setInputValues] = useState({
       en: { title: '', summary: '', text: '' },
@@ -90,6 +93,7 @@ function AddEditBlogSection({
          });
          setCoverPicUrl(blogDetailData?.cover);
          setBannerPicUrl(blogDetailData?.banner);
+         setBlogVideoUrl(blogDetailData?.video);
       }
    }, [chosenBlogForEdit?.id, blogDetailData]);
 
@@ -118,6 +122,15 @@ function AddEditBlogSection({
          setBannerPic(file);
          const fileURL = URL.createObjectURL(file);
          setBannerPicUrl(fileURL);
+      }
+   };
+
+   const changeVideoHandler = e => {
+      if (e?.target?.files?.[0]) {
+         const file = e?.target?.files?.[0];
+         setBlogVideo(file);
+         const fileURL = URL.createObjectURL(file);
+         setBlogVideoUrl(fileURL);
       }
    };
 
@@ -151,6 +164,8 @@ function AddEditBlogSection({
       setCoverPicUrl();
       setBannerPic();
       setBannerPicUrl();
+      setBlogVideo();
+      setBlogVideoUrl();
       setInputValues({
          en: { title: '', summary: '', text: '' },
          es: { title: '', summary: '', text: '' },
@@ -251,6 +266,47 @@ function AddEditBlogSection({
                               <VisuallyHiddenInput type="file" onChange={changeBannerHandler} accept="image/*" />
                            </Button>
                         </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div className="flex items-center gap-4 rounded-xl border border-solid border-[#ffffff26] px-3 py-5">
+                  <div className="flex flex-1 items-center justify-center">
+                     {blogVideoUrl ? (
+                        <>
+                           {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+                           <video src={blogVideoUrl} alt="video" className="h-[200px] w-full" controls />
+                        </>
+                     ) : (
+                        <FaPhotoVideo size="45px" />
+                     )}
+                  </div>
+                  <Divider orientation="vertical" flexItem />
+                  <div className="flex-1 space-y-8">
+                     <p className="text-center font-poppinsSemibold text-sm text-[#ffffffb3]">Blog video</p>
+
+                     <div className="mt-2">
+                        <Button
+                           sx={{
+                              backgroundColor: '#ffffff0d',
+                              fontFamily: 'poppinsSemibold',
+                              color: 'white',
+                              borderRadius: '12px',
+                              fontSize: '12px',
+                              height: '40px',
+                           }}
+                           fullWidth
+                           component="label"
+                           role={undefined}
+                           tabIndex={-1}
+                        >
+                           Choose File
+                           <VisuallyHiddenInput
+                              type="file"
+                              onChange={changeVideoHandler}
+                              accept="video/mp4,video/x-m4v,video/*"
+                           />
+                        </Button>
                      </div>
                   </div>
                </div>
@@ -422,6 +478,7 @@ function AddEditBlogSection({
             blogsDataMutate={blogsDataMutate}
             coverPic={coverPic}
             bannerPic={bannerPic}
+            blogVideo={blogVideo}
             inputValues={inputValues}
             goBackHandler={goBackHandler}
             isEditBlog={isEditBlog}

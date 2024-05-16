@@ -1,8 +1,5 @@
 import Image from 'next/image';
 
-// MUI
-import { useMediaQuery } from '@mui/material';
-
 // Assets
 import whatIsShadow from '@/assets/images/whatIsShadow.png';
 
@@ -16,8 +13,6 @@ const importAll = r => r.keys().map(r);
 const images = importAll(require.context('@/assets/images/cards', false, /\.(png|jpe?g|svg)$/));
 
 function WhatIs({ homePageData }) {
-   const isDesktop = useMediaQuery(`(min-width: 900px)`);
-
    const firstArray = images.slice(0, 10);
    const secondArray = images.slice(10, 20);
    const thirdArray = images.slice(20);
@@ -27,12 +22,7 @@ function WhatIs({ homePageData }) {
 
    return (
       <WhatIsStyle className="relative mt-[90px] overflow-hidden customMd:mt-[180px] customMd:h-[1217px]">
-         <div
-            className="flex flex-col gap-2 customMd:mt-[-100px] customMd:gap-6"
-            data-aos="fade-up"
-            {...(isDesktop && { 'data-aos-offset': '700' })}
-            data-aos-duration="1000"
-         >
+         <div className="flex flex-col gap-2 customMd:mt-[-100px] customMd:gap-6">
             <div id="firstWrapper" className="flex items-center overflow-hidden">
                <div className="flex items-center" id="carts">
                   {firstArray?.map((item, index) => (

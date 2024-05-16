@@ -16,6 +16,7 @@ export default function Home({ homePageData, othersData }) {
          <Head>
             <title>{othersData?.site_name}</title>
             <meta name="author" content={othersData?.site_name} />
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2.5" />
             <meta name="google-site-verification" content={othersData?.google_console} />
             <link rel="icon" href={othersData?.fav_icon} />
          </Head>

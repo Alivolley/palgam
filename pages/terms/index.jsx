@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
@@ -24,9 +25,11 @@ function Terms({ termsData }) {
 
                <div className="mt-6 space-y-6 customMd:mt-12 customMd:space-y-12">
                   <div className="pl-[34px]">
-                     <pre className="whitespace-pre-line font-poppinsThin text-xs leading-6 text-[#ffffffb3] customMd:text-[18px] customMd:leading-8">
-                        {termsData?.data?.terms?.description}
-                     </pre>
+                     <div
+                        id="content"
+                        className="font-poppinsThin text-xs leading-6 text-[#ffffffb3] customMd:text-[18px] customMd:leading-8"
+                        dangerouslySetInnerHTML={{ __html: termsData?.data?.terms?.description }}
+                     />
                   </div>
                </div>
             </div>

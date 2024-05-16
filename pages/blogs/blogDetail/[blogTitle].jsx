@@ -17,6 +17,8 @@ function BlogDetail({ blogDetail }) {
    const { back } = useRouter();
    const t = useTranslations('blogs');
 
+   console.log(blogDetail);
+
    return (
       <BlogDetailStyle className="relative">
          <div className="absolute inset-x-0 h-[528px]" id="gradientElem" />
@@ -66,6 +68,11 @@ function BlogDetail({ blogDetail }) {
                   className="mt-2 font-poppinsThin text-xs leading-6 text-[#ffffff80] customMd:text-[18px] customMd:leading-8"
                   dangerouslySetInnerHTML={{ __html: blogDetail?.text }}
                />
+            </div>
+
+            <div className="flex justify-center">
+               {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+               <video src={blogDetail?.video} className="w-full rounded-10 customMd:w-[80%]" controls />
             </div>
          </div>
       </BlogDetailStyle>

@@ -1,13 +1,11 @@
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
 // MUI
-import { CircularProgress, FormControl, InputAdornment, OutlinedInput } from '@mui/material';
+import { CircularProgress } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
-
-// Icons
-import { BiEditAlt } from 'react-icons/bi';
 
 // Assets
 import supportPrivacyPolicyPic from '@/assets/images/adminPanel/support-privacyPolicyPic.png';
@@ -19,6 +17,10 @@ import LanguageBar from '../language-bar/language-bar';
 import useGetPagesData from '@/apis/adminPanel/page-edit/useGetPagesData';
 import useAddEditPageData from '@/apis/adminPanel/page-edit/useAddEditPageData';
 
+const CkEditorEn = dynamic(() => import('@/components/templates/ckEditor/ckEditor'), { ssr: false });
+const CkEditorEs = dynamic(() => import('@/components/templates/ckEditor/ckEditor'), { ssr: false });
+const CkEditorRu = dynamic(() => import('@/components/templates/ckEditor/ckEditor'), { ssr: false });
+
 function SupportPrivacyPolicy() {
    const [chosenLang, setChosenLang] = useState('en');
    const [changeLangLoading, setChangeLangLoading] = useState(false);
@@ -26,7 +28,7 @@ function SupportPrivacyPolicy() {
    const { data: pagesData, isLoading: pagesDataIsLoading, mutate: pagesDataMutate } = useGetPagesData();
    const { trigger: addEditTrigger, isMutating: addEditIsMutating } = useAddEditPageData();
 
-   const { register, handleSubmit, setValue } = useForm({
+   const { handleSubmit, setValue, control } = useForm({
       defaultValues: {
          descriptionEn: '',
          descriptionEs: '',
@@ -85,65 +87,35 @@ function SupportPrivacyPolicy() {
             ) : chosenLang === 'en' ? (
                <div className="space-y-2">
                   <p className="font-poppinsLight text-xl leading-6">Description</p>
-                  <FormControl
-                     variant="outlined"
-                     fullWidth
-                     color="customPurple"
-                     sx={{ '& .MuiOutlinedInput-root': { backgroundColor: '#ffffff0d' } }}
-                  >
-                     <OutlinedInput
-                        multiline
-                        minRows={10}
-                        {...register('descriptionEn')}
-                        endAdornment={
-                           <InputAdornment position="end" sx={{ marginTop: '-200px' }}>
-                              <BiEditAlt size="24px" />
-                           </InputAdornment>
-                        }
-                     />
-                  </FormControl>
+                  <Controller
+                     control={control}
+                     name="descriptionEn"
+                     render={({ field: { onChange, value } }) => (
+                        <CkEditorEn initialData={value || ''} onChange={onChange} />
+                     )}
+                  />
                </div>
             ) : chosenLang === 'es' ? (
                <div className="space-y-2">
                   <p className="font-poppinsLight text-xl leading-6">Description</p>
-                  <FormControl
-                     variant="outlined"
-                     fullWidth
-                     color="customPurple"
-                     sx={{ '& .MuiOutlinedInput-root': { backgroundColor: '#ffffff0d' } }}
-                  >
-                     <OutlinedInput
-                        multiline
-                        minRows={10}
-                        {...register('descriptionEs')}
-                        endAdornment={
-                           <InputAdornment position="end" sx={{ marginTop: '-200px' }}>
-                              <BiEditAlt size="24px" />
-                           </InputAdornment>
-                        }
-                     />
-                  </FormControl>
+                  <Controller
+                     control={control}
+                     name="descriptionEs"
+                     render={({ field: { onChange, value } }) => (
+                        <CkEditorEs initialData={value || ''} onChange={onChange} />
+                     )}
+                  />
                </div>
             ) : chosenLang === 'ru' ? (
                <div className="space-y-2">
                   <p className="font-poppinsLight text-xl leading-6">Description</p>
-                  <FormControl
-                     variant="outlined"
-                     fullWidth
-                     color="customPurple"
-                     sx={{ '& .MuiOutlinedInput-root': { backgroundColor: '#ffffff0d' } }}
-                  >
-                     <OutlinedInput
-                        multiline
-                        minRows={10}
-                        {...register('descriptionRu')}
-                        endAdornment={
-                           <InputAdornment position="end" sx={{ marginTop: '-200px' }}>
-                              <BiEditAlt size="24px" />
-                           </InputAdornment>
-                        }
-                     />
-                  </FormControl>
+                  <Controller
+                     control={control}
+                     name="descriptionRu"
+                     render={({ field: { onChange, value } }) => (
+                        <CkEditorRu initialData={value || ''} onChange={onChange} />
+                     )}
+                  />
                </div>
             ) : null}
 

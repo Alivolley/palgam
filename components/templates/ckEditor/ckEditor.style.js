@@ -29,6 +29,7 @@ const CkEditorStyle = styled.div(() => ({
 
    '.ck-content': {
       height: '400px',
+      resize: 'vertical',
       padding: '0 25px !important',
    },
 

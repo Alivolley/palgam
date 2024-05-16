@@ -5,6 +5,7 @@
 
 import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic';
 
+import { Alignment } from '@ckeditor/ckeditor5-alignment';
 import { Autoformat } from '@ckeditor/ckeditor5-autoformat';
 import { Bold, Italic } from '@ckeditor/ckeditor5-basic-styles';
 import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
@@ -16,6 +17,7 @@ import { Heading } from '@ckeditor/ckeditor5-heading';
 import {
 	Image,
 	ImageCaption,
+	ImageResize,
 	ImageStyle,
 	ImageToolbar,
 	ImageUpload,
@@ -36,6 +38,7 @@ import { Undo } from '@ckeditor/ckeditor5-undo';
 
 class Editor extends ClassicEditor {
 	public static override builtinPlugins = [
+		Alignment,
 		Autoformat,
 		BlockQuote,
 		Bold,
@@ -45,6 +48,7 @@ class Editor extends ClassicEditor {
 		Heading,
 		Image,
 		ImageCaption,
+		ImageResize,
 		ImageStyle,
 		ImageToolbar,
 		ImageUpload,
@@ -66,7 +70,6 @@ class Editor extends ClassicEditor {
 		toolbar: {
 			items: [
 				'heading',
-				'|',
 				'bold',
 				'italic',
 				'link',
@@ -79,9 +82,10 @@ class Editor extends ClassicEditor {
 				'imageUpload',
 				'blockQuote',
 				'insertTable',
-				'mediaEmbed',
 				'undo',
-				'redo'
+				'redo',
+				'alignment',
+				'mediaEmbed'
 			]
 		},
 		language: 'en',
