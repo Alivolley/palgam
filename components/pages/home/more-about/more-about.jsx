@@ -5,7 +5,6 @@ import Image from 'next/image';
 // Assets
 import MoreAboutStyle from './more-about.style';
 import moreAboutPic from '@/assets/images/moreAboutPic.png';
-import moreAboutPic1 from '@/assets/images/moreAboutPic1.png';
 import moreAboutPic2 from '@/assets/images/moreAboutPic2.png';
 import moreAboutPic3 from '@/assets/images/moreAboutPic3.png';
 import moreAboutPic4 from '@/assets/images/moreAboutPic4.png';
@@ -19,7 +18,6 @@ function MoreAbout({ homePageData }) {
    const cart2Ref = useRef();
    const cart3Ref = useRef();
    const cart4Ref = useRef();
-   const cart5Ref = useRef();
 
    const pauseAnimation = () => {
       wrapperRef.current.style.animationPlayState = 'paused';
@@ -27,7 +25,6 @@ function MoreAbout({ homePageData }) {
       cart2Ref.current.style.animationPlayState = 'paused';
       cart3Ref.current.style.animationPlayState = 'paused';
       cart4Ref.current.style.animationPlayState = 'paused';
-      cart5Ref.current.style.animationPlayState = 'paused';
    };
 
    const playAnimation = () => {
@@ -36,7 +33,6 @@ function MoreAbout({ homePageData }) {
       cart2Ref.current.style.animationPlayState = 'running';
       cart3Ref.current.style.animationPlayState = 'running';
       cart4Ref.current.style.animationPlayState = 'running';
-      cart5Ref.current.style.animationPlayState = 'running';
    };
 
    return (
@@ -136,22 +132,6 @@ function MoreAbout({ homePageData }) {
                </p>
                <p className="font-poppinsExtraLight text-xs leading-6 text-[#ffffff99] customMd:text-[18px] customMd:leading-8">
                   {t('Fold? Nah, Go All-In!')}
-               </p>
-            </div>
-
-            <div
-               className="flex w-fit flex-col items-center rounded-[32px] bg-[#ffffff1a] p-4 backdrop-blur-[13.7px] transition-all duration-700"
-               id="cart5"
-               ref={cart5Ref}
-            >
-               <div className="mb-6 h-[200px] w-[336px] customMd:w-[440px]">
-                  <Image src={moreAboutPic1} alt="cart" className="size-full rounded-[28px] object-cover" />
-               </div>
-               <p className="mb-1 font-poppinsExtraBold text-xl leading-7 text-white customMd:text-2xl customMd:leading-8">
-                  Hokm
-               </p>
-               <p className="font-poppinsExtraLight text-xs leading-6 text-[#ffffff99] customMd:text-[18px] customMd:leading-8">
-                  {t('Break Hard, Clear Fast!')}
                </p>
             </div>
          </div>

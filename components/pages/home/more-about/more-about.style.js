@@ -54,7 +54,7 @@ const MoreAboutStyle = styled.div(() => ({
 
    '@keyframes goTop': {
       to: {
-         top: '-300%',
+         top: '-260%',
       },
    },
 }));
