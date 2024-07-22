@@ -69,7 +69,7 @@ function Blogs({ blogsData, allCategories }) {
                <h1 className="text-center font-arimaBold text-[50px] leading-[56px] text-white customSm:text-[88px] customSm:leading-[112px]">
                   {t('Blogs')}
                </h1>
-               <p className="text-center font-poppinsThin text-[12px] leading-6 text-[#ffffffb3] customSm:text-[18px] customSm:leading-[32px]">
+               <p className="text-center font-poppinsLight text-[12px] leading-6 text-[#ffffffb3] customSm:text-[18px] customSm:leading-[32px]">
                   {t('Discover the latest in crypto and play-to-earn gaming')}
                </p>
                <div className="my-12 h-px bg-[#ffffff4d]" />

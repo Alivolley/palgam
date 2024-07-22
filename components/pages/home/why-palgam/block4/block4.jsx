@@ -28,7 +28,7 @@ function Block4({ detail }) {
             <p className="font-poppinsExtraBold text-[20px] leading-[28px] customMd:text-[24px] customMd:leading-[32px]">
                {detail?.title}
             </p>
-            <p className="mt-1 font-poppinsThin text-sm leading-[24px]">{detail?.description}</p>
+            <p className="mt-1 font-poppinsLight text-sm leading-[24px]">{detail?.description}</p>
          </div>
          <div className="absolute inset-0 z-[2]">
             <Image src={whyPalgamCoinNoise} alt="coin noise" className="size-full" />

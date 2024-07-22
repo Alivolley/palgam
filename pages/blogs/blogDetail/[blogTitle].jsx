@@ -54,7 +54,7 @@ function BlogDetail({ blogDetail }) {
                      </p>
                   ))}
                </div>
-               <p className="font-poppinsThin text-xs leading-6 text-[#ffffff4d] customMd:text-[18px] customMd:leading-8">
+               <p className="font-poppinsLight text-xs leading-6 text-[#ffffff4d] customMd:text-[18px] customMd:leading-8">
                   {blogDetail?.created_at} | By {blogDetail?.author}
                </p>
             </div>
@@ -65,7 +65,7 @@ function BlogDetail({ blogDetail }) {
                </p>
                <div
                   id="content"
-                  className="mt-2 font-poppinsThin text-xs leading-6 text-[#ffffff80] customMd:text-[18px] customMd:leading-8"
+                  className="mt-2 font-poppinsLight text-xs leading-6 text-[#ffffff80] customMd:text-[18px] customMd:leading-8"
                   dangerouslySetInnerHTML={{ __html: blogDetail?.text }}
                />
             </div>

@@ -61,7 +61,7 @@ function HomeBanner({ homePageData }) {
                   <span className="font-arimaBold">{homePageData?.data?.section1?.title}</span>
                </h1>
                <pre
-                  className="mt-4 whitespace-pre-line text-center font-poppinsThin text-sm leading-[24px] text-white lg:text-start lg:text-[18px] lg:leading-[32px]"
+                  className="mt-4 whitespace-pre-line text-center font-poppinsLight text-sm leading-[24px] text-white lg:text-start lg:text-[18px] lg:leading-[32px]"
                   data-aos="zoom-in"
                   data-aos-delay="300"
                >

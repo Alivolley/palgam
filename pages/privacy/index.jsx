@@ -23,7 +23,7 @@ function Privacy({ privacyData }) {
             <div className="pl-[34px]">
                <div
                   id="content"
-                  className="font-poppinsThin text-xs leading-6 text-[#ffffffb3] customMd:text-[18px] customMd:leading-8"
+                  className="font-poppinsLight text-xs leading-6 text-white customMd:text-[18px] customMd:leading-8"
                   dangerouslySetInnerHTML={{ __html: privacyData?.data?.privacyPolicy?.description }}
                />
             </div>

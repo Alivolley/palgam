@@ -57,7 +57,7 @@ function OurTables({ homePageData }) {
                         >
                            {homePageData?.data?.section5?.block1?.title}
                         </p>
-                        <pre className="mt-1 whitespace-pre-line font-poppinsThin text-sm leading-[24px]">
+                        <pre className="mt-1 whitespace-pre-line font-poppinsLight text-sm leading-[24px]">
                            {homePageData?.data?.section5?.block1?.description}
                         </pre>
                      </div>
@@ -94,7 +94,7 @@ function OurTables({ homePageData }) {
                         >
                            {homePageData?.data?.section5?.block2?.title}
                         </p>
-                        <pre className="mt-1 whitespace-pre-line font-poppinsThin text-sm leading-[24px]">
+                        <pre className="mt-1 whitespace-pre-line font-poppinsLight text-sm leading-[24px]">
                            {homePageData?.data?.section5?.block2?.description}
                         </pre>
                      </div>
@@ -131,7 +131,7 @@ function OurTables({ homePageData }) {
                         >
                            {homePageData?.data?.section5?.block3?.title}
                         </p>
-                        <pre className="mt-1 whitespace-pre-line font-poppinsThin text-sm leading-[24px]">
+                        <pre className="mt-1 whitespace-pre-line font-poppinsLight text-sm leading-[24px]">
                            {homePageData?.data?.section5?.block3?.description}
                         </pre>
                      </div>
@@ -168,7 +168,7 @@ function OurTables({ homePageData }) {
                         >
                            {homePageData?.data?.section5?.block4?.title}
                         </p>
-                        <pre className="mt-1 whitespace-pre-line font-poppinsThin text-sm leading-[24px]">
+                        <pre className="mt-1 whitespace-pre-line font-poppinsLight text-sm leading-[24px]">
                            {homePageData?.data?.section5?.block4?.description}
                         </pre>
                      </div>
@@ -205,7 +205,7 @@ function OurTables({ homePageData }) {
                         >
                            {homePageData?.data?.section5?.block5?.title}
                         </p>
-                        <pre className="mt-1 whitespace-pre-line font-poppinsThin text-sm leading-[24px]">
+                        <pre className="mt-1 whitespace-pre-line font-poppinsLight text-sm leading-[24px]">
                            {homePageData?.data?.section5?.block5?.description}
                         </pre>
                      </div>

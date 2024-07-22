@@ -102,7 +102,7 @@ function Tab3({ affiliateData }) {
                      >
                         {affiliateData?.data?.section4?.block1?.title}
                      </p>
-                     <p className="font-poppinsThin text-xs leading-[24px] text-[#ffffffb3] customMd:text-[18px] customMd:leading-[32px]">
+                     <p className="font-poppinsLight text-xs leading-[24px] text-[#ffffffb3] customMd:text-[18px] customMd:leading-[32px]">
                         {affiliateData?.data?.section4?.block1?.description}
                      </p>
                   </div>
@@ -235,7 +235,7 @@ function Tab3({ affiliateData }) {
                      >
                         {affiliateData?.data?.section4?.block2?.title}
                      </p>
-                     <p className="font-poppinsThin text-xs leading-[24px] text-[#ffffffb3] customMd:text-[18px] customMd:leading-[32px]">
+                     <p className="font-poppinsLight text-xs leading-[24px] text-[#ffffffb3] customMd:text-[18px] customMd:leading-[32px]">
                         {affiliateData?.data?.section4?.block2?.description}
                      </p>
                   </div>

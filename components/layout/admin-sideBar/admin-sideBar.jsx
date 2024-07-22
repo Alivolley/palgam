@@ -34,7 +34,7 @@ function AdminSideBar() {
             <p className="font-poppinsExtraBold text-[32px] leading-[44px]">Welcome</p>
             <p>
                <span className="font-poppinsExtraBold text-[32px] leading-[44px]">Back,</span>{' '}
-               <span className="font-poppinsThin text-[32px] leading-[44px]">{infoData?.username}</span>
+               <span className="font-poppinsLight text-[32px] leading-[44px]">{infoData?.username}</span>
             </p>
             <p className="mt-2 font-poppinsExtraLight text-sm leading-6">Last Update, {infoData?.last_update}</p>
          </div>

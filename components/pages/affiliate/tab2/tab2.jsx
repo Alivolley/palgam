@@ -57,7 +57,7 @@ function Tab2({ affiliateData }) {
                         >
                            {affiliateData?.data?.section3?.block1?.title}
                         </p>
-                        <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
+                        <p className="mt-1 font-poppinsLight text-sm leading-[24px]">
                            {affiliateData?.data?.section3?.block1?.description}
                         </p>
                      </div>
@@ -95,7 +95,7 @@ function Tab2({ affiliateData }) {
                         >
                            {affiliateData?.data?.section3?.block2?.title}
                         </p>
-                        <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
+                        <p className="mt-1 font-poppinsLight text-sm leading-[24px]">
                            {affiliateData?.data?.section3?.block2?.description}
                         </p>
                      </div>
@@ -133,7 +133,7 @@ function Tab2({ affiliateData }) {
                         >
                            {affiliateData?.data?.section3?.block3?.title}
                         </p>
-                        <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
+                        <p className="mt-1 font-poppinsLight text-sm leading-[24px]">
                            {affiliateData?.data?.section3?.block3?.description}
                         </p>
                      </div>
@@ -171,7 +171,7 @@ function Tab2({ affiliateData }) {
                         >
                            {affiliateData?.data?.section3?.block4?.title}
                         </p>
-                        <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
+                        <p className="mt-1 font-poppinsLight text-sm leading-[24px]">
                            {affiliateData?.data?.section3?.block4?.description}
                         </p>
                      </div>
@@ -209,7 +209,7 @@ function Tab2({ affiliateData }) {
                         >
                            {affiliateData?.data?.section3?.block5?.title}
                         </p>
-                        <p className="mt-1 font-poppinsThin text-sm leading-[24px]">
+                        <p className="mt-1 font-poppinsLight text-sm leading-[24px]">
                            {affiliateData?.data?.section3?.block5?.description}
                         </p>
                      </div>
