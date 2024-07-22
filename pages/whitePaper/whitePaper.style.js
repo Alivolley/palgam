@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import whitePaperBg from '@/assets/images/whitePaperBg.png';
+import whitePaperBg from '@/assets/images/whitePaperBgBlur.png';
 
 const WhitePaperStyle = styled.div(() => ({
    backgroundImage: `url(${whitePaperBg?.src})`,
