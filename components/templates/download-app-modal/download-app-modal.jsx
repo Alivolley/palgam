@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 
 // MUI
-import { Button, Drawer, useMediaQuery } from '@mui/material';
+import { Button, Drawer } from '@mui/material';
 
 // Icons
 import { IoIosCloseCircleOutline } from 'react-icons/io';
@@ -12,8 +12,7 @@ import { IoIosCloseCircleOutline } from 'react-icons/io';
 import DownloadAppModalStyle from './download-app-modal.style';
 
 // Assets
-import googlePlayPic from '@/assets/images/GooglePlayPic.png';
-import appStorePic from '@/assets/images/appStorePic.png';
+
 import googlePlayPicDesktop from '@/assets/images/GooglePlayPicDesktop.png';
 import appStorePicDesktop from '@/assets/images/appStorePicDesktop.png';
 import AppStoreModal from '../app-store-modal/app-store-modal';
@@ -27,7 +26,6 @@ function DownloadAppModal({ open, onClose }) {
    const { data: storeLinkData } = useGetStoreLink();
 
    const t = useTranslations('header');
-   const isDesktop = useMediaQuery(`(min-width: 500px)`);
 
    const downloadGoogleHandler = () => {
       window.location.href = storeLinkData?.google_play_link;
@@ -60,9 +58,9 @@ function DownloadAppModal({ open, onClose }) {
                </div>
                <div className="flex h-[266px] w-full gap-4 rounded-b-3xl bg-[#070508] px-4 pb-4 pt-6 custom500:gap-6 custom500:px-8">
                   <div className="flex-1 rounded-2xl bg-[#ffffff0a] p-2">
-                     <div className="h-[152px] custom500:h-[160px]">
+                     <div className="h-[160px] custom500:h-[160px]">
                         <Image
-                           src={isDesktop ? googlePlayPicDesktop : googlePlayPic}
+                           src={googlePlayPicDesktop}
                            alt="google play"
                            className="size-full rounded-xl object-cover"
                            unoptimized
@@ -77,9 +75,9 @@ function DownloadAppModal({ open, onClose }) {
                      </Button>
                   </div>
                   <div className="flex-1 rounded-2xl bg-[#ffffff0a] p-2">
-                     <div className="h-[152px] custom500:h-[160px]">
+                     <div className="h-[160px] custom500:h-[160px]">
                         <Image
-                           src={isDesktop ? appStorePicDesktop : appStorePic}
+                           src={appStorePicDesktop}
                            alt="app store"
                            className="size-full rounded-xl object-cover"
                            unoptimized
