@@ -65,6 +65,7 @@ function DownloadAppModal({ open, onClose }) {
                            src={isDesktop ? googlePlayPicDesktop : googlePlayPic}
                            alt="google play"
                            className="size-full rounded-xl object-cover"
+                           unoptimized
                         />
                      </div>
                      <Button
@@ -81,6 +82,7 @@ function DownloadAppModal({ open, onClose }) {
                            src={isDesktop ? appStorePicDesktop : appStorePic}
                            alt="app store"
                            className="size-full rounded-xl object-cover"
+                           unoptimized
                         />
                      </div>
                      <Button

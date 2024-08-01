@@ -87,7 +87,7 @@ function HomeBanner({ homePageData }) {
                               className="font-poppinsExtraLight text-10 transition-all duration-200 lg:text-xs"
                               id="firstLine"
                            >
-                              {t('Download on the')}
+                              {t('Download on')}
                            </p>
                            <p
                               className="font-poppinsBold text-sm leading-6 transition-all duration-200 lg:text-[18px]"
@@ -112,7 +112,7 @@ function HomeBanner({ homePageData }) {
                               className="font-poppinsExtraLight text-10 transition-all duration-200 lg:text-xs"
                               id="firstLine"
                            >
-                              {t('Get it on')}
+                              {t('Download on')}
                            </p>
                            <p
                               className="font-poppinsBold text-sm leading-6 transition-all duration-200 lg:text-[18px]"
